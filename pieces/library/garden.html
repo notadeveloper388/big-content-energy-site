@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garden Library • Personal Library</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+  .vault-table { width:100%; border-collapse:collapse; font-size:0.85rem; margin:1rem 0 1.5rem; }
+  .vault-table th, .vault-table td { border:1px solid #5c4633; padding:0.45rem 0.6rem; text-align:left; vertical-align:top; }
+  .vault-table th { color:#8b6f47; background:#1a140f; }
+  .body h2 { font-family:'Playfair Display',Georgia,serif; color:#e8dcc8; font-size:1.35rem; margin:1.75rem 0 0.75rem; }
+  .body h3 { color:#e8dcc8; font-size:1.1rem; margin:1.4rem 0 0.5rem; }
+  .body h4 { color:#d4c3a8; font-size:0.95rem; margin:1.1rem 0 0.4rem; }
+  .body ul, .body ol { margin:0 0 1rem 1.2rem; color:#d4c3a8; }
+  .body li { margin:0.25rem 0; }
+  .body blockquote { border-left:3px solid #8b6f47; margin:1rem 0; padding:0.4rem 0 0.4rem 1rem; color:#a38b6e; }
+  .body hr { border:none; border-top:1px solid #5c4633; margin:1.5rem 0; }
+  .body code { font-size:0.85em; color:#e8dcc8; }
+  .privacy { font-size:0.8rem; color:#8b6f47; border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; margin:0 0 1.25rem; background:#1a140f; }
+  .grid-imgs { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:0.85rem; margin:1.25rem 0; }
+  .grid-imgs figure { margin:0; border:1px solid #5c4633; border-radius: 0; overflow:hidden; background:#1a140f; }
+  .grid-imgs img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+  .grid-imgs figcaption { padding:0.5rem 0.65rem; font-size:0.75rem; color:#a38b6e; }
+  .entry { border:1px solid #5c4633; border-left:3px solid #8b6f47; border-radius: 0; padding:1rem 1.1rem; margin:0 0 0.85rem; background:#1a140f; }
+  .entry .ed-meta { font-size:0.7rem; letter-spacing:0.08em; color:#8b6f47; margin-bottom:0.35rem; }
+  .stat-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin:1rem 0 1.5rem; }
+  .stat { border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; min-width:7rem; background:#1a140f; }
+  .stat strong { display:block; color:#e8dcc8; font-size:1.25rem; font-family:'Playfair Display',Georgia,serif; }
+  .stat span { font-size:0.75rem; color:#a38b6e; }
+  .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.85rem; margin:1rem 0; }
+  .cat { display:block; text-decoration:none; color:#d4c3a8; border:1px solid #5c4633; border-radius: 0; padding:1rem; background:#1a140f; }
+  .cat:hover { border-color:#8b6f47; }
+  .cat strong { color:#e8dcc8; display:block; margin-bottom:0.35rem; }
+</style>
+</head>
+<body>
+  <nav class="top"><div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece" style="max-width:48rem">
+    <div class="meta">GARDEN &amp; LAND</div>
+    <h1>Garden Library</h1>
+    <div class="privacy">Personal writing and notes archived on this site.</div>
+    <div class="body">
+<p>Garden CAMERA so you know when to go shoot the deer.</p>
+<h1>Gardening Farm Life</h1>
+<h2>What This Covers</h2>
+<p>Seeded section lol— to be populated as personal material is ingested (Google Drive, desktop folders, photos). Current pointers live in Personal.</p>
+<p>Queensbridge Moonflowers is the only thing I remember growing there.</p>
+<p>Snapdragon I decided that mowing one acre was too big a pain in the ass and started converting big swatches to gardens. Chicken of the woods (naturally occuring), cleared 500-700 sq feet of poison ivy/oak surrounding the fruiting spot of the cotw.</p>
+<p>Hardie Things I grew there: 1 Strawberry patch, my Snapdragons I planted in a big white pot in 2020, some herbs. Donated my Japanese Maple to my parents to put there too because it was struggling at the Snapdragon house.</p>
+<p>Mayview Bachelor buttons, sunflowers, sage, German thyme, Elephant ears that disappeared the next year (suspect: moles/voles), strawberries, two basic bitch flower bushes popular in north carolina the little blue ball flowers, rose bush and trellis. Imagery: plantnet for additionals FYI</p>
+<p><strong>Quails Roost</strong> Blank slate no big garden but open spaces for builds and one poorly neglected rose bed I still haven&#x27;t tackled (in plans to), Plus Black Walnut trees (everywhere), Wild Grapes (also everywhere), and honeysuckle, wild blackberries on forest perimeter, oh and ragweed.</p>
+<p>Extensive pruning on unuseful trees and neglected prickly pear cactus. Current build: Many perennials (Cone flowers, Cosmos, herbs) sunflowers, zuchinni, catnip, 3 Apple trees I sprouted from grocery store apples after letting them winterize in the fridge for several months, a sink I found in the woods filled with sweat mint (restricted to the sink ofc) so it doesn&#x27;t take over the whole garden space, &quot;gothic&quot; flowers inspo from Sharon&#x27;s goth garden at Hardie street - all dark blooms bachelor buttons and I can&#x27;t remember the name of the other one. Wildflower box mix (cosmos and misc) shape of Y just for fun. Relocated Hostas from inhospitable locations near house (very neglected) to second garden bed. Inspo from Grok Imagine for color choices (yellow/red) Black eyed susan plant gift from my mother after greenhouse visit and brunch with the kiddos. Purple petunias, cucumbers because I wanna make fridge pickles this year. Birdbath, stumps to put pots on. Swing &amp; hammock for me and the kids. Wayback trail started (in woods walking trail, future future garden site for shade plants)</p>
+<p>06/21/26 My mother gifted me a Japanese Maple start and some pink flower starters. I gave her my Japanese Maple from the old house because it didn&#x27;t like that house or soil for some reason.</p>
+<p>Indoor Plant Garden Coffee plant addition (in door only) Split both philadendrons to make 4 (2 for entry/backdoor/laundry room), two for kitchen, &quot;constellation&quot; plant, coffee Coffee pot philadendron (2nd split) for bedroom</p>
+<p>OUTDOOR ONLY Garden cat: acquired. We named her hotdog.</p>
+<p>Smol putting green (tenative site) survey site</p>
+<p>Donations: 2 layout lawn chairs from parents and found giant book coffee table at the swap shop (dump)</p>
+<p>Decor: currently - American Flag, gold X art/wood piece from sawed off coffee table (that we turned into the lego build table), Metal yellow flower for back of house, windchimes, Found coffee table (giant books), found kitchen sink (forest discovery)</p>
+<p>Would like more garden decor: knomes, windchimes, pretty things to look at</p>
+<p>Kitchen &quot;Leftover&quot; seeds: Bell peppers, onion, garlic, apple, tomato</p>
+<p>Black Walnuts - Food and practice golf balls!</p>
+<p>Garden additions (future)/Construction: Lighting. Plant Plans: +FOOD</p>
+<ul>
+<li>Potatoes (Spots picked out) (old dog training &quot;tunnel&quot; converted/cut into 8 &quot;buckets&quot; to fill base with mulch and then soil for potato planters) No base in tunnels = just lift to harvest potatoes.</li>
+<li>Asparagus Beds (Spots picked out on shaded part of garden 2)</li>
+<li>Tomatoes (planted kitchen scrap seeds but want CHERRY tomatoes)</li>
+<li>Perennial foods - More strawberries (a big patch that is JUST strawberries), Blueberry bushes (several - I don&#x27;t want just one), Chives, Oregano, Thyme (already started),</li>
+<p>+ Salad Garden (Argula, Lettuce, Kale, New Zeland Spinach) + Self-seeding herbs: Basil (but it&#x27;s puny and I don&#x27;t have a lot of confidence in it.), cilantro, Coriander, Dill, Parsley, + Sage (will grow back every year good root base.</p>
+</ul>
+<p>+NOT FOOD</p>
+<ul>
+<li>&quot;Tea&quot; Garden - Echinacea, Camellia sinensis (Green or Black tea depending on when you harvest and how you prepare)</li>
+<li>Specialized Gardens in general where I focus on one theme (roses, only blue or red flowers, or have some kind of strategy or FOCUS)</li>
+<li>Indoor: Tropicals (Coffee to start.) Expand to maybe plant inspo from Aaktun coffee &amp; bar pics of ozzy and my mom and sophia and I) Succulents maybe? I dunno.</li>
+<li>Exotics (banana leaf tree, big stuff, palms)</li>
+<p>+ Mulch drop (Ordered in April waitlist for a few months) Bricks to outline/expand out 2 feet in every direction from current. Additional mulch/soil required. More places to sit and maybe a cat tree house? Grill, patio area for grill (smol) either rocks/pavers or small on-ground deck build (questionable )</p>
+</ul>
+<p>Additional garden location (maximum potential is where we originally put the layout lawn chairs early morning/mid day sun afternoon shade - could be best for actual vegetable garden but it&#x27;s all grass now so, big undertaking.)</p>
+<p>Grunt work sites (full weekend project) Backyard rose bush bed Giant stump (poison oak/ivy) North side of house - poison oak/ivy site Wayback trail</p>
+<p>The &quot;Wayback&quot; garden Benches (hand made stumps and I guess whatever boards I can find or scrap Moss pathway (unlikely to work without a huge amount of rain since there&#x27;s no irrigation out there) or mulch pathway - path of least resistance) Neat swing Tree house for ozzy (important)</p>
+<p>Axe target (An almost too perfect post and tree separated at just the right distance near BB gun target tree)</p>
+<p><strong>Wish List Items to Learn or Do</strong></p>
+<ul>
+<li>Tree propagation</li>
+<li>Grafting</li>
+</ul>
+<h2>See Also</h2>
+<ul>
+<li>Personal</li>
+<li>Home</li>
+</ul>
+    </div>
+    <footer class="note">
+      <p>Archived on this site from personal writing notes.</p>
+      <p><a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

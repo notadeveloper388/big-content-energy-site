@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Information Seeking Trace · Personal Library</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    /* Page-specific neon circuit theme (readable overlays on the glow board) */
+    :root {
+      --neon-cyan: #3de0ff;
+      --neon-magenta: #ff4fd8;
+      --neon-lime: #7dff6a;
+      --neon-violet: #9b6bff;
+      --panel: rgba(10, 12, 18, 0.88);
+      --panel-hard: rgba(8, 10, 14, 0.94);
+      --glass-border: rgba(120, 200, 255, 0.22);
+      --text-on-glow: #e8f4ff;
+      --muted-on-glow: #9bb0c8;
+    }
+
+    body.neon-page {
+      background: #05060a;
+      color: var(--text-on-glow);
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Fixed atmospheric circuit backdrop — dim enough for body copy */
+    body.neon-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(5,6,10,0.55) 0%, rgba(5,6,10,0.82) 45%, rgba(5,6,10,0.92) 100%),
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(61,224,255,0.12), transparent 55%),
+        url("../../images/library/circuit-glow.jpg") center top / cover no-repeat;
+      pointer-events: none;
+    }
+
+    body.neon-page > * { position: relative; z-index: 1; }
+
+    body.neon-page .top {
+      background: rgba(5, 6, 10, 0.82);
+      border-bottom-color: var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+    body.neon-page .top a { color: var(--neon-cyan); }
+    body.neon-page .theme-toggle {
+      border-color: var(--glass-border);
+      color: var(--text-on-glow);
+      background: rgba(0,0,0,0.35);
+    }
+
+    .piece {
+      max-width: 48rem !important;
+      padding-top: 1.5rem;
+    }
+
+    /* Hero with featured circuit panel */
+    .hero-board {
+      position: relative;
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      margin: 0 0 1.75rem;
+      min-height: 220px;
+    }
+    .hero-board-bg {
+      position: absolute;
+      inset: 0;
+      background: url("../../images/library/circuit-glow.jpg") center / cover no-repeat;
+      transform: scale(1.04);
+      filter: saturate(1.15) brightness(0.85);
+    }
+    .hero-board-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(5,6,12,0.92) 0%, rgba(5,6,12,0.78) 42%, rgba(5,6,12,0.35) 72%, rgba(5,6,12,0.55) 100%),
+        linear-gradient(0deg, rgba(5,6,12,0.55), transparent 40%);
+    }
+    .hero-board-inner {
+      position: relative;
+      z-index: 1;
+      padding: 1.6rem 1.4rem 1.5rem;
+      max-width: 28rem;
+    }
+    .hero-kicker {
+      letter-spacing: 0.18em;
+      font-size: 0.68rem;
+      color: var(--neon-cyan);
+      text-transform: uppercase;
+      margin: 0 0 0.55rem;
+      text-shadow: 0 0 18px rgba(61,224,255,0.45);
+    }
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.1rem, 5.5vw, 2.85rem);
+      line-height: 1.05;
+      margin: 0 0 0.55rem;
+      color: #f2f8ff;
+      text-shadow: 0 0 28px rgba(255,79,216,0.25), 0 2px 18px rgba(0,0,0,0.55);
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta), var(--neon-lime));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 12px rgba(61,224,255,0.35));
+    }
+    .hero-line {
+      font-size: 1.02rem;
+      color: #c5d6ea;
+      line-height: 1.45;
+      margin: 0 0 0.85rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.65);
+    }
+    .hero-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted-on-glow);
+    }
+
+    .privacy {
+      font-size: 0.8rem;
+      color: var(--muted-on-glow);
+      border: 1px solid var(--glass-border);
+      padding: 0.75rem 1rem;
+      margin: 0 0 1.5rem;
+      background: var(--panel);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin: 0 0 1.75rem;
+    }
+    @media (min-width: 640px) {
+      .stat-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .stat {
+      border: 1px solid var(--glass-border);
+      padding: 1rem 0.9rem;
+      background: var(--panel);
+      box-shadow: inset 0 0 24px rgba(61,224,255,0.04);
+    }
+    .stat strong {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.65rem;
+      color: #f0f7ff;
+      line-height: 1.1;
+      text-shadow: 0 0 16px rgba(61,224,255,0.25);
+    }
+    .stat span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted-on-glow);
+    }
+
+    .section {
+      margin: 2.25rem 0 0;
+      padding: 1.35rem 1.15rem 1.25rem;
+      border: 1px solid var(--glass-border);
+      background: var(--panel);
+      backdrop-filter: blur(6px);
+    }
+    .section + .section { margin-top: 1.15rem; }
+    .section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      color: #f0f7ff;
+      margin: 0 0 0.35rem;
+    }
+    .section .sub {
+      font-size: 0.9rem;
+      color: var(--muted-on-glow);
+      margin: 0 0 1.15rem;
+    }
+
+    .callout {
+      border: 1px solid var(--glass-border);
+      border-left: 3px solid var(--neon-magenta);
+      padding: 1.1rem 1.15rem;
+      margin: 0 0 1.25rem;
+      background: var(--panel);
+      box-shadow: 0 0 32px rgba(255,79,216,0.08);
+    }
+    .callout .big {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      color: #fff;
+      margin: 0 0 0.35rem;
+      text-shadow: 0 0 18px rgba(255,79,216,0.35);
+    }
+    .callout p { margin: 0; color: var(--muted-on-glow); font-size: 0.92rem; }
+
+    /* Month bar chart — neon fills */
+    .chart {
+      border: 1px solid var(--glass-border);
+      padding: 1.25rem 0.75rem 0.5rem;
+      overflow-x: auto;
+      background: rgba(0,0,0,0.28);
+    }
+    .bars {
+      display: flex; align-items: flex-end; gap: 0.35rem;
+      min-height: 200px; min-width: 520px; padding: 0 0.25rem;
+    }
+    .bar-col {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: flex-end; height: 200px; position: relative;
+    }
+    .bar {
+      width: 100%; max-width: 28px; height: var(--h);
+      background: linear-gradient(180deg, var(--neon-cyan), var(--neon-violet));
+      opacity: 0.85;
+      border: 1px solid rgba(180, 230, 255, 0.35);
+      box-shadow: 0 0 12px rgba(61,224,255,0.25);
+      transition: opacity 0.15s ease, box-shadow 0.15s ease;
+    }
+    .bar-col:hover .bar, .bar-col.peak .bar { opacity: 1; }
+    .bar-col.peak .bar {
+      background: linear-gradient(180deg, var(--neon-lime), var(--neon-cyan));
+      box-shadow: 0 0 18px rgba(125,255,106,0.45);
+    }
+    .bar-val {
+      font-size: 0.65rem; color: var(--muted-on-glow); margin-bottom: 0.3rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .bar-col.peak .bar-val { color: var(--neon-lime); font-weight: 600; }
+    .bar-lab {
+      font-size: 0.58rem; color: var(--muted-on-glow);
+      text-align: center; margin-top: 0.4rem; line-height: 1.15;
+      transform: rotate(-40deg); transform-origin: top center;
+      width: 2.6rem; height: 2.2rem;
+    }
+    .chart-foot {
+      margin-top: 1.75rem; font-size: 0.8rem; color: var(--muted-on-glow);
+    }
+
+    .mix-row {
+      display: grid; grid-template-columns: 5rem 1fr auto; gap: 0.65rem;
+      align-items: center; margin: 0 0 0.65rem; font-size: 0.85rem;
+    }
+    .mix-lab { color: #e8f0ff; }
+    .mix-track {
+      height: 10px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3);
+    }
+    .mix-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+      opacity: 0.9;
+    }
+    .mix-n { color: var(--muted-on-glow); font-size: 0.75rem; white-space: nowrap; }
+
+    .q-list { list-style: none; margin: 0; padding: 0; }
+    .q-item {
+      display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem;
+      padding: 1rem 0; border-bottom: 1px solid var(--glass-border);
+    }
+    .q-item:first-child { border-top: 1px solid var(--glass-border); }
+    .q-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem; color: var(--neon-cyan); line-height: 1.2;
+      text-shadow: 0 0 12px rgba(61,224,255,0.4);
+    }
+    .q-badge {
+      display: inline-block; font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--neon-magenta); margin-bottom: 0.35rem;
+    }
+    .q-text {
+      margin: 0 0 0.35rem; color: #f0f6ff;
+      font-size: 1.02rem; line-height: 1.4;
+    }
+    .q-vibe { font-size: 0.8rem; color: var(--muted-on-glow); }
+
+    .foot-note {
+      margin-top: 1.5rem; font-size: 0.8rem; color: var(--muted-on-glow);
+      padding: 0 0.25rem;
+    }
+    .note {
+      border-top-color: var(--glass-border) !important;
+      color: var(--muted-on-glow) !important;
+    }
+    .note a { color: var(--neon-cyan) !important; }
+
+    .data-grid {
+      display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 0 0 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .data-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .data-card {
+      border: 1px solid var(--glass-border);
+      padding: 1rem 1.05rem;
+      background: rgba(0,0,0,0.28);
+    }
+    .data-card h3 {
+      margin: 0 0 0.65rem; font-size: 0.68rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--neon-cyan); font-weight: 500;
+    }
+    .data-card .num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.55rem; color: #f0f7ff; line-height: 1.1;
+    }
+    .data-card .detail {
+      margin: 0.35rem 0 0; font-size: 0.82rem; color: var(--muted-on-glow); line-height: 1.4;
+    }
+    .prod-list { list-style: none; margin: 0; padding: 0; }
+    .prod-item {
+      display: grid; grid-template-columns: 6.5rem 1fr 2.5rem;
+      gap: 0.55rem; align-items: center; margin: 0 0 0.55rem; font-size: 0.85rem;
+    }
+    .prod-item .name { color: #e8f0ff; }
+    .prod-item .pct { color: var(--muted-on-glow); text-align: right; font-variant-numeric: tabular-nums; }
+    .prod-track {
+      height: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3);
+    }
+    .prod-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-violet));
+    }
+    .prod-item.top .prod-fill {
+      background: linear-gradient(90deg, var(--neon-lime), var(--neon-cyan));
+      box-shadow: 0 0 10px rgba(125,255,106,0.35);
+    }
+    .proj-list {
+      list-style: none; margin: 0.75rem 0 0; padding: 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .proj-list li {
+      padding: 0.65rem 0; border-bottom: 1px solid var(--glass-border);
+      font-size: 0.9rem; color: #d0dceb;
+      display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.5rem;
+    }
+    .proj-list li:last-child { border-bottom: none; }
+    .proj-list .pi {
+      font-family: 'Playfair Display', Georgia, serif; color: var(--neon-cyan);
+    }
+    .proj-list strong { color: #f0f7ff; font-weight: 600; }
+    .proj-list span { color: var(--muted-on-glow); font-size: 0.82rem; display: block; margin-top: 0.15rem; }
+    .snap {
+      font-size: 0.75rem; color: var(--muted-on-glow); margin: 0.75rem 0 0;
+    }
+    .snap code { color: var(--neon-cyan); font-size: 0.72rem; }
+
+    /* Side feature: circuit plate near end of page */
+    .circuit-feature {
+      margin: 1.5rem 0 0;
+      border: 1px solid var(--glass-border);
+      overflow: hidden;
+      position: relative;
+      height: 140px;
+    }
+    .circuit-feature img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+      display: block; filter: saturate(1.1) brightness(0.7);
+    }
+    .circuit-feature figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #d8e8ff;
+      background: linear-gradient(transparent, rgba(5,6,12,0.9));
+    }
+
+    /* Light theme: still readable, softer glow */
+    [data-theme="light"] body.neon-page {
+      background: #e8eef6;
+      color: #1a2433;
+    }
+    [data-theme="light"] body.neon-page::before {
+      background:
+        linear-gradient(180deg, rgba(232,238,246,0.88) 0%, rgba(232,238,246,0.94) 100%),
+        url("../../images/library/circuit-glow.jpg") center top / cover no-repeat;
+      opacity: 1;
+    }
+    [data-theme="light"] .hero-title { color: #0f1724; text-shadow: none; }
+    [data-theme="light"] .hero-line { color: #2a3a50; text-shadow: none; }
+    [data-theme="light"] .stat,
+    [data-theme="light"] .section,
+    [data-theme="light"] .callout,
+    [data-theme="light"] .privacy,
+    [data-theme="light"] .data-card {
+      background: rgba(255,255,255,0.86);
+      border-color: rgba(40,80,120,0.18);
+    }
+    [data-theme="light"] .stat strong,
+    [data-theme="light"] .section h2,
+    [data-theme="light"] .q-text,
+    [data-theme="light"] .data-card .num,
+    [data-theme="light"] .callout .big { color: #101826; text-shadow: none; }
+    [data-theme="light"] .stat span,
+    [data-theme="light"] .sub,
+    [data-theme="light"] .q-vibe,
+    [data-theme="light"] .detail { color: #4a5d75; }
+  </style>
+</head>
+<body class="neon-page">
+  <nav class="top">
+    <div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+
+  <article class="piece">
+    <div class="hero-board">
+      <div class="hero-board-bg" aria-hidden="true"></div>
+      <div class="hero-board-scrim" aria-hidden="true"></div>
+      <div class="hero-board-inner">
+        <p class="hero-kicker">Grok signal report · Apr 2025 → Jun 2026</p>
+        <h1 class="hero-title">Information Seeking <em>Trace</em></h1>
+        <p class="hero-line">Every question left a path on the board. This is the year those paths lit up — not a full dump of the wire, just the glow that still matters.</p>
+        <p class="hero-meta">1,584 circuits · 13,655 pulses · sort-of-anonymous-but-not-really-also-who-cares</p>
+      </div>
+    </div>
+
+    <div class="privacy">Full conversation titles and transcripts stay off this page — product mix, builds, and a shortlist of interesting questions only. Sort-of-anonymous-but-not-really-also-who-cares.</div>
+
+    <div class="stat-grid">
+      <div class="stat"><strong>1,584</strong><span>Conversations</span></div>
+      <div class="stat"><strong>13,655</strong><span>Questions asked</span></div>
+      <div class="stat"><strong>~8.6</strong><span>Avg questions / chat</span></div>
+      <div class="stat"><strong>909</strong><span>Unique assets in export</span></div>
+    </div>
+
+    <div class="callout">
+      <div class="big">Grok Build start month: Jun ’26</div>
+      <p>First month with tracked SuperGrok coding / Build usage on this ledger — when the agent sessions started lighting up for real projects.</p>
+    </div>
+
+    <section class="section">
+      <h2>By month</h2>
+      <p class="sub">Conversation volume over the export window. Hover a bar for the count.</p>
+      <div class="chart">
+        <div class="bars">
+      <div class="bar-col" style="--h:5.7%" title="Apr '25: 12 chats">
+        <div class="bar"></div>
+        <div class="bar-val">12</div>
+        <div class="bar-lab">Apr '25</div>
+      </div>
+      <div class="bar-col" style="--h:10.4%" title="May '25: 22 chats">
+        <div class="bar"></div>
+        <div class="bar-val">22</div>
+        <div class="bar-lab">May '25</div>
+      </div>
+      <div class="bar-col" style="--h:14.2%" title="Jun '25: 30 chats">
+        <div class="bar"></div>
+        <div class="bar-val">30</div>
+        <div class="bar-lab">Jun '25</div>
+      </div>
+      <div class="bar-col" style="--h:7.1%" title="Jul '25: 15 chats">
+        <div class="bar"></div>
+        <div class="bar-val">15</div>
+        <div class="bar-lab">Jul '25</div>
+      </div>
+      <div class="bar-col" style="--h:22.3%" title="Aug '25: 47 chats">
+        <div class="bar"></div>
+        <div class="bar-val">47</div>
+        <div class="bar-lab">Aug '25</div>
+      </div>
+      <div class="bar-col" style="--h:44.1%" title="Sep '25: 93 chats">
+        <div class="bar"></div>
+        <div class="bar-val">93</div>
+        <div class="bar-lab">Sep '25</div>
+      </div>
+      <div class="bar-col" style="--h:57.3%" title="Oct '25: 121 chats">
+        <div class="bar"></div>
+        <div class="bar-val">121</div>
+        <div class="bar-lab">Oct '25</div>
+      </div>
+      <div class="bar-col" style="--h:75.4%" title="Nov '25: 159 chats">
+        <div class="bar"></div>
+        <div class="bar-val">159</div>
+        <div class="bar-lab">Nov '25</div>
+      </div>
+      <div class="bar-col peak" style="--h:100.0%" title="Dec '25: 211 chats">
+        <div class="bar"></div>
+        <div class="bar-val">211</div>
+        <div class="bar-lab">Dec '25</div>
+      </div>
+      <div class="bar-col" style="--h:65.4%" title="Jan '26: 138 chats">
+        <div class="bar"></div>
+        <div class="bar-val">138</div>
+        <div class="bar-lab">Jan '26</div>
+      </div>
+      <div class="bar-col" style="--h:78.7%" title="Feb '26: 166 chats">
+        <div class="bar"></div>
+        <div class="bar-val">166</div>
+        <div class="bar-lab">Feb '26</div>
+      </div>
+      <div class="bar-col" style="--h:68.2%" title="Mar '26: 144 chats">
+        <div class="bar"></div>
+        <div class="bar-val">144</div>
+        <div class="bar-lab">Mar '26</div>
+      </div>
+      <div class="bar-col" style="--h:93.4%" title="Apr '26: 197 chats">
+        <div class="bar"></div>
+        <div class="bar-val">197</div>
+        <div class="bar-lab">Apr '26</div>
+      </div>
+      <div class="bar-col" style="--h:65.4%" title="May '26: 138 chats">
+        <div class="bar"></div>
+        <div class="bar-val">138</div>
+        <div class="bar-lab">May '26</div>
+      </div>
+      <div class="bar-col" style="--h:43.1%" title="Jun '26: 91 chats">
+        <div class="bar"></div>
+        <div class="bar-val">91</div>
+        <div class="bar-lab">Jun '26</div>
+      </div>
+        </div>
+        <p class="chart-foot">Max bar = 211 chats (2025-12). Not a public feed — just the shape of the year.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Split of the mix</h2>
+      <p class="sub">How chats were tagged in the export (work / personal / other).</p>
+      <div class="mix-row">
+        <div class="mix-lab">Work</div>
+        <div class="mix-track"><div class="mix-fill" style="width:21%"></div></div>
+        <div class="mix-n">336 · 21%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-lab">Personal</div>
+        <div class="mix-track"><div class="mix-fill" style="width:18%"></div></div>
+        <div class="mix-n">288 · 18%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-lab">Other</div>
+        <div class="mix-track"><div class="mix-fill" style="width:61%"></div></div>
+        <div class="mix-n">960 · 61%</div>
+      </div>
+    </section>
+
+    <section class="section" id="data">
+      <h2>Product mix &amp; builds</h2>
+      <p class="sub">What ate the SuperGrok credit window (week of Jul 8–15, 2026) — percents only, not lifetime absolutes — and the projects Build actually shipped.</p>
+      <ul class="prod-list">
+        <li class="prod-item top">
+          <div class="name">Grok Build</div>
+          <div class="prod-track"><div class="prod-fill" style="width:77%"></div></div>
+          <div class="pct">77%</div>
+        </li>
+        <li class="prod-item">
+          <div class="name">Grok Voice</div>
+          <div class="prod-track"><div class="prod-fill" style="width:15%"></div></div>
+          <div class="pct">15%</div>
+        </li>
+        <li class="prod-item">
+          <div class="name">Grok Chat</div>
+          <div class="prod-track"><div class="prod-fill" style="width:7%"></div></div>
+          <div class="pct">7%</div>
+        </li>
+        <li class="prod-item">
+          <div class="name">Grok Imagine</div>
+          <div class="prod-track"><div class="prod-fill" style="width:1%"></div></div>
+          <div class="pct">1%</div>
+        </li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;color:#f0f7ff;margin:1.75rem 0 0.4rem">Grok Build · projects built</h3>
+      <p class="sub" style="margin-bottom:0">Major local projects shipped or heavily driven in Grok Build. <strong style="color:#f0f7ff">4</strong> substantive Desktop builds.</p>
+      <ul class="proj-list">
+        <li>
+          <span class="pi">01</span>
+          <div>
+            <strong>Grok Job Helper</strong>
+            <span>Scrape / package / Greenhouse apply automation</span>
+          </div>
+        </li>
+        <li>
+          <span class="pi">02</span>
+          <div>
+            <strong>Job Application Tracker</strong>
+            <span>Local web GUI + Gmail scan for application status</span>
+          </div>
+        </li>
+        <li>
+          <span class="pi">03</span>
+          <div>
+            <strong>Big Content Energy site</strong>
+            <span>Gothic portfolio archive, Personal Library, durable pieces</span>
+          </div>
+        </li>
+        <li>
+          <span class="pi">04</span>
+          <div>
+            <strong>New-uploads workspace</strong>
+            <span>Ongoing job-hunt + site sessions</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Interesting questions</h2>
+      <p class="sub">A shortlist — not every chat. Themes that still feel worth the scroll: systems, memory, craft, place, and weird curiosity. Phrasing lightly cleaned; no full thread titles.</p>
+      <ol class="q-list">
+      <li class="q-item">
+        <span class="q-num">01</span>
+        <div class="q-body">
+          <span class="q-badge">CURIOSITY</span>
+          <p class="q-text">“Who talks about the internet of people?”</p>
+          <span class="q-vibe">Human-centric networks</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">02</span>
+        <div class="q-body">
+          <span class="q-badge">BUILD</span>
+          <p class="q-text">“How would you build a brain-to-brain interface with a real communication channel?”</p>
+          <span class="q-vibe">Interfaces &amp; attention</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">03</span>
+        <div class="q-body">
+          <span class="q-badge">HISTORY</span>
+          <p class="q-text">“How many histories are gone?”</p>
+          <span class="q-vibe">Lost records</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">04</span>
+        <div class="q-body">
+          <span class="q-badge">MIND</span>
+          <p class="q-text">“What are some ways to be more close-minded?”</p>
+          <span class="q-vibe">Irony as method</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">05</span>
+        <div class="q-body">
+          <span class="q-badge">RESILIENCE</span>
+          <p class="q-text">“Besides military, who is capable of mental capacity after three days of sleep deprivation?”</p>
+          <span class="q-vibe">Limits of the body</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">06</span>
+        <div class="q-body">
+          <span class="q-badge">FIELD</span>
+          <p class="q-text">“Do you know apps like star maps, but for real-world historical environments?”</p>
+          <span class="q-vibe">AR &amp; place</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">07</span>
+        <div class="q-body">
+          <span class="q-badge">LANGUAGE</span>
+          <p class="q-text">“What is ad hominem?”</p>
+          <span class="q-vibe">Rhetoric</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">08</span>
+        <div class="q-body">
+          <span class="q-badge">NATURE</span>
+          <p class="q-text">“Why does a peony smell so terrible but look so pretty?”</p>
+          <span class="q-vibe">Evolution of beauty</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">09</span>
+        <div class="q-body">
+          <span class="q-badge">WORK</span>
+          <p class="q-text">“Examples of brands using AI in additive manufacturing — and how?”</p>
+          <span class="q-vibe">Industry + AI</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">10</span>
+        <div class="q-body">
+          <span class="q-badge">SYSTEMS</span>
+          <p class="q-text">“Explain steps to set up a small KB project for one business unit (Karpathy-style).”</p>
+          <span class="q-vibe">Knowledge ops</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">11</span>
+        <div class="q-body">
+          <span class="q-badge">CRAFT</span>
+          <p class="q-text">“Five insane hot-take questions to ask someone in manufacturing.”</p>
+          <span class="q-vibe">Shop-floor voice</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">12</span>
+        <div class="q-body">
+          <span class="q-badge">STORY</span>
+          <p class="q-text">“Write titles and short descriptions for a SOLIDWORKS customer story with actionable best practices.”</p>
+          <span class="q-vibe">Narrative work</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">13</span>
+        <div class="q-body">
+          <span class="q-badge">CULTURE</span>
+          <p class="q-text">“What song by the band Failure mentions simulation?”</p>
+          <span class="q-vibe">Signal in noise</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">14</span>
+        <div class="q-body">
+          <span class="q-badge">ARCHIVE</span>
+          <p class="q-text">“Why would anyone make a find-a-grave app for where people buried their pets?”</p>
+          <span class="q-vibe">Memory tech</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">15</span>
+        <div class="q-body">
+          <span class="q-badge">PLACE</span>
+          <p class="q-text">“Interesting words for writers on living in the country, quiet, and only hearing…”</p>
+          <span class="q-vibe">Rural notes</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">16</span>
+        <div class="q-body">
+          <span class="q-badge">PLAY</span>
+          <p class="q-text">“Strategies for becoming more close-minded — wait, other direction: connection without steamrolling.”</p>
+          <span class="q-vibe">Comms</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">17</span>
+        <div class="q-body">
+          <span class="q-badge">META</span>
+          <p class="q-text">“If I copy and paste something, can you read back the whole thing?”</p>
+          <span class="q-vibe">What the model can hold</span>
+        </div>
+      </li>
+      <li class="q-item">
+        <span class="q-num">18</span>
+        <div class="q-body">
+          <span class="q-badge">FUTURE</span>
+          <p class="q-text">“Time capsules in space / archives of people who live here.”</p>
+          <span class="q-vibe">Long memory</span>
+        </div>
+      </li>
+      </ol>
+    </section>
+
+    
+    <figure class="circuit-feature">
+      <img src="../../images/library/circuit-glow.jpg" alt="Neon circuit board — visual motif for Information Seeking Trace" />
+      <figcaption>Board motif · the wire under the questions</figcaption>
+    </figure>
+
+<p class="foot-note">
+      Source: Grok export archive. AI replies are model output, not verified fact.
+      Full transcript library is not hosted on this site.
+    </p>
+    <footer class="note">
+      <p><a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

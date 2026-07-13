@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How AI Fits into the SOLIDWORKS Workflow • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece">
+    <div class="meta">HAWK RIDGE SYSTEMS • BLOG • DECEMBER 2025</div>
+    <h1>How AI Fits into the SOLIDWORKS Workflow: An Engineer&apos;s Practical Guide</h1>
+    <img src="../images/pieces/aura-ai-solidworks.webp" alt="AI and SOLIDWORKS prosthetic leg design visualization" class="hero" />
+    <div class="body"><p>Curious about the practical ways AI is currently integrated into the SOLIDWORKS ecosystem and what engineers can realistically use today?</p>
+<p>Two of our engineers right here at Hawk Ridge Systems dig into how to get the most out of the built-in AI assistant in SOLIDWORKS (AURA) and complement your workflows with enterprise-grade LLMs. This wasn&#x27;t a prompt-engineering class — just two engineers showing practical AI &amp; SOLIDWORKS workflows.</p>
+<p>Real AI/SOLIDWORKS Workflows – GPT + SOLIDWORKS + xDesign: Prosthetic Leg Design Example</p>
+<p>In one example, engineers Scott Woods and Joseph McDiarmid show how to leverage ChatGPT, SOLIDWORKS, and xDesign with xShape to organically sculpt a cover for a prosthetic leg (Moto Knee) while accommodating the mechanics.</p>
+<p>1. Started in SOLIDWORKS for mechanical design.</p>
+<p>2. Used ChatGPT to quickly generate realistic renderings for customer feedback.</p>
+<p>3. Imported point cloud data and used xDesign with xShape to create a cover that matches the scanned leg while accommodating the mechanics.</p>
+<p>4. Brought the final shape back into SOLIDWORKS for detailing, simulation, and manufacturing prep.</p>
+<p>Why AURA AI Assistant is Different Than Mainstream LLMs and Other AI Assistants</p>
+<p>Aura Design Assistant (Beta AI in SOLIDWORKS) is a controlled, reliable AI chatbot limited to official SOLIDWORKS help files and user forums – not trained on the entire internet.</p>
+<p>Unlike other sources, it&#x27;s not prone to hallucination and doesn&#x27;t pull from generally publicly available data from the web (often from unreliable sources). In-App assistance through AURA AI gives you accurate, quick, and trustworthy answers to SOLIDWORKS-specific questions.</p>
+<p>AI and Automation Features to Leverage TODAY</p>
+<p>The top AI-Related Features in SOLIDWORKS right now, according to engineers:</p>
+<p>1. Automatic Hardware Mates: AI intelligently mates fasteners/hardware to holes.</p>
+<p>2. Automatic Drawings (Beta; requires Cloud Services): Generates basic drawing views, dimensions, and sections automatically. Excellent for batch-starting hundreds of drawings (then clean up manually).</p>
+<p>3. Topology Optimization in Simulation: &quot;AI-adjacent.&quot; It generates optimized shapes that inform the final design.</p>
+<p>AI &amp; SOLIDWORKS: The Bottom Line</p>
+<p>AI in SOLIDWORKS today is practical but still maturing — focused on productivity gains (faster mating, drawing starts, organic modeling, reliable help). Many features are &quot;AI-adjacent&quot; (intelligent automation) rather than fully generative AI.</p>
+<p>Recommendation: Leverage controlled tools (Aura, Automatic Drawings) for reliability and general LLMs for creative/rapid ideation. Use paid/enterprise versions of general-purpose LLMs for proprietary data to protect IP.</p></div>
+    <footer class="note">
+      <p>Archived on this site from approved portfolio copy (Emily Williams / Hawk Ridge Systems). External publisher pages may change; this is the durable copy.</p>
+      <p><a href="../index.html">Return to Big Content Energy Archive</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>

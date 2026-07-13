@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Kenny Truong, Applications Engineer II at Hawk Ridge Systems • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+</head>
+<body>
+  <nav class="top"><div><a href="../sme-interview-project.html">← SME Interview Project</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece">
+    <div class="meta">HAWK RIDGE • ASK AN ENGINEER • MARCH 2026</div>
+    <h1>Meet Kenny Truong, Applications Engineer II at Hawk Ridge Systems</h1>
+    
+    <div class="body">
+<p>Meet Kenny Truong, Applications Engineer II at Hawk Ridge Systems.</p>
+<p>This is a durable on-site index entry for an SME interview written for Hawk Ridge Systems.</p>
+<p>Full body text will be expanded from PDF and portfolio captures as available. Title, date, and interview framing are preserved here so the portfolio does not depend on a live publisher URL.</p>
+    </div>
+    <footer class="note">
+      <p>Durable on-site archive of approved copy and project materials. External URLs may change or 404.</p>
+      <p><a href="../sme-interview-project.html">Back</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

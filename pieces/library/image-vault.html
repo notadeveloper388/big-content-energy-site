@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Archive • Visual Archive</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    .piece { max-width: 56rem !important; }
+    .privacy {
+      font-size: 0.8rem; color: var(--accent); border: 1px solid var(--border);
+      padding: 0.75rem 1rem; margin: 0 0 1.5rem;
+    }
+    .lede { color: var(--text-muted); margin: -0.5rem 0 1.5rem; line-height: 1.5; }
+    .grid-imgs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.9rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .grid-imgs figure {
+      margin: 0; border: 1px solid var(--border); background: var(--bg-elevated, #1a140f);
+      overflow: hidden;
+    }
+    .grid-imgs a { display: block; color: inherit; text-decoration: none; }
+    .grid-imgs img {
+      width: 100%; display: block; aspect-ratio: 1; object-fit: cover;
+      background: #111;
+    }
+    .grid-imgs figcaption {
+      padding: 0.55rem 0.7rem; font-size: 0.75rem; color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    @media (min-width: 700px) {
+      .proj-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .proj-card {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid var(--border); background: transparent;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .proj-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .proj-card img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-card .pad { padding: 0.9rem 1rem 1.1rem; }
+    .proj-card .k {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.35rem;
+    }
+    .proj-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem; color: var(--text-strong); margin: 0 0 0.4rem;
+    }
+    .proj-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+    .proj-card .n { margin-top: 0.55rem; font-size: 0.75rem; color: var(--accent); }
+    .count-pill { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">PERSONAL LIBRARY · VISUAL ARCHIVE</div>
+    <h1>Visual Archive</h1>
+    <div class="privacy">Visual work archived on this site.</div>
+    <p class="lede">Three visual projects — Nifties, Grok generative work, and hard-coded physical art — pulled from Photo-Selections into durable on-site collections.</p>
+<div class="proj-grid">
+    <a class="proj-card" href="va-nifties.html">
+      <img src="../../images/visual-archive/nifties/01-20211104-1228_switchcomb-diamond-blade-2.jpg" alt="Nifties" />
+      <div class="pad">
+        <div class="k">NFTZ · DIGITAL SERIES</div>
+        <h2>Nifties</h2>
+        <p>NFT-era digital art works — switchcombs, tick-tock time pieces, geometry guns, and other nifties from this collection.</p>
+        <div class="n">14 works →</div>
+      </div>
+    </a>
+    <a class="proj-card" href="va-grok-generative-art.html">
+      <img src="../../images/visual-archive/grok-generative-art/01-2024-08-14-09.35.jpg" alt="Grok Generative Art" />
+      <div class="pad">
+        <div class="k">GROK / AI / LLM ART</div>
+        <h2>Grok Generative Art</h2>
+        <p>Images made with Grok and other generative tools — eyes, starfields, desktop backgrounds, and model experiments.</p>
+        <div class="n">16 works →</div>
+      </div>
+    </a>
+    <a class="proj-card" href="va-hard-coded.html">
+      <img src="../../images/visual-archive/hard-coded/01-20201115_210528.jpg" alt="Hard Coded" />
+      <div class="pad">
+        <div class="k">PHYSICAL · IN-PERSON ART</div>
+        <h2>Hard Coded</h2>
+        <p>Physical and in-person art — hard-coded into the world, not just the screen.</p>
+        <div class="n">6 works →</div>
+      </div>
+    </a>
+</div>
+    <footer class="note">
+      <p>From Desktop/Photo-Selections.</p>
+      <p><a href="image-vault.html">Visual Archive</a> · <a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

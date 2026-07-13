@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grok Generative Art • Visual Archive</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    .piece { max-width: 56rem !important; }
+    .privacy {
+      font-size: 0.8rem; color: var(--accent); border: 1px solid var(--border);
+      padding: 0.75rem 1rem; margin: 0 0 1.5rem;
+    }
+    .lede { color: var(--text-muted); margin: -0.5rem 0 1.5rem; line-height: 1.5; }
+    .grid-imgs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.9rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .grid-imgs figure {
+      margin: 0; border: 1px solid var(--border); background: var(--bg-elevated, #1a140f);
+      overflow: hidden;
+    }
+    .grid-imgs a { display: block; color: inherit; text-decoration: none; }
+    .grid-imgs img {
+      width: 100%; display: block; aspect-ratio: 1; object-fit: cover;
+      background: #111;
+    }
+    .grid-imgs figcaption {
+      padding: 0.55rem 0.7rem; font-size: 0.75rem; color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    @media (min-width: 700px) {
+      .proj-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .proj-card {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid var(--border); background: transparent;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .proj-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .proj-card img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-card .pad { padding: 0.9rem 1rem 1.1rem; }
+    .proj-card .k {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.35rem;
+    }
+    .proj-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem; color: var(--text-strong); margin: 0 0 0.4rem;
+    }
+    .proj-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+    .proj-card .n { margin-top: 0.55rem; font-size: 0.75rem; color: var(--accent); }
+    .count-pill { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">GROK / AI / LLM ART · VISUAL ARCHIVE</div>
+    <h1>Grok Generative Art</h1>
+    <div class="privacy">Visual work archived on this site.</div>
+    <p class="lede">Images made with Grok and other generative tools — eyes, starfields, desktop backgrounds, and model experiments.</p>
+<p class="count-pill">16 works in this collection</p>
+<div class="grid-imgs">
+<figure><a href="../../images/visual-archive/grok-generative-art/01-2024-08-14-09.35.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/01-2024-08-14-09.35.jpg" alt="14 09.35.19" loading="lazy" /></a><figcaption>14 09.35.19</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/02-2024-08-14-09.40.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/02-2024-08-14-09.40.jpg" alt="14 09.40.29" loading="lazy" /></a><figcaption>14 09.40.29</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/03-2024-11-12-21.26.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/03-2024-11-12-21.26.jpg" alt="12 21.26.27" loading="lazy" /></a><figcaption>12 21.26.27</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/04-2024-11-15-10.21.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/04-2024-11-15-10.21.jpg" alt="15 10.21.30" loading="lazy" /></a><figcaption>15 10.21.30</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/05-2024-12-16-12.26.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/05-2024-12-16-12.26.jpg" alt="16 12.26.54" loading="lazy" /></a><figcaption>16 12.26.54</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/06-2024-12-16-12.26.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/06-2024-12-16-12.26.jpg" alt="16 12.26.59" loading="lazy" /></a><figcaption>16 12.26.59</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/07-2025-04-23-00.56.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/07-2025-04-23-00.56.jpg" alt="23 00.56.41" loading="lazy" /></a><figcaption>23 00.56.41</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/08-2026-02-15-20.47.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/08-2026-02-15-20.47.jpg" alt="15 20.47.16" loading="lazy" /></a><figcaption>15 20.47.16</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/09-5ccbcd57-61ed-4e37-9d92-2edb62cc604e.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/09-5ccbcd57-61ed-4e37-9d92-2edb62cc604e.jpg" alt="5ccbcd57 61ed 4e37 9d92 2edb62cc604e" loading="lazy" /></a><figcaption>5ccbcd57 61ed 4e37 9d92 2edb62cc604e</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/10-e33a5ccb-cdc9-4b84-8e65-413c5eb72efa.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/10-e33a5ccb-cdc9-4b84-8e65-413c5eb72efa.jpg" alt="e33a5ccb cdc9 4b84 8e65 413c5eb72efa" loading="lazy" /></a><figcaption>e33a5ccb cdc9 4b84 8e65 413c5eb72efa</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/11-emily.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/11-emily.jpg" alt="emily" loading="lazy" /></a><figcaption>emily</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/12-grok-computer-desktop-background.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/12-grok-computer-desktop-background.jpg" alt="grok computer desktop background" loading="lazy" /></a><figcaption>grok computer desktop background</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/13-grok-eye-blue-tho.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/13-grok-eye-blue-tho.jpg" alt="grok eye blue tho" loading="lazy" /></a><figcaption>grok eye blue tho</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/14-grok-eye.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/14-grok-eye.jpg" alt="grok eye" loading="lazy" /></a><figcaption>grok eye</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/15-kartwheel.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/15-kartwheel.jpg" alt="kartwheel" loading="lazy" /></a><figcaption>kartwheel</figcaption></figure>
+<figure><a href="../../images/visual-archive/grok-generative-art/16-xrvew.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/grok-generative-art/16-xrvew.jpg" alt="xrVEw" loading="lazy" /></a><figcaption>xrVEw</figcaption></figure>
+</div>
+<p><a href="image-vault.html" style="color:var(--accent)">← All collections</a></p>
+    <footer class="note">
+      <p>From Desktop/Photo-Selections.</p>
+      <p><a href="image-vault.html">Visual Archive</a> · <a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

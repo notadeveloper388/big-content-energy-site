@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Instrument+Sans:wght@400;500&display=swap');
+
+:root,
+[data-theme="dark"] {
+  --bg: #12100e;
+  --bg-nav: rgba(18, 16, 14, 0.94);
+  --text: #c9bba6;
+  --text-strong: #ddd0bc;
+  --text-muted: #9a8b74;
+  --accent: #a08858;
+  --border: #3d342a;
+  --img-frame: #1a1714;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f3ebe0;
+  --bg-nav: rgba(243, 235, 224, 0.94);
+  --text: #3a3228;
+  --text-strong: #1f1a14;
+  --text-muted: #6b5d4d;
+  --accent: #7a6238;
+  --border: #c9b8a0;
+  --img-frame: #e8dfd2;
+  color-scheme: light;
+}
+
+html { background: var(--bg); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  line-height: 1.65;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.top {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  background: var(--bg-nav);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.top a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.top a:hover { color: var(--text-strong); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 0.3rem 0.55rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0;
+  font-family: inherit;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--text-strong); }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: inline; }
+[data-theme="light"] .theme-toggle .icon-sun { display: inline; }
+[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+.piece {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+.meta {
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  color: var(--text-strong);
+}
+.hero {
+  width: 100%;
+  border-radius: 0;
+  border: 1px solid var(--border);
+  margin: 0 0 1.75rem;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center;
+  background: var(--img-frame);
+}
+.body p { margin: 0 0 1.1rem; color: var(--text); }
+.note {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.note a { color: var(--accent); }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Not the Newspaper • Full Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+  <style>
+    .edition {
+      display: flex; justify-content: space-between; align-items: center;
+      border: 1px solid #5c4633; border-left: 3px solid #8b6f47;
+      padding: 1rem 1.1rem; margin: 0 0 0.75rem; border-radius: 0;
+      text-decoration: none; color: #d4c3a8; background: #1a140f;
+    }
+    .edition:hover { border-color: #8b6f47; }
+    .ed-go { color: #8b6f47; font-size: 0.85rem; }
+    .hero-shot {
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid var(--border, #5c4633);
+      margin: 0 0 1.5rem;
+      display: block;
+      background: #f7f4ef;
+      object-fit: contain;
+      object-position: top center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece">
+    <div class="meta">PERSONAL PUBLISHING • 2026</div>
+    <h1>Not the Newspaper</h1>
+    <p class="sub" style="color:#a38b6e;margin-top:-0.5rem"><em>Tempore vēritās patebit aut vi ab invītīs statū</em></p>
+    <img class="hero-shot" src="../images/projects/not-the-newspaper-edition1.jpg" alt="Not the Newspaper Volume 1 Edition 1 layout" />
+    <div class="body">
+      <p>Full on-site archive of <strong>Not the Newspaper</strong> editions from the Big Content Energy project. These are durable copies of the original edition text — hosted on this site, not live publisher URLs.</p>
+      <h2>All editions</h2>
+      <a class="edition" href="bce/jan19.html"><span class="ed-label">Volume 1, Edition 1 — January 19, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/jan25.html"><span class="ed-label">Volume 1, Edition 2 — January 25, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/feb1.html"><span class="ed-label">Volume 1, Edition 3 — February 1, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/feb8.html"><span class="ed-label">Volume 1, Edition 4 — February 8, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/feb15.html"><span class="ed-label">Volume 1, Edition 5 — February 15, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/feb24.html"><span class="ed-label">Volume 1, Edition 6 — February 24, 2026</span><span class="ed-go">Read →</span></a>
+<a class="edition" href="bce/mar3.html"><span class="ed-label">Volume 1, Edition 7 — March 2026</span><span class="ed-go">Read →</span></a>
+    </div>
+    <footer class="note">
+      <p>Archived from original BCE / Not the Newspaper editions.</p>
+      <p><a href="../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>

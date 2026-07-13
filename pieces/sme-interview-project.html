@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SME Interview Project • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+  <style>
+    .edition {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      border: 1px solid #5c4633; border-left: 3px solid #8b6f47;
+      padding: 1rem 1.1rem; margin: 0 0 0.75rem; border-radius: 0;
+      text-decoration: none; color: #d4c3a8; background: #1a140f;
+    }
+    .edition:hover { border-color: #8b6f47; }
+    .ed-meta { font-size: 0.7rem; letter-spacing: 0.08em; color: #8b6f47; }
+    .ed-go { color: #8b6f47; font-size: 0.85rem; white-space: nowrap; }
+    strong { color: #e8dcc8; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece" style="max-width:48rem">
+    <div class="meta">HAWK RIDGE SYSTEMS • INTERVIEWS & SPOTLIGHTS</div>
+    <h1>SME Interview Project</h1>
+    <div class="body">
+      <p>Engineers, programmers, product managers, designers, and customers — pieces where I interviewed people and turned shop-floor / design knowledge into readable stories for Hawk Ridge Systems.</p>
+      <p style="color:#a38b6e;font-size:0.9rem">All links open durable on-site archives (PDF-extracted or captured article text), not live publisher URLs.</p>
+      <h2>Interviews &amp; spotlights</h2>
+      <a class="edition" href="interviews/marty-ohnemus.html">
+  <span><span class="ed-meta">HAWK RIDGE • ENGINEERING SPOTLIGHT • JULY 2025</span><br /><strong>Meet Marty Ohnemus, Engineering Systems Administrator at Knapheide</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/jason-pohl.html">
+  <span><span class="ed-meta">HAWK RIDGE • INTERVIEW • MARCH 2026</span><br /><strong>Jason Pohl: Designing for Shaq, Will Smith &amp; Muhammad Ali — and Why He Joined SOLIDWORKS</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/damon-tordini.html">
+  <span><span class="ed-meta">HAWK RIDGE • ASK AN ENGINEER • SEPT 2025</span><br /><strong>Ask an Engineer: Damon Tordini</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/kenny-truong.html">
+  <span><span class="ed-meta">HAWK RIDGE • ASK AN ENGINEER • MARCH 2026</span><br /><strong>Meet Kenny Truong, Applications Engineer II at Hawk Ridge Systems</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/doug-voight.html">
+  <span><span class="ed-meta">HAWK RIDGE • ASK A PROGRAMMER • APRIL 2026</span><br /><strong>Meet the CNC Programmer Powering the Machines at Park Industries</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/scott-woods.html">
+  <span><span class="ed-meta">HAWK RIDGE • ENGINEERING SPOTLIGHT • JULY 2025</span><br /><strong>Meet Scott Woods, Sr. Product Manager, 3DEXPERIENCE &amp; Mechanical Design Tools</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="interviews/matt-fisher.html">
+  <span><span class="ed-meta">HAWK RIDGE • ENGINEERING SPOTLIGHT • AUG 2025</span><br /><strong>Meet Matt Fisher, Application Engineer &amp; 3D Scanning Specialist</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="pacific-recycling.html">
+  <span><span class="ed-meta">Customer story • Chuck Burgess interview quotes • Sept 2025</span><br /><strong>Pacific Recycling — Turning Scrap into Sustainability</strong></span>
+  <span class="ed-go">Read →</span>
+</a><a class="edition" href="alien-machine-worx.html">
+  <span><span class="ed-meta">Customer story • Family shop interview • Sept 2025</span><br /><strong>Alien Machine Worx — SOLIDWORKS + CNC</strong></span>
+  <span class="ed-go">Read →</span>
+</a>
+    </div>
+    <footer class="note">
+      <p>Archived on this site from Hawk Ridge portfolio captures and PDF sources.</p>
+      <p><a href="../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>

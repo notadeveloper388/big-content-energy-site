@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nifties • Visual Archive</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    .piece { max-width: 56rem !important; }
+    .privacy {
+      font-size: 0.8rem; color: var(--accent); border: 1px solid var(--border);
+      padding: 0.75rem 1rem; margin: 0 0 1.5rem;
+    }
+    .lede { color: var(--text-muted); margin: -0.5rem 0 1.5rem; line-height: 1.5; }
+    .grid-imgs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.9rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .grid-imgs figure {
+      margin: 0; border: 1px solid var(--border); background: var(--bg-elevated, #1a140f);
+      overflow: hidden;
+    }
+    .grid-imgs a { display: block; color: inherit; text-decoration: none; }
+    .grid-imgs img {
+      width: 100%; display: block; aspect-ratio: 1; object-fit: cover;
+      background: #111;
+    }
+    .grid-imgs figcaption {
+      padding: 0.55rem 0.7rem; font-size: 0.75rem; color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    @media (min-width: 700px) {
+      .proj-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .proj-card {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid var(--border); background: transparent;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .proj-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .proj-card img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-card .pad { padding: 0.9rem 1rem 1.1rem; }
+    .proj-card .k {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.35rem;
+    }
+    .proj-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem; color: var(--text-strong); margin: 0 0 0.4rem;
+    }
+    .proj-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+    .proj-card .n { margin-top: 0.55rem; font-size: 0.75rem; color: var(--accent); }
+    .count-pill { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">NFTZ · DIGITAL SERIES · VISUAL ARCHIVE</div>
+    <h1>Nifties</h1>
+    <div class="privacy">Visual work archived on this site.</div>
+    <p class="lede">NFT-era digital art works — switchcombs, tick-tock time pieces, geometry guns, and other nifties from this collection.</p>
+<p class="count-pill">14 works in this collection</p>
+<div class="grid-imgs">
+<figure><a href="../../images/visual-archive/nifties/01-20211104-1228_switchcomb-diamond-blade-2.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/01-20211104-1228_switchcomb-diamond-blade-2.jpg" alt="switchcomb diamond blade 2" loading="lazy" /></a><figcaption>switchcomb diamond blade 2</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/02-20211104-1234_white-switchcomb.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/02-20211104-1234_white-switchcomb.jpg" alt="white switchcomb" loading="lazy" /></a><figcaption>white switchcomb</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/03-20211104-1333_triple-threat-gunz.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/03-20211104-1333_triple-threat-gunz.jpg" alt="triple threat gunz" loading="lazy" /></a><figcaption>triple threat gunz</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/04-20211106-0519_nothing-can-stop-me-now.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/04-20211106-0519_nothing-can-stop-me-now.jpg" alt="nothing can stop me now" loading="lazy" /></a><figcaption>nothing can stop me now</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/05-20211106-0520_gun-geometry-1.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/05-20211106-0520_gun-geometry-1.jpg" alt="gun geometry(1)" loading="lazy" /></a><figcaption>gun geometry(1)</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/06-20211106-0520_gun-rainbow.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/06-20211106-0520_gun-rainbow.jpg" alt="gun rainbow" loading="lazy" /></a><figcaption>gun rainbow</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/07-20211106-0548_acid-tripclockcock.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/07-20211106-0548_acid-tripclockcock.jpg" alt="acid tripclockcock" loading="lazy" /></a><figcaption>acid tripclockcock</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/08-20211106-0548_doomsdayclock-003.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/08-20211106-0548_doomsdayclock-003.jpg" alt="doomsdayclock 003" loading="lazy" /></a><figcaption>doomsdayclock 003</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/09-20211106-0548_fabric-of-time-3-copy.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/09-20211106-0548_fabric-of-time-3-copy.jpg" alt="fabric of time 3" loading="lazy" /></a><figcaption>fabric of time 3</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/10-20211106-0548_pixel-bit-gunz.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/10-20211106-0548_pixel-bit-gunz.jpg" alt="pixel bit gunz" loading="lazy" /></a><figcaption>pixel bit gunz</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/11-20211106-0549_running-away-009-emily-kolvitz.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/11-20211106-0549_running-away-009-emily-kolvitz.jpg" alt="running away 009 emily kolvitz" loading="lazy" /></a><figcaption>running away 009 emily kolvitz</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/12-20211118-0203_all-your-tick-tock-r-belong-copy.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/12-20211118-0203_all-your-tick-tock-r-belong-copy.jpg" alt="all your tick tock r belong" loading="lazy" /></a><figcaption>all your tick tock r belong</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/13-2026-edit-20211104-1336_my-art-is-fucked-up-copy.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/13-2026-edit-20211104-1336_my-art-is-fucked-up-copy.jpg" alt="edit 20211104 1336 my art is fucked up" loading="lazy" /></a><figcaption>edit 20211104 1336 my art is fucked up</figcaption></figure>
+<figure><a href="../../images/visual-archive/nifties/14-2026-edit-20211118-0212_nothing-can-stop-me-now-tick-tock-time-copy-2.jpg" target="_blank" rel="noopener"><img src="../../images/visual-archive/nifties/14-2026-edit-20211118-0212_nothing-can-stop-me-now-tick-tock-time-copy-2.jpg" alt="edit 20211118 0212 nothing can stop me now tick tock time" loading="lazy" /></a><figcaption>edit 20211118 0212 nothing can stop me now tick tock time</figcaption></figure>
+</div>
+<p><a href="image-vault.html" style="color:var(--accent)">← All collections</a></p>
+    <footer class="note">
+      <p>From Desktop/Photo-Selections.</p>
+      <p><a href="image-vault.html">Visual Archive</a> · <a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

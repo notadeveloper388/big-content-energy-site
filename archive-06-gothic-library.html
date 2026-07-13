@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gothic Library • Emily Ann Williams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Instrument+Sans:wght@400;500&amp;display=swap');
+        
+        body {
+            background: #0f0a08;
+            color: #d4c3a8;
+            font-family: 'Instrument Sans', system_ui, sans-serif;
+        }
+        
+        .gothic-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .ornate-border {
+            border: 1px solid #5c4633;
+            box-shadow: 0 0 0 6px #0f0a08,
+                        0 0 0 8px #5c4633;
+        }
+
+        .candle {
+            animation: candle-flicker 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes candle-flicker {
+            0% { opacity: 0.95; }
+            100% { opacity: 1; }
+        }
+
+        .leather {
+            background: linear-gradient(#2c2119, #1a140f);
+        }
+
+        .section-header {
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: #8b6f47;
+        }
+
+        .book-card {
+            transition: all 0.2s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="border-b border-[#5c4633] bg-[#0f0a08]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between text-sm">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-book-dead text-[#8b6f47] text-2xl"></i>
+                <span class="gothic-serif text-2xl tracking-tighter">The Gothic Library</span>
+            </div>
+            
+            <div class="flex items-center gap-x-8">
+                <a href="#archives" class="hover:text-[#8b6f47] transition-colors">The Archives</a>
+                <a href="#private-collection" class="hover:text-[#8b6f47] transition-colors">Private Collection</a>
+                <a href="#reading-chapel" class="hover:text-[#8b6f47] transition-colors">Reading Chapel</a>
+                <a href="#" class="px-4 py-1.5 border border-[#5c4633] rounded hover:bg-[#1a140f] transition-colors text-xs">Request Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="max-w-4xl mx-auto px-8 pt-16 pb-12 text-center">
+        <div class="inline-block px-5 py-1 border border-[#5c4633] text-xs tracking-[3px] mb-6">EST. 2013 • RURAL NORTH CAROLINA</div>
+        
+        <h1 class="text-7xl leading-none tracking-tighter gothic-serif">Emily Ann<br>Williams</h1>
+        <p class="mt-4 text-xl text-[#8b6f47]">Librarian • Content Strategist • Writer</p>
+        
+        <div class="mt-8 max-w-md mx-auto text-sm text-[#a38b6e]">
+            A private collection of professional work, personal writings, and curated images. 
+            Enter with curiosity. Some shelves are kept locked.
+        </div>
+    </div>
+
+    <!-- THE ARCHIVES -->
+    <section id="archives" class="max-w-6xl mx-auto px-8 pb-16">
+        <div class="flex items-end justify-between mb-6">
+            <div>
+                <div class="section-header">THE ARCHIVES</div>
+                <h2 class="text-4xl gothic-serif tracking-tight">Professional Accession</h2>
+            </div>
+            <div class="text-xs text-[#8b6f47]">108 pieces • Fully catalogued</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <!-- Book cards -->
+            <div class="book-card leather border border-[#5c4633] p-6 rounded-xl">
+                <div class="text-xs text-[#8b6f47]">HAWK RIDGE SYSTEMS • 2025</div>
+                <h3 class="font-semibold mt-3 leading-tight">Turning Scrap into Sustainability</h3>
+                <p class="text-sm mt-4 text-[#a38b6e]">Pacific Recycling’s use of SOLIDWORKS for lean, circular operations in manufacturing.</p>
+            </div>
+            
+            <div class="book-card leather border border-[#5c4633] p-6 rounded-xl">
+                <div class="text-xs text-[#8b6f47]">A3D MANUFACTURING • 2025</div>
+                <h3 class="font-semibold mt-3 leading-tight">Alien Machine Worx Profile</h3>
+                <p class="text-sm mt-4 text-[#a38b6e]">Custom automotive parts crafted with SOLIDWORKS and CNC. A family American story.</p>
+            </div>
+            
+            <div class="book-card leather border border-[#5c4633] p-6 rounded-xl">
+                <div class="text-xs text-[#8b6f47]">BYNDER • 2021</div>
+                <h3 class="font-semibold mt-3 leading-tight">Anthropomorphizing Your Brand</h3>
+                <p class="text-sm mt-4 text-[#a38b6e]">A framework for giving brands human characteristics to build deeper connection.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8">
+            <button onclick="alert('In the real site this opens the full dark catalog with taxonomy filters and search.')" 
+                    class="text-xs px-6 py-2.5 border border-[#5c4633] rounded hover:bg-[#1a140f] transition-colors">
+                OPEN FULL CATALOG → 108 WORKS
+            </button>
+        </div>
+    </section>
+
+    <!-- PRIVATE COLLECTION -->
+    <section id="private-collection" class="border-y border-[#5c4633] py-14 bg-[#1a140f]">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="mb-8">
+                <div class="section-header">THE PRIVATE COLLECTION</div>
+                <h2 class="text-3xl gothic-serif">Segmented Personal Shelves</h2>
+                <p class="max-w-sm mt-2 text-sm">Distinct alcoves for different threads. Some are open. Others require a key.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="border border-[#5c4633] p-6 rounded-2xl">
+                    <div class="flex items-center gap-2 text-[#8b6f47]">
+                        <i class="fa-solid fa-image"></i>
+                        <span class="font-medium">Image Vault</span>
+                    </div>
+                    <div class="mt-4 text-sm">Curated photographs from Quail Roost Farm, garden projects, and rural life. All tagged with controlled vocabulary.</div>
+                </div>
+                
+                <div class="border border-[#5c4633] p-6 rounded-2xl">
+                    <div class="flex items-center gap-2 text-[#8b6f47]">
+                        <i class="fa-solid fa-feather"></i>
+                        <span class="font-medium">Rural Dispatches</span>
+                    </div>
+                    <div class="mt-4 text-sm">Notes from the land: Starlink, Tesla on country roads, garden experiments, and the occasional groundhog negotiation.</div>
+                </div>
+                
+                <div class="border border-[#5c4633] p-6 rounded-2xl">
+                    <div class="flex items-center gap-2 text-[#8b6f47]">
+                        <i class="fa-solid fa-lock"></i>
+                        <span class="font-medium">Inner Work (Restricted)</span>
+                    </div>
+                    <div class="mt-4 text-sm">Selected public writing on resilience and reclamation. Deeper personal lore remains in locked stacks.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- READING CHAPEL -->
+    <section id="reading-chapel" class="max-w-6xl mx-auto px-8 py-16">
+        <div class="max-w-2xl">
+            <div class="section-header">THE READING CHAPEL</div>
+            <h2 class="text-3xl gothic-serif tracking-tight">Public Serials &amp; Reflections</h2>
+            <p class="mt-3">Quiet writing on content strategy, manufacturing, AI, and the strange work of living a full life between systems and soil.</p>
+        </div>
+        
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="border border-[#5c4633] p-6 rounded-xl">
+                <div class="text-xs text-[#8b6f47]">NOVEMBER 2025</div>
+                <div class="font-semibold mt-2">Taking Tacit Knowledge and Making It Tangible</div>
+            </div>
+            <div class="border border-[#5c4633] p-6 rounded-xl">
+                <div class="text-xs text-[#8b6f47]">JUNE 2026</div>
+                <div class="font-semibold mt-2">On Reclaiming Voice After Digital Interference</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-xs py-10 border-t border-[#5c4633] text-[#5c4633]">
+        The Gothic Library • Some knowledge is meant to be held gently • Emily Ann Williams
+    </footer>
+</body>
+</html>

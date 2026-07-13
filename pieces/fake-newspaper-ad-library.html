@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Newspaper Ad Library • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .ad {
+      margin: 0;
+      border: 1px solid var(--border, #5c4633);
+      background: var(--bg-elevated, #1a140f);
+      border-radius: 0;
+      overflow: hidden;
+    }
+    .ad img {
+      width: 100%;
+      display: block;
+      background: #fff;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+    }
+    .ad figcaption {
+      padding: 0.75rem 0.9rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted, #a38b6e);
+    }
+    .ad strong { color: var(--text-strong, #e8dcc8); font-size: 0.9rem; }
+    .count { font-size: 0.85rem; color: var(--text-muted, #a38b6e); margin: 0.5rem 0 0; }
+  </style>
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece" style="max-width:56rem">
+    <div class="meta">BCE VISUAL SERIES • GROK ADS</div>
+    <h1>Fake Newspaper Ad Library</h1>
+    <div class="body">
+      <p>Fake vintage newspaper ad series inspired by real advertisements from <a href="https://gateway.okhistory.org/" target="_blank" rel="noopener">The Gateway to Oklahoma History</a>, a newspaper digitization project I worked on in Grad school.</p>
+      <p class="count">21 ads in the library</p>
+      <div class="grid">
+<figure class="ad">
+  <a href="../images/ads/magic.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/magic.jpg" alt="Loud Noises. Stinky Smells. Magic?" loading="lazy" />
+  </a>
+  <figcaption><strong>Loud Noises. Stinky Smells. Magic?</strong><br /><span>Slot-machine newspaper ad — toss coin to witcher.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/hire-me-copy.png" target="_blank" rel="noopener">
+    <img src="../images/ads/hire-me-copy.png" alt="Hire Me / Snappy Copy" loading="lazy" />
+  </a>
+  <figcaption><strong>Hire Me / Snappy Copy</strong><br /><span>Open-to-work style newspaper ad for ad &amp; copy specialist.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/locksmith-copy.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/locksmith-copy.jpg" alt="Locksmith" loading="lazy" />
+  </a>
+  <figcaption><strong>Locksmith</strong><br /><span>Fake vintage service ad from the BCE visual series.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/no-copy.png" target="_blank" rel="noopener">
+    <img src="../images/ads/no-copy.png" alt="No" loading="lazy" />
+  </a>
+  <figcaption><strong>No</strong><br /><span>Typography ad riff from the BCE fake-ad set.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/pretend-copy.png" target="_blank" rel="noopener">
+    <img src="../images/ads/pretend-copy.png" alt="Pretend" loading="lazy" />
+  </a>
+  <figcaption><strong>Pretend</strong><br /><span>“Your ad that I pretended I didn’t see here.”</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/grave-joke.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/grave-joke.jpg" alt="Grave Joke" loading="lazy" />
+  </a>
+  <figcaption><strong>Grave Joke</strong><br /><span>Dark humor newspaper ad visual.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/sword-for-hire.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/sword-for-hire.jpg" alt="Sword for Hire" loading="lazy" />
+  </a>
+  <figcaption><strong>Sword for Hire</strong><br /><span>Snappy copy / ad &amp; copy specialist classified.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/selling-hope.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/selling-hope.jpg" alt="Selling Hope" loading="lazy" />
+  </a>
+  <figcaption><strong>Selling Hope</strong><br /><span>Vintage tonic-bottle ad — Eternal Hope Has No Equal.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/selling-curiousity.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/selling-curiousity.jpg" alt="Selling Curiosity" loading="lazy" />
+  </a>
+  <figcaption><strong>Selling Curiosity</strong><br /><span>Keep Seeking Salve — eye illustration ad.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/truth.png" target="_blank" rel="noopener">
+    <img src="../images/ads/truth.png" alt="Verum Cigarettes" loading="lazy" />
+  </a>
+  <figcaption><strong>Verum Cigarettes</strong><br /><span>“If you don’t like the truth…” fake cigarette ad.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/xena-ad.png" target="_blank" rel="noopener">
+    <img src="../images/ads/xena-ad.png" alt="Xena Auditorium" loading="lazy" />
+  </a>
+  <figcaption><strong>Xena Auditorium</strong><br /><span>Fake vintage newspaper ad for a Xena event.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/workout.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/workout.jpg" alt="5 Lifts for Your Birthday" loading="lazy" />
+  </a>
+  <figcaption><strong>5 Lifts for Your Birthday</strong><br /><span>Retro workout card ad.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/finest-nuts.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/finest-nuts.jpg" alt="Finest Nuts" loading="lazy" />
+  </a>
+  <figcaption><strong>Finest Nuts</strong><br /><span>Vintage couple line drawing — “I’ve been waiting for you.”</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/future-supplies.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/future-supplies.jpg" alt="Emily&#x27;s Arms &amp; Fallout Outfitters" loading="lazy" />
+  </a>
+  <figcaption><strong>Emily&#x27;s Arms &amp; Fallout Outfitters</strong><br /><span>Wasteland supply-house fake ad.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/grocery-list.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/grocery-list.jpg" alt="Gold Rush of Values" loading="lazy" />
+  </a>
+  <figcaption><strong>Gold Rush of Values</strong><br /><span>Mock grocery price list ad.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/tax-man.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/tax-man.jpg" alt="The Tax Man Cometh" loading="lazy" />
+  </a>
+  <figcaption><strong>The Tax Man Cometh</strong><br /><span>Uncle Sam&#x27;s Tax Emporium — Freedom Branch.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/outsourcing.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/outsourcing.jpg" alt="Portal Services" loading="lazy" />
+  </a>
+  <figcaption><strong>Portal Services</strong><br /><span>“Always use your own brain! Don’t outsource!”</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/pot-stirred.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/pot-stirred.jpg" alt="Black Holes &amp; Revelations Press" loading="lazy" />
+  </a>
+  <figcaption><strong>Black Holes &amp; Revelations Press</strong><br /><span>Fake press ad listing edition contents.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/vonneGIT.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/vonneGIT.jpg" alt="vonneGIT Tombstone" loading="lazy" />
+  </a>
+  <figcaption><strong>vonneGIT Tombstone</strong><br /><span>“It was ugly and it hurt and they lied the entire time.”</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/keep-looking.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/keep-looking.jpg" alt="Keep Looking" loading="lazy" />
+  </a>
+  <figcaption><strong>Keep Looking</strong><br /><span>Fake newspaper ad visual.</span></figcaption>
+</figure>
+<figure class="ad">
+  <a href="../images/ads/3d8a2149-d3d8-4a84-a1ac-052e637855fc.jpg" target="_blank" rel="noopener">
+    <img src="../images/ads/3d8a2149-d3d8-4a84-a1ac-052e637855fc.jpg" alt="Untitled BCE Ad" loading="lazy" />
+  </a>
+  <figcaption><strong>Untitled BCE Ad</strong><br /><span>Additional Grok newspaper ad from the series.</span></figcaption>
+</figure>
+      </div>
+    </div>
+    <footer class="note">
+      <p>All fake ads were used in a short-term structured format diary project using Grok, Github, and all the free time on my hands.</p>
+      <p><a href="../index.html">Home</a> · <a href="../index.html#projects">Things I Built</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>

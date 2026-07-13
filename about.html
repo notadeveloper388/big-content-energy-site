@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About • Big Content Energy</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/piece.css" />
+  <style>
+    .about-wrap {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .about-hero {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .about-hero {
+        grid-template-columns: 160px 1fr;
+        align-items: start;
+      }
+    }
+    .about-portrait {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      object-position: center center;
+      border: 1px solid var(--border);
+      background: var(--img-frame);
+      display: block;
+    }
+    .about-wrap h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
+      color: var(--text-strong);
+    }
+    .lede {
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+      font-size: 0.95rem;
+    }
+    .placeholder {
+      border: 1px dashed var(--border);
+      background: transparent;
+      padding: 1.25rem 1.1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      min-height: 8rem;
+    }
+    .placeholder strong {
+      color: var(--accent);
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    .about-section {
+      margin-top: 2rem;
+    }
+    .about-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--text-strong);
+      margin: 0 0 0.75rem;
+    }
+    .back-row {
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .back-row a { color: var(--accent); text-decoration: none; }
+    .back-row a:hover { color: var(--text-strong); }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="index.html">← Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+
+  <main class="about-wrap">
+    <div class="meta" style="letter-spacing:0.14em;font-size:0.7rem;color:var(--accent);margin-bottom:0.75rem">ABOUT</div>
+    <div class="about-hero">
+      <img class="about-portrait" src="images/brand/lego-me-512.png?v=2" alt="Lego portrait of Emily" width="160" height="160" />
+      <div>
+        <h1>Big Content Energy</h1>
+        <p class="lede">Emily Ann Williams — content marketer, librarian, writer. United States.</p>
+      </div>
+    </div>
+
+    <section class="about-section" id="about">
+      <h2>About</h2>
+      <div class="placeholder" contenteditable="false">
+        <strong>Placeholder — fill this in later</strong>
+        This is the about section. Drop your bio, origin story, what you build, what you won’t do, and anything else that belongs here. The page is wired; the words are yours.
+      </div>
+    </section>
+
+    <section class="about-section" id="more">
+      <h2>More later</h2>
+      <div class="placeholder">
+        <strong>Optional second block</strong>
+        Press, contact notes, CV links, or a longer timeline can live here when you’re ready.
+      </div>
+    </section>
+
+    <div class="back-row">
+      <a href="index.html">← Back to the archive</a>
+      ·
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </main>
+
+  <script src="assets/theme.js"></script>
+</body>
+</html>

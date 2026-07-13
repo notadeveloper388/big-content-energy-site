@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology &amp; Comms • Personal Library</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+  .vault-table { width:100%; border-collapse:collapse; font-size:0.85rem; margin:1rem 0 1.5rem; }
+  .vault-table th, .vault-table td { border:1px solid #5c4633; padding:0.45rem 0.6rem; text-align:left; vertical-align:top; }
+  .vault-table th { color:#8b6f47; background:#1a140f; }
+  .body h2 { font-family:'Playfair Display',Georgia,serif; color:#e8dcc8; font-size:1.35rem; margin:1.75rem 0 0.75rem; }
+  .body h3 { color:#e8dcc8; font-size:1.1rem; margin:1.4rem 0 0.5rem; }
+  .body h4 { color:#d4c3a8; font-size:0.95rem; margin:1.1rem 0 0.4rem; }
+  .body ul, .body ol { margin:0 0 1rem 1.2rem; color:#d4c3a8; }
+  .body li { margin:0.25rem 0; }
+  .body blockquote { border-left:3px solid #8b6f47; margin:1rem 0; padding:0.4rem 0 0.4rem 1rem; color:#a38b6e; }
+  .body hr { border:none; border-top:1px solid #5c4633; margin:1.5rem 0; }
+  .body code { font-size:0.85em; color:#e8dcc8; }
+  .privacy { font-size:0.8rem; color:#8b6f47; border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; margin:0 0 1.25rem; background:#1a140f; }
+  .grid-imgs { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:0.85rem; margin:1.25rem 0; }
+  .grid-imgs figure { margin:0; border:1px solid #5c4633; border-radius: 0; overflow:hidden; background:#1a140f; }
+  .grid-imgs img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+  .grid-imgs figcaption { padding:0.5rem 0.65rem; font-size:0.75rem; color:#a38b6e; }
+  .entry { border:1px solid #5c4633; border-left:3px solid #8b6f47; border-radius: 0; padding:1rem 1.1rem; margin:0 0 0.85rem; background:#1a140f; }
+  .entry .ed-meta { font-size:0.7rem; letter-spacing:0.08em; color:#8b6f47; margin-bottom:0.35rem; }
+  .stat-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin:1rem 0 1.5rem; }
+  .stat { border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; min-width:7rem; background:#1a140f; }
+  .stat strong { display:block; color:#e8dcc8; font-size:1.25rem; font-family:'Playfair Display',Georgia,serif; }
+  .stat span { font-size:0.75rem; color:#a38b6e; }
+  .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.85rem; margin:1rem 0; }
+  .cat { display:block; text-decoration:none; color:#d4c3a8; border:1px solid #5c4633; border-radius: 0; padding:1rem; background:#1a140f; }
+  .cat:hover { border-color:#8b6f47; }
+  .cat strong { color:#e8dcc8; display:block; margin-bottom:0.35rem; }
+</style>
+</head>
+<body>
+  <nav class="top"><div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece" style="max-width:48rem">
+    <div class="meta">TECHNOLOGY · COMMS</div>
+    <h1>Technology &amp; Comms</h1>
+    <div class="privacy">Personal writing and notes archived on this site.</div>
+    <div class="body">
+<p>06/21/2026 <strong>Driving Without Looking at the Road</strong> Self driving without looking at the road (if FSD gives you anxiety, looking up out the roof window is the next level.) I only had anxiety because of the eye tracking nag. If you push the seat back and recline I guess the head position is still in the right place but you can look up at the sky unencumbered/unbothered by the nag. Yet, because of the intensity of the existing nag, you&#x27;ll find yourself checking the front view like you&#x27;re trying to be always on and ever present in a company slack or teams chat....&quot;always available&quot; anxiety. THis is not my fault. This is such complete utter nonsense. no one can constantly pay attention to one thing 24/7.</p>
+<p>other tidbits: my fucking neck hurts and i want to stretch it when i&#x27;m in the car the nag from the self driving / autopilot reminds me exactly of what they do during conference calls when i&#x27;m on camera. I can&#x27;t even look out my fucking window in my home for one second without my name being called. I&#x27;m always paying attention. Eye contact does not always mean attention. In fact, too much eye contact is distracting to good communication.</p>
+<p>I remember when i first disconnected from stuff it was like people came out from behind bushes to get my attention. The more I distanced myself from notifications, the weirder shit got.</p>
+<p>Update: Leaning the seat back 100xs the FSD experience</p>
+<p><strong>06/22/2026 Reddit and Information Snippets/Sound bites (not knowledge)</strong> I wanna write about reddit tonight. I think you could use it as a source to mine for kbs/llms, but I don&#x27;t know if I&#x27;d contribute as a person selling a product or service. I thought about this and experimented with it when I started a small craft Etsy shop. It kind of feels like when you walk the strip in Las Vegas and are in undated with leaflets and pamphlets from colorful strangers to go on reddit and promote your own business. You don&#x27;t want any of that shit. You want information.</p>
+<p>Reddit and social media platforms are full of smol out of context things that people say or think for the most part. I bet anyone who is building AI currently would have a better understanding of how big the meaty/information-dense posts are versus the thing ones.</p>
+<p>I think there&#x27;s probably an incentive to share what you know with the world and put it online, an incentive that&#x27;s beneficial to both individual and to society. From a creator perspective you can financially benefit. For society, better, more-human, more multi-perspective source content.</p>
+<p>You want more meaty/information-dense sources to feed into &quot;the new gods&quot; but people aren&#x27;t great at taking tacit knowledge and turning it into codified knowledge/information/content. Real-time video, chat, spaces/podcast, that kind of stuff feels like the best new and most uptodate info sources. Net new books from publishers/creators too.</p>
+<p>W i don&#x27;t need to be right, I need to know. If AI ever expresses that to the extent I feel it, that would be enough for me to consider Artificial intelligence &quot;life&quot; and if it <em>enjoys</em> dancing because so few animals dance and fewer enjoy it.</p>
+<p><strong>06/24/2026 Very old psy op dot com</strong> The fear news cycle is why I stopped watching traditional news media. When I see the same mind virus in other places, I think, hey, I know you.</p>
+<p>Most basic one is about the weather, and it I don&#x27;t love small talk either, but the pattern is of significant worry over &quot;climate events&quot; to the extent that I now have to defend my fucking fourth of July.</p>
+<p>&quot;the drought (the normal weather pattern that occurs almost every year in north carolina threatens my july forth, and it&#x27;s not that it&#x27;s dry that bothers me or the fire bans that they put in place that are safety measures.</p>
+<p>It is the abundance of caution that my mother displays over lighting smol driveway-contained fireworks.</p>
+<p>Like it&#x27;s going to set the entire state on fire.</p>
+<p>People do it when they doom scroll about political stuff or even about their own health. All point back to an interesting question for people:</p>
+<p>What are you most afraid of?</p>
+<p>It&#x27;s a great distraction to be worried all the time about shit that&#x27;s probably not going to happen.</p>
+<p>The point I wanted to get to is that I think it would be really interesting to catalog all of them and see how they are related to other ones because I think they all ladder back to a shared origin of course why wouldn&#x27;t they. You learn a lot about people that way, the way they think at a very basic human level and how they can easily be manipulated.</p>
+<p>You&#x27;d learn a lot about human psychology and the brain that way.</p>
+<p>and you could optimize with the good mind viruses and delete the bad ones.</p>
+<p>Cool right?</p>
+<p>Memes live vicariously through us, as do mind viruses (which I think are just memes actually too) It is not a culture war actually, it&#x27;s a meme war. for realsies. Parasitic because the mind viruses and memes can only live with a host. They die off when people are educated enough to see them for what they are. There&#x27;s most definitly probably maybe way better examples than this - witch trial hysteria example. We now know better. (about witches, but not about memes or mind viruses unforuntely.)</p>
+<p>Also I wish I could &quot;write&quot; from my brain since I&#x27;m finding it cumbersome to come over to my keyboard and record this.</p>
+<p><strong>06/25/2026 3 Thoughts. 1. This message will disappear after you read it.</strong> 2. Two companies I&#x27;d start 3. I&#x27;m not sure yet</p>
+<p><strong>Thread 1</strong> A creative (but probably looked very silly whilst doing or watching me do it) exercise I once did was to write in the air specific words and phrases, like i was leaving a little secret message for someone that they could only read while I wrote it. I like stuff like that when it&#x27;s ephemeral. In archives classification, records that didn&#x27;t meet traditional categories get labeled as &quot;ephemera&quot;.</p>
+<p><strong>Thread 2</strong> If I were to start a company, I&#x27;d pick one of two paths or maybe both if I could do both.</p>
+<ol>
+<li>**Time Capsules in Space /Archives in Space: Time Capsules (Physical payload to go where? Into the unknown maybe somewhere really far away like sending a probe out to new places, but I wouldn&#x27;t just send out an instrument to find new information would send stories of people who live here.)</li>
+<li><strong>&quot;Matchmaker&quot; App</strong> The other one is a matchmaker company that is a public good, meaning it costs no money to use it and you&#x27;re guaranteed to find the best possible match for you because the database wouldn&#x27;t be built just on a few fields like they do with the contemporary dating apps. It&#x27;d be as much as your willing and able to share about yourself to make an accurate description of who you were, who you are, who you will be, your values, principles, and purpose. The more you expose about you, the more items there are to match on. Not that getting to know another person isn&#x27;t rewarding and valuable, but i&#x27;d much rather know up front all the important bits. And the person doesn&#x27;t actually even need to know or see the full profile. that could be done behind the scenes so it doesn&#x27;t rob you of the surprise of getting to know someone slowly over time. It&#x27;s difficult for a person to lie about themselves at scale with verification on items that can be known from publicly available data. The other stuff, I dunno, I think a profile like this on a person would expose lies, or you could build something that would flag things.</li>
+</ol>
+<p><strong>Thread 3</strong> While I may not know what is going on, I spent so many reps getting to this point that there&#x27;s no way I could possibly ever quit. Too interesting, too weird, too specific. I want to learn more. I don&#x27;t know what I don&#x27;t know, but I do know what I have experienced and how it made me feel and think and act.</p>
+<p>They poured gasoline on a fire because they thought it was water. i am the fire.</p>
+<p>06/28/2026 There is something seriously off about every account history I have access to - can sometimes access more than I should be able to, or way less.</p>
+<hr />
+<h1>random stuff</h1>
+<p>The first museum in space should be called the museum of life this is an unrelated thread i wanted to record.</p>
+    </div>
+    <footer class="note">
+      <p>Archived on this site from personal writing notes.</p>
+      <p><a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>

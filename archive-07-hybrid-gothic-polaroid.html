@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Content Energy</title>
+    
+    <!-- Source Sans Pro + Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            background: #0f0a08;
+            color: #d4c3a8;
+            font-family: 'Source Sans Pro', system_ui, -apple-system, sans-serif;
+        }
+        
+        .gothic-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .polaroid {
+            background: #fff;
+            color: #2c2522;
+            box-shadow: 3px 5px 0 #3a2f24,
+                        0 12px 24px rgba(0,0,0,0.35);
+            padding: 10px 10px 26px;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .polaroid:hover {
+            transform: translateY(-6px) rotate(0.6deg);
+            box-shadow: 6px 10px 0 #3a2f24,
+                        0 20px 35px rgba(0,0,0,0.45);
+        }
+
+        .polaroid img {
+            width: 100%;
+            display: block;
+            border-radius: 0;
+        }
+
+        .polaroid .caption {
+            padding-top: 14px;
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+
+        .polaroid .title {
+            font-weight: 600;
+            line-height: 1.25;
+            font-size: 15px;
+        }
+
+        .polaroid .subtitle {
+            font-size: 13px;
+            color: #5c5146;
+            margin-top: 4px;
+        }
+
+        .polaroid .meta {
+            font-size: 11px;
+            color: #8a7660;
+            margin-top: 10px;
+        }
+
+        /* VHS Glitch Animation from Digital Scrapbook */
+        .vhs-glitch {
+            position: relative;
+        }
+        .vhs-glitch::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                transparent 30%,
+                rgba(180, 160, 120, 0.35) 30%,
+                rgba(180, 160, 120, 0.35) 32%,
+                transparent 32%
+            );
+            animation: vhs 2.2s infinite linear;
+            pointer-events: none;
+            z-index: 2;
+        }
+        @keyframes vhs {
+            0% { transform: translateY(-120%); }
+            100% { transform: translateY(350%); }
+        }
+
+        .quote-card {
+            background: #1a140f;
+            border-left: 4px solid #8b6f47;
+            transition: all 0.2s ease;
+        }
+        
+        .quote-card:hover {
+            border-left-color: #c5a26f;
+            transform: translateX(4px);
+        }
+
+        .nav-link {
+            transition: color 0.1s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #c5a26f;
+        }
+
+        .section-header {
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            color: #8b6f47;
+            font-weight: 600;
+        }
+
+        .filter-btn {
+            font-size: 12px;
+            transition: all 0.1s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active {
+            background-color: #8b6f47;
+            color: #0f0a08;
+            border-color: #8b6f47;
+        }
+
+        .leather {
+            background: linear-gradient(#2c2119, #1a140f);
+        }
+    </style>
+</head>
+<body>
+    <!-- Compact Top Nav Only -->
+    <nav class="border-b border-[#5c4633] bg-[#0f0a08]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-book text-[#8b6f47] text-xl"></i>
+                <span class="gothic-serif text-xl tracking-tighter">Big Content Energy</span>
+            </div>
+            
+            <div class="flex items-center gap-x-7 text-sm">
+                <a href="#archives" class="nav-link">Archives</a>
+                <a href="#reading-room" class="nav-link">Personal</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#serials" class="nav-link">Serials</a>
+            </div>
+            
+            <div class="text-xs px-3 py-1 bg-[#1a140f] border border-[#5c4633] rounded font-mono tracking-wider">
+                CONTENT • LIBRARIAN • WRITER
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filter Bar -->
+    <div class="max-w-6xl mx-auto px-8 pt-8 pb-6">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-2">
+            <span class="text-xs tracking-widest text-[#8b6f47] mr-1 font-medium">FILTER</span>
+            
+            <button onclick="filterBy('all', this)" class="filter-btn active px-4 py-1 border border-[#5c4633] rounded-full">All</button>
+            <button onclick="filterBy('hawk', this)" class="filter-btn px-4 py-1 border border-[#5c4633] rounded-full">Hawk Ridge</button>
+            <button onclick="filterBy('a3d', this)" class="filter-btn px-4 py-1 border border-[#5c4633] rounded-full">A3D</button>
+            <button onclick="filterBy('bynder', this)" class="filter-btn px-4 py-1 border border-[#5c4633] rounded-full">Bynder</button>
+            
+            <div class="flex-1"></div>
+            <div class="text-xs text-[#8b6f47]">or filter by topic, year, medium</div>
+        </div>
+    </div>
+
+    <!-- ARCHIVES -->
+    <section id="archives" class="max-w-6xl mx-auto px-8 pb-12">
+        <div class="flex items-end justify-between mb-6">
+            <div>
+                <div class="section-header">THE ARCHIVES</div>
+                <h2 class="text-3xl gothic-serif tracking-tight">Professional Work</h2>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('hawk1')">
+                <img src="https://picsum.photos/id/1016/600/320" alt="">
+                <div class="caption">
+                    <div class="title">Turning Scrap into Sustainability</div>
+                    <div class="subtitle">Pacific Recycling • SOLIDWORKS for lean operations</div>
+                    <div class="meta">HAWK RIDGE SYSTEMS • 2025</div>
+                </div>
+            </div>
+
+            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('a3d1')">
+                <img src="https://picsum.photos/id/160/600/320" alt="">
+                <div class="caption">
+                    <div class="title">Alien Machine Worx</div>
+                    <div class="subtitle">Custom automotive parts with SOLIDWORKS + CNC</div>
+                    <div class="meta">A3D MANUFACTURING • 2025</div>
+                </div>
+            </div>
+
+            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('bynder1')">
+                <img src="https://picsum.photos/id/201/600/320" alt="">
+                <div class="caption">
+                    <div class="title">Anthropomorphizing Your Brand</div>
+                    <div class="subtitle">A framework for emotional brand connection</div>
+                    <div class="meta">BYNDER • 2021</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- READING ROOM / Personal Albums -->
+    <section id="reading-room" class="border-y border-[#5c4633] py-12 bg-[#1a140f]">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="mb-8">
+                <div class="section-header">SEGMENTED PERSONAL SPACE</div>
+                <h2 class="text-3xl gothic-serif tracking-tight">Personal Albums</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Quail Roost style polaroid with VHS glitch -->
+                <div class="polaroid vhs-glitch rounded-xl cursor-pointer" onclick="showDetail('rural')">
+                    <img src="https://picsum.photos/id/1018/600/320" alt="">
+                    <div class="caption">
+                        <div class="title">Quail Roost &amp; The Land</div>
+                        <div class="subtitle">Groundhog relocation • Garden rocks • Starlink nights</div>
+                        <div class="meta">12 photos • 8 journal entries</div>
+                    </div>
+                </div>
+
+                <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('resilience')">
+                    <img src="https://picsum.photos/id/1005/600/320" alt="">
+                    <div class="caption">
+                        <div class="title">Resilience &amp; Reclamation</div>
+                        <div class="subtitle">Selected writing on recovery and boundaries</div>
+                        <div class="meta">Public layer • 2024–2026</div>
+                    </div>
+                </div>
+
+                <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('creative')">
+                    <img src="https://picsum.photos/id/180/600/320" alt="">
+                    <div class="caption">
+                        <div class="title">Creative Experiments</div>
+                        <div class="subtitle">Open Beacon • 3D printed objects • Newsletter</div>
+                        <div class="meta">Side quests &amp; prototypes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="max-w-6xl mx-auto px-8 py-12">
+        <div class="mb-6">
+            <div class="section-header">SIDE PROJECTS</div>
+            <h2 class="text-3xl gothic-serif tracking-tight">Ongoing Work</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('projects')">
+                <img src="https://picsum.photos/id/251/600/320" alt="">
+                <div class="caption">
+                    <div class="title">Open Beacon Project</div>
+                    <div class="subtitle">Physical signaling objects for social connection &amp; boundaries</div>
+                    <div class="meta">Prototyping • 3D printed • 2026</div>
+                </div>
+            </div>
+
+            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('newsletter')">
+                <img src="https://picsum.photos/id/29/600/320" alt="">
+                <div class="caption">
+                    <div class="title">Big Content Energy</div>
+                    <div class="subtitle">Raw writing on content, AI, voice &amp; sustainable creative life</div>
+                    <div class="meta">8 editions published • Ongoing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERIALS -->
+    <section id="serials" class="border-t border-[#5c4633] py-10">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="mb-6">
+                <div class="section-header">SERIALS</div>
+                <h2 class="text-2xl gothic-serif">Public Writing</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="leather border border-[#5c4633] p-6 rounded-2xl">
+                    <div class="text-xs text-[#8b6f47] font-medium">NOV 2025</div>
+                    <div class="font-semibold mt-2 text-lg">Taking Tacit Knowledge and Making It Tangible</div>
+                </div>
+                <div class="leather border border-[#5c4633] p-6 rounded-2xl">
+                    <div class="text-xs text-[#8b6f47] font-medium">JUNE 2026</div>
+                    <div class="font-semibold mt-2 text-lg">On Building Resilience After Digital Tampering</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center text-xs py-8 border-t border-[#5c4633] text-[#5c4633]">
+        Big Content Energy • A personal archive
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" onclick="hideModal()" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
+        <div onclick="event.stopImmediatePropagation()" class="max-w-md w-full mx-4 bg-[#1a140f] border border-[#5c4633] rounded-2xl p-8">
+            <div id="modal-content" class="text-[#d4c3a8]"></div>
+            <button onclick="hideModal()" class="mt-6 text-xs px-5 py-2 border border-[#5c4633] rounded hover:bg-[#0f0a08]">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function filterBy(type, element) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const cards = document.querySelectorAll('#archives .polaroid');
+            
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (type === 'all') {
+                    card.style.display = '';
+                } else if (type === 'hawk' && text.includes('hawk ridge')) {
+                    card.style.display = '';
+                } else if (type === 'a3d' && text.includes('a3d')) {
+                    card.style.display = '';
+                } else if (type === 'bynder' && text.includes('bynder')) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function showDetail(type) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            let html = '';
+
+            if (type === 'hawk1') {
+                html = `<div class="text-sm text-[#8b6f47]">HAWK RIDGE SYSTEMS • 2025</div>
+                        <h3 class="text-2xl font-semibold mt-2">Turning Scrap into Sustainability</h3>
+                        <p class="mt-4">Full customer story exploring how Pacific Recycling uses SOLIDWORKS to support lean operations and circular manufacturing practices.</p>`;
+            } else if (type === 'a3d1') {
+                html = `<div class="text-sm text-[#8b6f47]">A3D MANUFACTURING • 2025</div>
+                        <h3 class="text-2xl font-semibold mt-2">Alien Machine Worx</h3>
+                        <p class="mt-4">Profile of a family-owned American company using SOLIDWORKS and CNC machining to create custom automotive aftermarket parts.</p>`;
+            } else if (type === 'bynder1') {
+                html = `<div class="text-sm text-[#8b6f47]">BYNDER • 2021</div>
+                        <h3 class="text-2xl font-semibold mt-2">Anthropomorphizing Your Brand</h3>
+                        <p class="mt-4">A creative framework for giving brands human characteristics to build deeper emotional connection with audiences.</p>`;
+            } else if (type === 'rural') {
+                html = `<div class="text-sm text-[#8b6f47]">RURAL NOTES • QUAIL ROOST</div>
+                        <h3 class="text-2xl font-semibold mt-2">Quail Roost &amp; The Land</h3>
+                        <p class="mt-4">"The marmot under the house has been successfully relocated. The cat remains."</p>
+                        <p class="mt-3 text-sm">More entries on Starlink, garden projects, Tesla on dirt roads, and small farm life.</p>`;
+            } else if (type === 'resilience') {
+                html = `<div class="text-sm text-[#8b6f47]">PERSONAL WRITING</div>
+                        <h3 class="text-2xl font-semibold mt-2">Resilience &amp; Reclamation</h3>
+                        <p class="mt-4">"I’ve had so much time to get right with my past. I am who I am."</p>
+                        <p class="mt-3 text-sm">Selected public writing on recovery, boundaries, and rebuilding after isolation.</p>`;
+            } else if (type === 'creative') {
+                html = `<div class="text-sm text-[#8b6f47]">CREATIVE EXPERIMENTS</div>
+                        <h3 class="text-2xl font-semibold mt-2">Creative Threads</h3>
+                        <ul class="mt-4 space-y-1 text-sm">
+                            <li>• Open Beacon physical signaling prototypes (3D printed)</li>
+                            <li>• Big Content Energy newsletter (8 editions)</li>
+                            <li>• Letter to future self</li>
+                            <li>• Guest posts &amp; side projects</li>
+                        </ul>`;
+            } else if (type === 'projects') {
+                html = `<div class="text-sm text-[#8b6f47]">SIDE PROJECT • 2026</div>
+                        <h3 class="text-2xl font-semibold mt-2">Open Beacon Project</h3>
+                        <p class="mt-4">Physical objects (lapel pins, drink coasters, totems) designed to help people signal interest, availability, or boundaries in social settings. Currently prototyping with 3D printing.</p>`;
+            } else if (type === 'newsletter') {
+                html = `<div class="text-sm text-[#8b6f47]">NEWSLETTER • ONGOING</div>
+                        <h3 class="text-2xl font-semibold mt-2">Big Content Energy</h3>
+                        <p class="mt-4">Raw, honest writing on content strategy, AI in marketing, writing voice, and building a life that actually fits.</p>
+                        <p class="mt-2 text-sm">8 editions published • Free</p>`;
+            }
+
+            content.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const modal = document.getElementById('modal');
+                if (!modal.classList.contains('hidden')) hideModal();
+            }
+        });
+    </script>
+</body>
+</html>

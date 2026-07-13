@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workouts • Personal Library</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+  .vault-table { width:100%; border-collapse:collapse; font-size:0.85rem; margin:1rem 0 1.5rem; }
+  .vault-table th, .vault-table td { border:1px solid #5c4633; padding:0.45rem 0.6rem; text-align:left; vertical-align:top; }
+  .vault-table th { color:#8b6f47; background:#1a140f; }
+  .body h2 { font-family:'Playfair Display',Georgia,serif; color:#e8dcc8; font-size:1.35rem; margin:1.75rem 0 0.75rem; }
+  .body h3 { color:#e8dcc8; font-size:1.1rem; margin:1.4rem 0 0.5rem; }
+  .body h4 { color:#d4c3a8; font-size:0.95rem; margin:1.1rem 0 0.4rem; }
+  .body ul, .body ol { margin:0 0 1rem 1.2rem; color:#d4c3a8; }
+  .body li { margin:0.25rem 0; }
+  .body blockquote { border-left:3px solid #8b6f47; margin:1rem 0; padding:0.4rem 0 0.4rem 1rem; color:#a38b6e; }
+  .body hr { border:none; border-top:1px solid #5c4633; margin:1.5rem 0; }
+  .body code { font-size:0.85em; color:#e8dcc8; }
+  .privacy { font-size:0.8rem; color:#8b6f47; border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; margin:0 0 1.25rem; background:#1a140f; }
+  .grid-imgs { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:0.85rem; margin:1.25rem 0; }
+  .grid-imgs figure { margin:0; border:1px solid #5c4633; border-radius: 0; overflow:hidden; background:#1a140f; }
+  .grid-imgs img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+  .grid-imgs figcaption { padding:0.5rem 0.65rem; font-size:0.75rem; color:#a38b6e; }
+  .entry { border:1px solid #5c4633; border-left:3px solid #8b6f47; border-radius: 0; padding:1rem 1.1rem; margin:0 0 0.85rem; background:#1a140f; }
+  .entry .ed-meta { font-size:0.7rem; letter-spacing:0.08em; color:#8b6f47; margin-bottom:0.35rem; }
+  .stat-row { display:flex; flex-wrap:wrap; gap:0.75rem; margin:1rem 0 1.5rem; }
+  .stat { border:1px solid #5c4633; border-radius: 0; padding:0.75rem 1rem; min-width:7rem; background:#1a140f; }
+  .stat strong { display:block; color:#e8dcc8; font-size:1.25rem; font-family:'Playfair Display',Georgia,serif; }
+  .stat span { font-size:0.75rem; color:#a38b6e; }
+  .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.85rem; margin:1rem 0; }
+  .cat { display:block; text-decoration:none; color:#d4c3a8; border:1px solid #5c4633; border-radius: 0; padding:1rem; background:#1a140f; }
+  .cat:hover { border-color:#8b6f47; }
+  .cat strong { color:#e8dcc8; display:block; margin-bottom:0.35rem; }
+</style>
+</head>
+<body>
+  <nav class="top"><div><a href="../../index.html#private-collection">← Personal Library</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+</nav>
+  <article class="piece" style="max-width:48rem">
+    <div class="meta">FITNESS • NOT THE NEWSPAPER LOGS</div>
+    <h1>Workouts</h1>
+    <div class="privacy">Personal writing and notes archived on this site.</div>
+    <div class="body">
+<p>06/21/2026: I need to do cardio. I just don&#x27;t fucking want to. Weight lifting is going okay, seeing smol gains and leanness (slow) but my diet is not dialed in so I guess it&#x27;s at the right pace probably.</p>
+<h1>Workouts</h1>
+<blockquote><strong>Note:</strong> Workout log compiled from Not the Newspaper editions and personal notes.</blockquote>
+<h2>What This Covers</h2>
+<p>Every workout logged in the <strong>&quot;Workout &amp; Health&quot;</strong> column of the <em>Not the Newspaper</em> editions (Volume 1, Jan–Mar 2026, from bigcontentenergy.com). Editions 1, 5, 6, and 7 contain explicit exercise lists; Editions 2, 3, and 4 cover the same column as narrative (rest weeks, gym attendance, mindset) without a movement list.</p>
+<h2>Logged Workouts</h2>
+<h3>Short-Term Fitness Goals — Ed. 1 (Jan 19, 2026)</h3>
+<ul>
+<li>See if the sauna and I agree</li>
+<li>Add cardio</li>
+<li>Continue volume weight training (ten sets of 4–5 exercises, 10 reps each); Recovery day — 5×10; In a hurry days — 5 sets × 20 reps</li>
+<li>Try new movements — strengthen back for pull-ups</li>
+<li>For the love of God, please eat more protein</li>
+</ul>
+<h3>&quot;Texas Sunday&quot; Workout — Ed. 5 (Feb 15, 2026)</h3>
+<ul>
+<li>Military press</li>
+<li>Cuban press</li>
+<li>Front dumbbell raises</li>
+<li>Dumbbell lateral raises</li>
+<li>Cable machine face pulls</li>
+<li>Chin-ups</li>
+<li>Handstand static holds</li>
+<li>DDR for treadmill / cardio</li>
+</ul>
+<p><em>Notes: Two-hour Sunday session; hit two PRs in one day (including a chin-up/pull PR), plus cardio and a run.</em></p>
+<h3>&quot;4AM and No Sleep&quot; Workout — Ed. 6 (Feb 24, 2026)</h3>
+<ul>
+<li>Deadlifts</li>
+<li>Kettlebell (both hands) windmill</li>
+<li>Kettlebell reverse curtsy lunges</li>
+<li>Leg press</li>
+<li>Bodyweight one-leg deadlifts</li>
+<li>Yoga ball hamstring pull-ins</li>
+<li>Cable single-leg kickbacks</li>
+</ul>
+<h3>Sunday Workout — Ed. 7 (Mar 1, 2026)</h3>
+<ul>
+<li>Squats</li>
+<li>Chin-up</li>
+<li>High kicks</li>
+<li>Hip adductor</li>
+<li>Bench sit-ups</li>
+</ul>
+<p><em>Notes: Five or six chin-ups (not consecutive); triceps blasted. Goal: lift heavier.</em></p>
+<h2>Recurring Movements &amp; Themes</h2>
+<table class="vault-table">
+<tr><th>Movement</th><th>Appears in</th></tr>
+<tr><td>Chin-ups / pull-ups</td><td>Ed. 1 (goal), Ed. 5, Ed. 7</td></tr>
+<tr><td>Cardio (treadmill / DDR / trail run)</td><td>Ed. 1 (goal), Ed. 5</td></tr>
+<tr><td>Deadlift variations</td><td>Ed. 6</td></tr>
+<tr><td>Volume weight training (10×10 / 5×10 / 5×20)</td><td>Ed. 1 framework</td></tr>
+<tr><td>Kettlebell work</td><td>Ed. 6</td></tr>
+</table>
+<p>Cross-cutting threads: chin-up training as a benchmark, recovery/deload weeks as a metric, &quot;I am the gym&quot; mantra (Fitness Health), TRX + dumbbells moved into the bedroom, and trail running over treadmill.</p>
+<h2>See Also</h2>
+<ul>
+<li>Fitness &amp; Health</li>
+<li>Personal</li>
+<li>Not the Newspaper / Big Content Energy</li>
+<li>Home</li>
+</ul>
+    </div>
+    <footer class="note">
+      <p>Archived on this site from personal writing notes.</p>
+      <p><a href="../../index.html#private-collection">Personal Library</a> · <a href="../../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>
