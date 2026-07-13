@@ -453,7 +453,6 @@
         <div class="flex flex-wrap gap-2 mb-6">
             <button type="button" onclick="filterCards('all')" class="filter-btn active px-4 py-1.5 text-xs border border-[#5c4633] hover:bg-[#1a140f]">All</button>
             <button type="button" onclick="filterCards('hawk')" class="filter-btn px-4 py-1.5 text-xs border border-[#5c4633] hover:bg-[#1a140f]">Hawk Ridge</button>
-            <button type="button" onclick="filterCards('a3d')" class="filter-btn px-4 py-1.5 text-xs border border-[#5c4633] hover:bg-[#1a140f]">A3D</button>
             <button type="button" onclick="filterCards('bynder')" class="filter-btn px-4 py-1.5 text-xs border border-[#5c4633] hover:bg-[#1a140f]">Bynder</button>
             <button type="button" onclick="filterCards('other')" class="filter-btn px-4 py-1.5 text-xs border border-[#5c4633] hover:bg-[#1a140f]">Personal or Pro Bono</button>
         </div>
@@ -472,10 +471,10 @@
             </a>
 
             <!-- 2 IMAGE: Alien Machine Worx -->
-            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="a3d">
+            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="hawk">
                 <img src="images/pieces/alien-machine-worx.jpg" class="card-img" alt="Alien Machine Worx custom automotive parts">
                 <div class="px-1">
-                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">A3D / HAWK RIDGE • 2025</div>
+                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">HAWK RIDGE • 2025</div>
                     <div class="polaroid-title text-lg">Alien Machine Worx Profile</div>
                     <div class="polaroid-subtitle mt-1">Custom automotive aftermarket parts with SOLIDWORKS and CNC — a family American shop story.</div>
                     <div class="polaroid-meta mt-3">Customer Story • Interview</div>
@@ -546,10 +545,10 @@
             </a>
 
             <!-- 9 IMAGE: Alien field -->
-            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="a3d">
+            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="hawk">
                 <img src="images/pieces/alien-2.jpg" class="card-img" alt="CNC and custom parts detail">
                 <div class="px-1">
-                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">A3D MANUFACTURING • FIELD NOTES</div>
+                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">HAWK RIDGE • FIELD NOTES</div>
                     <div class="polaroid-title text-lg">Shop-floor proof, not slide decks</div>
                     <div class="polaroid-subtitle mt-1">Original photo work from the Alien Machine Worx customer story archive.</div>
                     <div class="polaroid-meta mt-3">Visual companion • Archived</div>
@@ -620,10 +619,10 @@
             </a>
 
             <!-- 16 IMAGE: Alien 4 field -->
-            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="a3d">
+            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="hawk">
                 <img src="images/pieces/alien-4.jpg" class="card-img" alt="Custom automotive parts photography">
                 <div class="px-1">
-                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">A3D • PHOTO WORK</div>
+                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">HAWK RIDGE • PHOTO WORK</div>
                     <div class="polaroid-title text-lg">Parts with a pulse</div>
                     <div class="polaroid-subtitle mt-1">More shop photography from the Alien Machine Worx durable archive.</div>
                     <div class="polaroid-meta mt-3">Visual companion</div>
@@ -647,10 +646,10 @@
             </a>
 
             <!-- 19 IMAGE: Alien 5 -->
-            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="a3d">
+            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="hawk">
                 <img src="images/pieces/alien-5.jpg" class="card-img" alt="CNC and shop detail">
                 <div class="px-1">
-                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">A3D • PHOTO WORK</div>
+                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">HAWK RIDGE • PHOTO WORK</div>
                     <div class="polaroid-title text-lg">Machines that make machines</div>
                     <div class="polaroid-subtitle mt-1">Additional field photography supporting the customer story package.</div>
                     <div class="polaroid-meta mt-3">Visual companion</div>
@@ -666,10 +665,10 @@
             </a>
 
             <!-- 21 IMAGE: Alien 6 -->
-            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="a3d">
+            <a href="pieces/alien-machine-worx.html" class="polaroid work-card" data-client="hawk">
                 <img src="images/pieces/alien-6.jpg" class="card-img" alt="Shop craft detail">
                 <div class="px-1">
-                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">A3D • PHOTO WORK</div>
+                    <div class="text-[10px] tracking-widest text-[#8b6f47] mb-1">HAWK RIDGE • PHOTO WORK</div>
                     <div class="polaroid-title text-lg">Finish &amp; fitment</div>
                     <div class="polaroid-subtitle mt-1">Close detail from the Alien Machine Worx archive set.</div>
                     <div class="polaroid-meta mt-3">Visual companion</div>
@@ -918,7 +917,7 @@
             workVisibleCount = WORK_PAGE_SIZE;
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            const map = { all: 0, hawk: 1, a3d: 2, bynder: 3, other: 4 };
+            const map = { all: 0, hawk: 1, bynder: 2, other: 3 };
             const idx = map[category] ?? 0;
             if (buttons[idx]) buttons[idx].classList.add('active');
             applyWorkVisibility();
