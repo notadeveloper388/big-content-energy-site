@@ -110,3 +110,23 @@ h1 {
   color: var(--text-muted);
 }
 .note a { color: var(--accent); }
+
+/* Live original publisher link on professional archives */
+.live-link {
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: transparent;
+  font-size: 0.9rem;
+}
+.live-link a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.live-link a:hover { text-decoration: underline; }
+.live-src {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
