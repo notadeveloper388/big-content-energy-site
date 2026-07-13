@@ -17,7 +17,6 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="assets/piece.css" />
   <style>
     .about-wrap {
@@ -25,25 +24,16 @@
       margin: 0 auto;
       padding: 2.5rem 1.5rem 4rem;
     }
-    .about-hero {
-      display: grid;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    @media (min-width: 640px) {
-      .about-hero {
-        grid-template-columns: 160px 1fr;
-        align-items: start;
-      }
-    }
     .about-portrait {
-      width: 160px;
-      height: 160px;
-      object-fit: contain;
-      object-position: center center;
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      display: block;
+      margin: 0 0 1.5rem;
       border: 1px solid var(--border);
       background: var(--img-frame);
-      display: block;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
     }
     .about-wrap h1 {
       font-family: 'Playfair Display', Georgia, serif;
@@ -54,35 +44,26 @@
     }
     .lede {
       color: var(--text-muted);
-      margin: 0 0 1.25rem;
+      margin: 0 0 1.5rem;
       font-size: 0.95rem;
     }
-    .placeholder {
-      border: 1px dashed var(--border);
-      background: transparent;
-      padding: 1.25rem 1.1rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      min-height: 8rem;
+    .about-body p {
+      margin: 0 0 1.1rem;
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 1.02rem;
     }
-    .placeholder strong {
-      color: var(--accent);
-      display: block;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      font-weight: 500;
-    }
-    .about-section {
-      margin-top: 2rem;
-    }
-    .about-section h2 {
+    .about-body p.freedom {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       color: var(--text-strong);
-      margin: 0 0 0.75rem;
+      letter-spacing: 0.04em;
+      margin: 1.5rem 0 0.75rem;
+    }
+    .about-body p.prosper {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 0;
     }
     .back-row {
       margin-top: 2.5rem;
@@ -105,29 +86,23 @@
 
   <main class="about-wrap">
     <div class="meta" style="letter-spacing:0.14em;font-size:0.7rem;color:var(--accent);margin-bottom:0.75rem">ABOUT</div>
-    <div class="about-hero">
-      <img class="about-portrait" src="images/brand/lego-me-512.png?v=2" alt="Lego portrait of Emily" width="160" height="160" />
-      <div>
-        <h1>Big Content Energy</h1>
-        <p class="lede">Emily Ann Williams — content marketer, librarian, writer. United States.</p>
-      </div>
+    <h1>Big Content Energy</h1>
+    <p class="lede">Emily Ann Williams — content marketer, librarian, writer. United States.</p>
+
+    <img class="about-portrait" src="images/brand/about-emily.jpg" alt="Emily Ann Williams" width="280" height="210" />
+
+    <div class="about-body">
+      <p>This year, I’m going to ship something besides just a website.</p>
+      <p>I’m a writer and librarian though, so a website is a must (for now.)</p>
+      <p>Big Content Energy was a placeholder name for a project I decided to start during COVID. I bought the website domain for ten years.</p>
+      <p>I didn’t know what I was going to build, I just knew I wanted to do something for fun on the side.</p>
+      <p>When I finally got around to building, I had lost access due to hacking and a merger and acquisition.</p>
+      <p>It might not be a usable product for the masses, but this portfolio is MY Product. And I earned the domain name, not just by buying it. By fighting for it when it was taken from me. I did the Vogon paperwork. I kept trying.</p>
+      <p>And I will always keep trying even if it’s something silly like a website, that I fucking own. That I can say whatever I want on.</p>
+      <p>Because</p>
+      <p class="freedom">FREEDOM!</p>
+      <p class="prosper">Live long and prosper FOR REAL.</p>
     </div>
-
-    <section class="about-section" id="about">
-      <h2>About</h2>
-      <div class="placeholder" contenteditable="false">
-        <strong>Placeholder — fill this in later</strong>
-        This is the about section. Drop your bio, origin story, what you build, what you won’t do, and anything else that belongs here. The page is wired; the words are yours.
-      </div>
-    </section>
-
-    <section class="about-section" id="more">
-      <h2>More later</h2>
-      <div class="placeholder">
-        <strong>Optional second block</strong>
-        Press, contact notes, CV links, or a longer timeline can live here when you’re ready.
-      </div>
-    </section>
 
     <div class="back-row">
       <a href="index.html">← Back to the archive</a>
