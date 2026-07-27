@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('bce-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Journal • Big Content Energy</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    .journal-list{list-style:none;margin:1.5rem 0 0;padding:0;}
+    .journal-list li{border-bottom:1px solid var(--border);}
+    .journal-list a{display:flex;flex-wrap:wrap;gap:.15rem 1.25rem;align-items:baseline;text-decoration:none;color:var(--text);padding:.9rem .25rem;}
+    .journal-list a:hover{color:var(--text-strong);}
+    .journal-list .j-date{color:var(--accent);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;min-width:9rem;}
+    .journal-list .j-title{font-size:1.05rem;}
+    .journal-list a:hover .j-title{text-decoration:underline;}
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="../../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span><span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">BIG CONTENT ENERGY</div>
+    <h1>Daily Journal</h1>
+    <p>Short, informal entries. Newest first.</p>
+    <ul class="journal-list">
+<!--ENTRIES-->
+<li><a href="2026-07-27-first-home-built-wysiwyg-test.html"><span class="j-date">July 27, 2026</span><span class="j-title">First Home Built WYSIWYG Test</span></a></li>
+<!--/ENTRIES-->
+    </ul>
+    <footer class="note"><p><a href="../../index.html">Return to Big Content Energy Archive</a></p></footer>
+  </article>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>
