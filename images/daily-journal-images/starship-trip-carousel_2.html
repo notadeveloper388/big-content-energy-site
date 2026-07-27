@@ -1,0 +1,211 @@
+<!-- ============================================================
+     Starship Trip Carousel — compact, dependency-free embed
+     Drop this block anywhere in your article's HTML/Markdown-as-HTML.
+     Images referenced from: images/journal/  (adjust IMG_BASE below
+     to match wherever you upload the .webp files in your repo)
+     ============================================================ -->
+<div class="stc-wrap" id="stc-1">
+  <style>
+    #stc-1 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-1 * { box-sizing: border-box; }
+    #stc-1 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-1 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-1 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-1 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-1 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-1 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-1 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-1 .stc-prev { left: 8px; }
+    #stc-1 .stc-next { right: 8px; }
+    #stc-1 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-1 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-1 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-1 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-1 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-1 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-1 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-1-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-1-caption"></p>
+    <span class="stc-count" id="stc-1-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-1-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "images/daily-journal-images/"; // <-- matches your repo path
+
+    var slides = [
+      { file: "atlanta-spaceship.webp", caption: "Atlanta layover — this spire had rocket energy before we even hit Texas." },
+      { file: "open-road.webp", caption: "Open road, Texas-bound." },
+      { file: "south-padre-island-beach.webp", caption: "South Padre Island beach, seaweed rows and all." },
+      { file: "next-time-go-to-starbase-duh.webp", caption: "Starbase from way across the water. Next time, go to Starbase. Duh." },
+      { file: "don't-take-it-for-granite.webp", caption: "Jetty granite, up close. Don't take it for granite." },
+      { file: "south-padre-island.webp", caption: "South Padre Island, rocket optional backdrop." },
+      { file: "starbase-texas-roadside-rocket-view.webp", caption: "Boat tour past the towers, best rocket view of the day." },
+      { file: "july4-grid-wide-v2.jpg", caption: "Fourth of July, trip edition." },
+      { file: "godfathers-pizza-a-jest-font-choices-matter-too.webp", caption: "Godfather's Pizza at night — turns out font choices are a jest, but they matter too." },
+      { file: "godfathers-ass-lol.webp", caption: "Car selfie, neon sign doing its own thing in the background. Lol." },
+      { file: "home-office.webp", caption: "Home office corner — TRX bands, weights, and an ambitious to-read shelf." },
+      { file: "selfie-home.webp", caption: "Home safe, thoroughly sunburned." }
+    ];
+
+    var track = document.getElementById("stc-1-track");
+    var dotsEl = document.getElementById("stc-1-dots");
+    var captionEl = document.getElementById("stc-1-caption");
+    var countEl = document.getElementById("stc-1-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    // touch swipe
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
