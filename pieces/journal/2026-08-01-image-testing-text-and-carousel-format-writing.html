@@ -4,7 +4,7 @@
   <script>(function(){try{var t=localStorage.getItem('bce-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Image Testing Text and Carousel Format: Writing • Big Content Energy</title>
+  <title>Curation, Creation, and Making Something Beautiful from Something Painful • Big Content Energy</title>
   <link rel="stylesheet" href="../../assets/piece.css" />
 <style>
 .body h2{font-family:'Playfair Display',Georgia,serif;color:var(--text-strong);font-size:1.4rem;line-height:1.2;margin:2rem 0 .75rem;}
@@ -34,7 +34,7 @@
   </nav>
   <article class="piece">
     <div class="meta">DAILY JOURNAL • August 1, 2026</div>
-    <h1>Image Testing Text and Carousel Format: Writing</h1>
+    <h1>Curation, Creation, and Making Something Beautiful from Something Painful</h1>
     <div class="body">
 <div class="nb-embed-wrap" data-nb-embed>
 <div class="stc-wrap" id="stc-c1">
@@ -153,8 +153,8 @@
     <div class="stc-track" id="stc-c1-track">
       <!-- IMG_BASE: change this path to wherever the images live in your repo -->
     </div>
-    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
-    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+    <button class="stc-btn stc-prev" aria-label="Previous image">‹</button>
+    <button class="stc-btn stc-next" aria-label="Next image">›</button>
   </div>
 
   <div class="stc-meta">
@@ -251,7 +251,1424 @@
   })();
   </script>
 </div>
-</div><p><br></p><div><br><div><br></div><div><br></div><div><br></div></div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c2">
+  <style>
+    #stc-c2 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c2 * { box-sizing: border-box; }
+    #stc-c2 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c2 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c2 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c2 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c2 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c2 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c2 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c2 .stc-prev { left: 8px; }
+    #stc-c2 .stc-next { right: 8px; }
+    #stc-c2 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c2 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c2 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c2 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c2 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c2 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c2 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c2-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c2-caption"></p>
+    <span class="stc-count" id="stc-c2-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c2-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/the-fire-psyche-cupid/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "cupid-psyche-post-fire-1.jpg", caption: "cupid-psyche-post-fire-1" },
+      { file: "cupid-psyche-post-fire-2.jpg", caption: "cupid-psyche-post-fire-2" },
+      { file: "psyche-and-cupid.jpg", caption: "psyche-and-cupid" },
+      { file: "psyche-cupid-2.jpg", caption: "psyche-cupid-2" },
+      { file: "psyche-cupid-close-3.jpg", caption: "psyche-cupid-close-3" },
+      { file: "psyche-cupid-close-up-3.jpg", caption: "psyche-cupid-close-up-3" },
+      { file: "psyche-cupid-pre-fire-also-message.jpg", caption: "psyche-cupid-pre-fire-also-message" }
+    ];
+
+    var track = document.getElementById("stc-c2-track");
+    var dotsEl = document.getElementById("stc-c2-dots");
+    var captionEl = document.getElementById("stc-c2-caption");
+    var countEl = document.getElementById("stc-c2-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c3">
+  <style>
+    #stc-c3 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c3 * { box-sizing: border-box; }
+    #stc-c3 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c3 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c3 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c3 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c3 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c3 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c3 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c3 .stc-prev { left: 8px; }
+    #stc-c3 .stc-next { right: 8px; }
+    #stc-c3 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c3 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c3 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c3 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c3 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c3 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c3 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c3-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c3-caption"></p>
+    <span class="stc-count" id="stc-c3-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c3-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/selfies/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "crystal-bridges-unknown-date-arkansas-selfie.jpg", caption: "crystal-bridges-unknown-date-arkansas-selfie" },
+      { file: "cupid-psyche-and-army-painting-circa-2012-norman-oklahoma.jpg", caption: "cupid-psyche-and-army-painting-circa-2012-norman-oklahoma" },
+      { file: "harry-potter-quidditch-mirror-selfie-photography.jpg", caption: "harry-potter-quidditch-mirror-selfie-photography" },
+      { file: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media-2.jpg", caption: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media-2" },
+      { file: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media-3.jpg", caption: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media-3" },
+      { file: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media.jpg", caption: "i-am-the-fire-self-portrait-army-painting-photography-digital-manipulation-mixed-media" },
+      { file: "mirror-selfie-2011-oklahoma-city.jpg", caption: "mirror-selfie-2011-oklahoma-city" },
+      { file: "mirror-selfie-photograph-light-oklahoma-city-circa-2007or2008.jpg", caption: "mirror-selfie-photograph-light-oklahoma-city-circa-2007or2008" },
+      { file: "personal-ephemera-hiking-paddleboarding-backpack-clean-out-photography-still-image.jpg", caption: "personal-ephemera-hiking-paddleboarding-backpack-clean-out-photography-still-image" },
+      { file: "photography-in-the-library.jpg", caption: "photography-in-the-library" },
+      { file: "selfie-by-the-fire-photography.jpg", caption: "selfie-by-the-fire-photography" },
+      { file: "selfie-photograph-on-rug.jpg", caption: "selfie-photograph-on-rug" },
+      { file: "trying-to-understand-everything.jpg", caption: "trying-to-understand-everything" },
+      { file: "vulcan-salute-automated-selfie-garage-gym-circa-2021-2022.jpg", caption: "vulcan-salute-automated-selfie-garage-gym-circa-2021-2022" },
+      { file: "vulcan-salute-samsung-photo-command-selfie-ai-automation.jpg", caption: "vulcan-salute-samsung-photo-command-selfie-ai-automation" }
+    ];
+
+    var track = document.getElementById("stc-c3-track");
+    var dotsEl = document.getElementById("stc-c3-dots");
+    var captionEl = document.getElementById("stc-c3-caption");
+    var countEl = document.getElementById("stc-c3-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c4">
+  <style>
+    #stc-c4 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c4 * { box-sizing: border-box; }
+    #stc-c4 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c4 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c4 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c4 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c4 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c4 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c4 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c4 .stc-prev { left: 8px; }
+    #stc-c4 .stc-next { right: 8px; }
+    #stc-c4 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c4 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c4 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c4 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c4 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c4 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c4 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c4-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c4-caption"></p>
+    <span class="stc-count" id="stc-c4-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c4-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/sculpture-in-situ-pieces/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "architecture-paris-arc-de-triumph.jpg", caption: "architecture-paris-arc-de-triumph" },
+      { file: "dollar-store-grave-tombstone-light-art-installation-bedroom.jpg", caption: "dollar-store-grave-tombstone-light-art-installation-bedroom" },
+      { file: "medusa-garden-sculpture-art-collection-2.jpg", caption: "medusa-garden-sculpture-art-collection-2" },
+      { file: "Medusa-garden-sculpture-art-collection.jpg", caption: "Medusa-garden-sculpture-art-collection" },
+      { file: "political-message-covid-and-recreational-drug-message-2.jpg", caption: "political-message-covid-and-recreational-drug-message-2" },
+      { file: "political-message-covid-and-recreational-drug-message.jpg", caption: "political-message-covid-and-recreational-drug-message" },
+      { file: "political-message-covid-era-circa-2021-2.jpg", caption: "political-message-covid-era-circa-2021-2" },
+      { file: "political-message-covid-era-circa-2021.jpg", caption: "political-message-covid-era-circa-2021" }
+    ];
+
+    var track = document.getElementById("stc-c4-track");
+    var dotsEl = document.getElementById("stc-c4-dots");
+    var captionEl = document.getElementById("stc-c4-caption");
+    var countEl = document.getElementById("stc-c4-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c5">
+  <style>
+    #stc-c5 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c5 * { box-sizing: border-box; }
+    #stc-c5 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c5 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c5 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c5 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c5 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c5 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c5 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c5 .stc-prev { left: 8px; }
+    #stc-c5 .stc-next { right: 8px; }
+    #stc-c5 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c5 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c5 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c5 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c5 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c5 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c5 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c5-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c5-caption"></p>
+    <span class="stc-count" id="stc-c5-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c5-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/paintings/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "art-auction-painting-by-stark-toy-museum-from-movie-blazing-saddles.jpg", caption: "art-auction-painting-by-stark-toy-museum-from-movie-blazing-saddles" },
+      { file: "art-with-sophia-on-the-porch-circa-2011-oklahoma-city-brain-scan.jpg", caption: "art-with-sophia-on-the-porch-circa-2011-oklahoma-city-brain-scan" },
+      { file: "farm-barbed-wire-fence-found-object-mixed-media-painting-1.jpg", caption: "farm-barbed-wire-fence-found-object-mixed-media-painting-1" },
+      { file: "farm-barbed-wire-fence-found-object-mixed-media-painting-2.jpg", caption: "farm-barbed-wire-fence-found-object-mixed-media-painting-2" },
+      { file: "message-of-hope-circa-2021-2022.jpg", caption: "message-of-hope-circa-2021-2022" },
+      { file: "my-name-in-light-copper-2.jpg", caption: "my-name-in-light-copper-2" },
+      { file: "paint-on-bedsheet-canvas-double-exclaim-hello-.jpg", caption: "paint-on-bedsheet-canvas-double-exclaim-hello-" },
+      { file: "paint-on-bedsheet-canvas-double-exclaim-hello-x-twitter.HEIC.jpg", caption: "paint-on-bedsheet-canvas-double-exclaim-hello-x-twitter.HEIC" },
+      { file: "paint-on-bedsheet-canvas-double-exclaim-hello-x-twitter.jpg", caption: "paint-on-bedsheet-canvas-double-exclaim-hello-x-twitter" },
+      { file: "painting-mixed-media-garden-.jpg", caption: "painting-mixed-media-garden-" },
+      { file: "personal-art-collection-destroyed-by-ex-during-verbal-disagreement.jpg", caption: "personal-art-collection-destroyed-by-ex-during-verbal-disagreement" }
+    ];
+
+    var track = document.getElementById("stc-c5-track");
+    var dotsEl = document.getElementById("stc-c5-dots");
+    var captionEl = document.getElementById("stc-c5-caption");
+    var countEl = document.getElementById("stc-c5-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c6">
+  <style>
+    #stc-c6 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c6 * { box-sizing: border-box; }
+    #stc-c6 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c6 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c6 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c6 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c6 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c6 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c6 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c6 .stc-prev { left: 8px; }
+    #stc-c6 .stc-next { right: 8px; }
+    #stc-c6 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c6 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c6 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c6 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c6 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c6 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c6 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c6-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c6-caption"></p>
+    <span class="stc-count" id="stc-c6-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c6-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/misc/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "art-sample-circa-covid-era-2021.jpg", caption: "art-sample-circa-covid-era-2021" },
+      { file: "brazil-street-art-2015-dublin-core-metadata-conference-visit.jpg", caption: "brazil-street-art-2015-dublin-core-metadata-conference-visit" },
+      { file: "gum-wrapper-oragami-photograph.jpg", caption: "gum-wrapper-oragami-photograph" },
+      { file: "morning-glory-garden-digital-adaptation.jpg", caption: "morning-glory-garden-digital-adaptation" },
+      { file: "the-dazzler-comic-book-inspo-antique-store-find.jpg", caption: "the-dazzler-comic-book-inspo-antique-store-find" },
+      { file: "tick-borne-illness-exploration-digital-manipulation-mixed-media-from-hand-drawn-sketch-1.jpg", caption: "tick-borne-illness-exploration-digital-manipulation-mixed-media-from-hand-drawn-sketch-1" },
+      { file: "tick-borne-illness-exploration-digital-manipulation-mixed-media-from-hand-drawn-sketch-2.jpg", caption: "tick-borne-illness-exploration-digital-manipulation-mixed-media-from-hand-drawn-sketch-2" },
+      { file: "triangles-light-exploration-photograph-full-concept-is-video.jpg", caption: "triangles-light-exploration-photograph-full-concept-is-video" },
+      { file: "wet-plate-colloadian-amsterdam-circa-2017-2018.jpg", caption: "wet-plate-colloadian-amsterdam-circa-2017-2018" },
+      { file: "winner-taco-1st-meal-after-giving-birth-to-my-son.jpg", caption: "winner-taco-1st-meal-after-giving-birth-to-my-son" }
+    ];
+
+    var track = document.getElementById("stc-c6-track");
+    var dotsEl = document.getElementById("stc-c6-dots");
+    var captionEl = document.getElementById("stc-c6-caption");
+    var countEl = document.getElementById("stc-c6-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c7">
+  <style>
+    #stc-c7 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c7 * { box-sizing: border-box; }
+    #stc-c7 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c7 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c7 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c7 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c7 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c7 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c7 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c7 .stc-prev { left: 8px; }
+    #stc-c7 .stc-next { right: 8px; }
+    #stc-c7 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c7 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c7 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c7 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c7 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c7 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c7 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c7-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c7-caption"></p>
+    <span class="stc-count" id="stc-c7-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c7-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/lamp-photos-carousel/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "supplies-for-lamp-project-rebuild-2.jpg", caption: "supplies-for-lamp-project-rebuild-2" },
+      { file: "supplies-for-lamp-project-rebuild-3.jpg", caption: "supplies-for-lamp-project-rebuild-3" },
+      { file: "supplies-for-lamp-project-rebuild-4.jpg", caption: "supplies-for-lamp-project-rebuild-4" },
+      { file: "supplies-for-lamp-project-rebuild-5.jpg", caption: "supplies-for-lamp-project-rebuild-5" },
+      { file: "supplies-for-lamp-project-rebuild-6.jpg", caption: "supplies-for-lamp-project-rebuild-6" },
+      { file: "supplies-for-lamp-project-rebuild-7.jpg", caption: "supplies-for-lamp-project-rebuild-7" },
+      { file: "supplies-for-lamp-project-rebuild-8.jpg", caption: "supplies-for-lamp-project-rebuild-8" },
+      { file: "supplies-for-lamp-project-rebuild-9.jpg", caption: "supplies-for-lamp-project-rebuild-9" },
+      { file: "supplies-for-lamp-project-rebuild-10.jpg", caption: "supplies-for-lamp-project-rebuild-10" },
+      { file: "supplies-for-lamp-project-rebuild.jpg", caption: "supplies-for-lamp-project-rebuild" }
+    ];
+
+    var track = document.getElementById("stc-c7-track");
+    var dotsEl = document.getElementById("stc-c7-dots");
+    var captionEl = document.getElementById("stc-c7-caption");
+    var countEl = document.getElementById("stc-c7-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><div class="nb-embed-wrap" data-nb-embed>
+<div class="stc-wrap" id="stc-c8">
+  <style>
+    #stc-c8 {
+      --stc-ink: #10151c;
+      --stc-panel: #161d27;
+      --stc-paper: #f4f1ea;
+      --stc-amber: #e8a83c;
+      --stc-line: #2a3341;
+      --stc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --stc-serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      font-family: var(--stc-serif);
+      color: var(--stc-paper);
+    }
+    #stc-c8 * { box-sizing: border-box; }
+    #stc-c8 .stc-frame {
+      position: relative;
+      background: var(--stc-ink);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--stc-line);
+    }
+    #stc-c8 .stc-track {
+      display: flex;
+      transition: transform .38s cubic-bezier(.65,0,.35,1);
+      touch-action: pan-y;
+    }
+    #stc-c8 .stc-slide {
+      flex: 0 0 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--stc-panel);
+    }
+    #stc-c8 .stc-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    #stc-c8 .stc-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--stc-line);
+      background: rgba(16,21,28,.72);
+      color: var(--stc-paper);
+      font-family: var(--stc-mono);
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(2px);
+      transition: background .15s ease, border-color .15s ease;
+    }
+    #stc-c8 .stc-btn:hover { background: rgba(232,168,60,.18); border-color: var(--stc-amber); }
+    #stc-c8 .stc-btn:focus-visible { outline: 2px solid var(--stc-amber); outline-offset: 2px; }
+    #stc-c8 .stc-prev { left: 8px; }
+    #stc-c8 .stc-next { right: 8px; }
+    #stc-c8 .stc-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: 10px 4px 4px;
+    }
+    #stc-c8 .stc-caption {
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--stc-paper);
+      opacity: .88;
+      margin: 0;
+      flex: 1;
+    }
+    #stc-c8 .stc-count {
+      font-family: var(--stc-mono);
+      font-size: 11px;
+      letter-spacing: .05em;
+      color: var(--stc-amber);
+      white-space: nowrap;
+    }
+    #stc-c8 .stc-dots {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    #stc-c8 .stc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--stc-line);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    #stc-c8 .stc-dot[aria-current="true"] {
+      background: var(--stc-amber);
+      transform: scale(1.5);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stc-c8 .stc-track { transition: none; }
+    }
+  </style>
+
+  <div class="stc-frame">
+    <div class="stc-track" id="stc-c8-track">
+      <!-- IMG_BASE: change this path to wherever the images live in your repo -->
+    </div>
+    <button class="stc-btn stc-prev" aria-label="Previous image">&#8249;</button>
+    <button class="stc-btn stc-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <div class="stc-meta">
+    <p class="stc-caption" id="stc-c8-caption"></p>
+    <span class="stc-count" id="stc-c8-count"></span>
+  </div>
+  <div class="stc-dots" id="stc-c8-dots"></div>
+
+  <script>
+  (function () {
+    var IMG_BASE = "/beauty-truth-curiousity-images-compressed/hand-drawings/"; // root-absolute so it works from /pieces/journal/
+
+    var slides = [
+      { file: "derek-hess-inspired-hand-sketch.jpg", caption: "derek-hess-inspired-hand-sketch" },
+      { file: "derek-hess-inspo.jpg", caption: "derek-hess-inspo" },
+      { file: "hand-drawing-attention-eyes-deso-period.jpg", caption: "hand-drawing-attention-eyes-deso-period" },
+      { file: "pen-art-on-instruction-manual-joke.jpg", caption: "pen-art-on-instruction-manual-joke" },
+      { file: "picture-I-drew-after-he-destroyed-our-framed-family-photo.jpg", caption: "picture-I-drew-after-he-destroyed-our-framed-family-photo" }
+    ];
+
+    var track = document.getElementById("stc-c8-track");
+    var dotsEl = document.getElementById("stc-c8-dots");
+    var captionEl = document.getElementById("stc-c8-caption");
+    var countEl = document.getElementById("stc-c8-count");
+    var frame = track.parentElement;
+    var prevBtn = frame.querySelector(".stc-prev");
+    var nextBtn = frame.querySelector(".stc-next");
+    var idx = 0;
+
+    slides.forEach(function (s, i) {
+      var slide = document.createElement("div");
+      slide.className = "stc-slide";
+      var img = document.createElement("img");
+      img.src = IMG_BASE + s.file;
+      img.alt = s.caption;
+      img.loading = i === 0 ? "eager" : "lazy";
+      img.decoding = "async";
+      slide.appendChild(img);
+      track.appendChild(slide);
+
+      var dot = document.createElement("button");
+      dot.className = "stc-dot";
+      dot.setAttribute("aria-label", "Go to image " + (i + 1));
+      dot.addEventListener("click", function () { go(i); });
+      dotsEl.appendChild(dot);
+    });
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (idx * 100) + "%)";
+      captionEl.textContent = slides[idx].caption;
+      countEl.textContent = String(idx + 1).padStart(2, "0") + " / " + slides.length;
+      Array.prototype.forEach.call(dotsEl.children, function (d, i2) {
+        d.setAttribute("aria-current", i2 === idx ? "true" : "false");
+      });
+    }
+
+    prevBtn.addEventListener("click", function () { go(idx - 1); });
+    nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    frame.setAttribute("tabindex", "0");
+    frame.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(idx - 1);
+      if (e.key === "ArrowRight") go(idx + 1);
+    });
+
+    var startX = null;
+    track.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    go(0);
+  })();
+  </script>
+</div>
+</div><p><br></p><div><div><p style="margin:0">This is a small sample of art from the past few years. They serve as personal prompts of time and place for my critical thinking about art, memory, and what I value beyond what should be painfully obvious (appreciation for family, human connection, love, doing good in the world, etc.) These days, it feels like you have to be a little too specific to even speak or write anything.&nbsp;</p><p style="margin:0"><br></p><p style="margin:0">If you come to the table with questions, not comments, good.&nbsp;</p><p style="margin:0"><br></p><p style="margin:0">I tried to keep my selections to the realm of art as message. I think I probably have a zillion questions about each picture myself.</p></div></div><div><br></div><div><br><div><br></div><div><br></div><div><br></div></div>
     </div>
     <footer class="note">
       <p><a href="index.html">← Back to the Daily Journal</a></p>
