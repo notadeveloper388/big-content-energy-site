@@ -14,6 +14,25 @@
     .journal-list .j-date{color:var(--accent);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;min-width:9rem;}
     .journal-list .j-title{font-size:1.05rem;}
     .journal-list a:hover .j-title{text-decoration:underline;}
+    /* Glitter on mouseover */
+    .journal-list a{position:relative;overflow:hidden;}
+    .journal-list a::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;
+      background-image:
+        radial-gradient(circle,#ffe9a8 0 1px,transparent 1.6px),
+        radial-gradient(circle,#ff9ad5 0 1px,transparent 1.6px),
+        radial-gradient(circle,#9fe8ff 0 1.2px,transparent 1.8px),
+        radial-gradient(circle,#c7a6ff 0 .9px,transparent 1.5px),
+        radial-gradient(circle,#fff 0 .8px,transparent 1.4px);
+      background-size:23px 19px,37px 29px,31px 41px,47px 23px,53px 37px;
+      background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;
+      filter:drop-shadow(0 0 2px rgba(255,233,168,.8));
+      animation:bce-glitter 1.6s steps(8) infinite;animation-play-state:paused;}
+    .journal-list a:hover::after,.journal-list a:focus-visible::after{opacity:.85;animation-play-state:running;}
+    @keyframes bce-glitter{
+      0%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}
+      50%{background-position:7px 5px,3px 15px,13px 9px,27px 11px,17px 23px;}
+      100%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}}
+    @media (prefers-reduced-motion: reduce){.journal-list a::after{animation:none;transition:none;}}
   </style>
 </head>
 <body>
