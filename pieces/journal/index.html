@@ -231,15 +231,15 @@
     </a></figure>
   </aside>
   <script>
-    /* one ad per page view; ?ad=<name> forces a specific one */
+    /* right rail: revival and Player Two stacked by default (evens out the left rail); ?ad=<name> forces a single ad */
     (function () {
       var slot = document.querySelector('.bce-ad-slot'); if (!slot) return;
       var ads = slot.querySelectorAll('.bce-ad'); if (!ads.length) return;
       var want = null; try { want = new URLSearchParams(location.search).get('ad'); } catch (e) {}
       var pick = -1;
       for (var i = 0; i < ads.length; i++) if (ads[i].getAttribute('data-ad') === want) pick = i;
-      if (pick < 0) pick = 0; /* revival leads */
-      for (var j = 0; j < ads.length; j++) ads[j].hidden = (j !== pick);
+      if (pick >= 0) { for (var j = 0; j < ads.length; j++) ads[j].hidden = (j !== pick); return; }
+      for (var k = 0; k < ads.length; k++) { var n = ads[k].getAttribute('data-ad'); ads[k].hidden = !(n === 'revival' || n === 'playertwo'); }
     })();
   </script>
   <aside class="bce-ad-slot bce-ad-slot--left" aria-label="Advertisement">
@@ -313,13 +313,12 @@
     </a></figure>
   </aside>
   <script>
-    /* left rail: all ads stacked at once (hobby, trust, fun, playertwo); hides only an ad already shown in the right rail; no-JS shows all */
+    /* left rail: ads stacked at once (hobby, trust, fun by default); hides any ad already shown in the right rail */
     (function () {
       var left = document.querySelector('.bce-ad-slot--left'); if (!left) return;
       var ads = left.querySelectorAll('.bce-ad'); if (!ads.length) return;
-      var shown = document.querySelector('.bce-ad-slot:not(.bce-ad-slot--left) .bce-ad:not([hidden])');
-      shown = shown ? shown.getAttribute('data-ad') : null;
-      for (var j = 0; j < ads.length; j++) ads[j].hidden = (ads[j].getAttribute('data-ad') === shown);
+      var shown = [].map.call(document.querySelectorAll('.bce-ad-slot:not(.bce-ad-slot--left) .bce-ad:not([hidden])'), function (e) { return e.getAttribute('data-ad'); });
+      for (var j = 0; j < ads.length; j++) ads[j].hidden = (shown.indexOf(ads[j].getAttribute('data-ad')) >= 0);
     })();
   </script>
   </div>
