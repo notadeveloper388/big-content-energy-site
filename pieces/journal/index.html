@@ -212,6 +212,61 @@
       for (var j = 0; j < ads.length; j++) ads[j].hidden = (j !== pick);
     })();
   </script>
+  <aside class="bce-ad-slot bce-ad-slot--left" aria-label="Advertisement">
+    <span class="bce-ad-slot__label">Advertisement</span>
+
+    <!-- NEW HOBBY -------------------------------------------------------- -->
+    <figure class="bce-ad bce-ad--hobby" data-ad="hobby"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <p class="bce-ad__kicker">New Hobby Wanted</p>
+        <p class="bce-ad__grot hobby-h1">Build.</p>
+        <img class="hobby-img" src="../../images/ads/journal/hobby-erector-engineers-1916.png" width="199" height="240"
+             alt="1916 newspaper cut of two boys building a steel toy tower and railway, captioned Hello Boys, Become Erector Engineers" />
+        <div class="coupon">
+          <p class="coupon__head">&#9986; Check one<br />(or all)</p>
+          <ul>
+            <li>What do I make?</li>
+            <li>What do I write?</li>
+            <li>What do I put together?</li>
+            <li>What do I decorate?</li>
+            <li>What do I build?</li>
+          </ul>
+        </div>
+        <p class="bce-ad__grot hobby-no bce-ad__push">No instructions.</p>
+        <p class="hobby-sub">Just the information and instructions you already had built inside of you.</p>
+      </div>
+    </a></figure>
+
+    <!-- ACCOUNTABILITY (filler) ------------------------------------------ -->
+    <figure class="bce-ad bce-ad--trust" data-ad="trust" hidden><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <p class="bce-ad__band bce-ad__disp trust-band">Trust.</p>
+        <img class="trust-watch" src="../../images/ads/journal/accountability-schleicker-watch-1911.png" width="133" height="189"
+             alt="1911 newspaper engraving of an open-face pocket watch" />
+        <p class="bce-ad__grot trust-line">Timestamps.</p>
+        <p class="bce-ad__grot trust-line">Exact words.</p>
+        <hr class="bce-ad__rule bce-ad__rule--thin" />
+        <p class="bce-ad__disp trust-or">Or it doesn&rsquo;t matter.</p>
+        <hr class="bce-ad__rule bce-ad__rule--double bce-ad__push" />
+        <p class="bce-ad__kicker">The Accountability Co.</p>
+        <p class="bce-ad__fine">Est. September 10, 2026</p>
+      </div>
+    </a></figure>
+  </aside>
+  <script>
+    /* left rail: hobby leads, trust is the fallback; never repeats the right-rail ad; ?left=hobby|trust */
+    (function () {
+      var left = document.querySelector('.bce-ad-slot--left'); if (!left) return;
+      var ads = left.querySelectorAll('.bce-ad'); if (!ads.length) return;
+      var shown = document.querySelector('.bce-ad-slot:not(.bce-ad-slot--left) .bce-ad:not([hidden])');
+      shown = shown ? shown.getAttribute('data-ad') : null;
+      var want = null; try { want = new URLSearchParams(location.search).get('left'); } catch (e) {}
+      var pick = -1, i;
+      for (i = 0; i < ads.length; i++) if (ads[i].getAttribute('data-ad') === want && want !== shown) pick = i;
+      if (pick < 0) for (i = 0; i < ads.length; i++) if (ads[i].getAttribute('data-ad') !== shown) { pick = i; break; }
+      for (var j = 0; j < ads.length; j++) ads[j].hidden = (j !== pick);
+    })();
+  </script>
   </div>
   <script src="../../assets/theme.js"></script>
 </body>
