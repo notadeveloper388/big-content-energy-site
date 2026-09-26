@@ -415,7 +415,49 @@
         .bg-\[\#0f0a08\]\/95 { background-color: var(--bg-nav) !important; }
         .hover\:bg-\[\#1a140f\]:hover { background-color: var(--bg-elevated) !important; }
         .hover\:text-\[\#8b6f47\]:hover { color: var(--accent) !important; }
-    </style>
+    /* Ad-unit style card: one slot, one fixed format */
+.ad-unit {
+    position: relative;
+    display: flex;                    /* overrides .text-card display:block */
+    align-items: center;
+    gap: 1.25rem;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ad-unit__thumb {
+    flex: 0 0 112px;                  /* fixed slot, never shrinks or grows */
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 1px solid var(--card-accent);
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 var(--polaroid-shadow);
+    filter: brightness(0.88) contrast(1.05);   /* tames the grey so it sits in the dark theme */
+    transition: filter 0.2s ease;
+}
+.ad-unit__body { min-width: 0; flex: 1 1 auto; }
+.ad-unit__sponsored {              /* in-flow line above the label: never overlaps */
+    display: block;
+    margin-bottom: 0.625rem;          /* 10px gap to the title */
+    font-size: 0.625rem;              /* 10px */
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);             /* #a08858 on #1c1915 = 5.1:1 */
+}
+.ad-unit:hover { background-color: #221e19; }
+.ad-unit:hover .ad-unit__thumb { filter: none; }
+.ad-unit:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .ad-unit, .ad-unit__thumb { transition: none; }
+}
+</style>
 </head>
 <body>
     <nav class="site-nav sticky top-0 z-50">
@@ -833,10 +875,13 @@
         </div>
         
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-            <a href="pieces/journal/index.html" class="text-card p-6">
-                <div class="text-xs text-[#8b6f47]">DAILY JOURNAL</div>
-                <div class="font-semibold mt-2 text-lg text-[#e8dcc8]">Daily Journal</div>
-                <div class="text-sm mt-2 text-[#a38b6e]">A running, informal log — short daily entries and reflections, newest first.</div>
+            <a href="https://bigcontentenergy.com" class="text-card ad-unit p-6">
+                <img src="images/bce-pen.jpg" class="ad-unit__thumb" alt="Big Content Energy pen" width="112" height="112" loading="lazy">
+                <span class="ad-unit__body">
+                    <span class="ad-unit__sponsored">Sponsored by Zyn Peppermint 6mg, STOK Unsweet Iced Coffee, Headphones, and Coors Light</span>
+                    <span class="block font-semibold text-lg text-[#e8dcc8]">Daily Journal</span>
+                    <span class="block text-sm mt-2 text-[#a38b6e]">A running, informal log — short daily entries and reflections, newest first.</span>
+                </span>
             </a>
             <a href="pieces/tacit-knowledge.html" class="text-card p-6">
                 <div class="text-xs text-[#8b6f47]">NOVEMBER 2025</div>
