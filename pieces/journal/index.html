@@ -16,7 +16,9 @@
     .journal-list a:hover .j-title{text-decoration:underline;}
     /* Glitter on mouseover */
     .journal-list a{position:relative;overflow:hidden;}
-    .journal-list a::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;
+    .journal-list .j-title{position:relative;flex-grow:1;}
+    .journal-list .j-date{position:relative;z-index:1;background:var(--bg);box-shadow:0 0 0 .35rem var(--bg);}
+    .journal-list .j-title::after{content:"";position:absolute;inset:-.5rem -.25rem -.9rem -.6rem;pointer-events:none;opacity:0;transition:opacity .35s ease;
       background-image:
         radial-gradient(circle,#ffe9a8 0 1px,transparent 1.6px),
         radial-gradient(circle,#ff9ad5 0 1px,transparent 1.6px),
@@ -27,14 +29,14 @@
       background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;
       filter:drop-shadow(0 0 2px rgba(255,233,168,.8));
       animation:bce-glitter 1.6s steps(8) infinite;animation-play-state:paused;}
-    .journal-list a:hover::after,.journal-list a:focus-visible::after{opacity:.85;animation-play-state:running;}
+    .journal-list a:hover .j-title::after,.journal-list a:focus-visible .j-title::after{opacity:.85;animation-play-state:running;}
     @keyframes bce-glitter{
       0%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}
       50%{background-position:7px 5px,3px 15px,13px 9px,27px 11px,17px 23px;}
       100%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}}
-    @media (prefers-reduced-motion: reduce){.journal-list a::after{animation:none;transition:none;}}
+    @media (prefers-reduced-motion: reduce){.journal-list .j-title::after{animation:none;transition:none;}}
     /* Stray glitter bits that wander off */
-    .journal-list a::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;
+    .journal-list .j-title::before{content:"";position:absolute;inset:-.5rem -.25rem -.9rem -.6rem;pointer-events:none;opacity:0;transition:opacity .35s ease;
       background-repeat:no-repeat;
       background-image:
         radial-gradient(circle,#fff6d0 0 1.8px,transparent 2.6px),
@@ -48,13 +50,13 @@
       background-position:7% 20%,23% 85%,41% 10%,58% 70%,72% 30%,86% 90%,95% 45%;
       filter:drop-shadow(0 0 3px rgba(255,233,168,.9));
       animation:bce-stray 3.7s ease-in-out infinite alternate;animation-play-state:paused;}
-    .journal-list a:hover::before,.journal-list a:focus-visible::before{opacity:1;animation-play-state:running;}
+    .journal-list a:hover .j-title::before,.journal-list a:focus-visible .j-title::before{opacity:1;animation-play-state:running;}
     @keyframes bce-stray{
       0%{background-position:7% 20%,23% 85%,41% 10%,58% 70%,72% 30%,86% 90%,95% 45%;}
       33%{background-position:11% -10%,19% 120%,47% 35%,52% 110%,79% -20%,83% 60%,99% 10%;}
       66%{background-position:3% 60%,31% 40%,36% -30%,66% 20%,68% 95%,93% 130%,90% 80%;}
       100%{background-position:14% 110%,15% 5%,50% 90%,61% -25%,76% 55%,80% 15%,97% 120%;}}
-    @media (prefers-reduced-motion: reduce){.journal-list a::before{animation:none;transition:none;}}
+    @media (prefers-reduced-motion: reduce){.journal-list .j-title::before{animation:none;transition:none;}}
   </style>
 </head>
 <body>
