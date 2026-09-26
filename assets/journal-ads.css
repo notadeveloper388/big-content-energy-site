@@ -23,12 +23,9 @@
   .bce-journal-wrap > .bce-ad-slot { position: sticky; top: 5.5rem; margin: 2.5rem 0 4rem; }
 }
 
-/* left rail (second skyscraper): three columns once they fit side by side.
-   160 + 2rem + 45rem + 2rem + 160 = 1104px, so 1160px leaves room for the page gutter. */
-@media (min-width: 960px) and (max-width: 1159.98px) {
-  .bce-journal-wrap > .bce-ad-slot--left { display: none; }   /* two-column range: right rail only */
-}
-@media (min-width: 1160px) {
+/* left rail (second skyscraper): three columns from 960px up; the article column
+   narrows below 1160px so both rails always show on desktop. */
+@media (min-width: 960px) {
   .bce-journal-wrap {
     grid-template-columns: 160px minmax(0, 45rem) 160px;
     grid-template-areas: "left main right";
