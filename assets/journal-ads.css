@@ -1,0 +1,205 @@
+/* ==========================================================================
+   BCE journal ads (pieces/journal/index.html)
+   Scoped entirely under .bce-ad-slot / .bce-ad / .bce-journal-wrap.
+   Slot: 160 x 600 px fixed (IAB / Google "wide skyscraper"), same box on
+   desktop + mobile.
+   Fonts: Playfair Display 700 + Instrument Sans (already loaded by piece.css),
+          plus Oswald + Old Standard TT for newsprint display/body type.
+   Type floor inside the ads: body 13px, fine print 12px.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+/* ---- page layout: article + ad rail ------------------------------------ */
+.bce-journal-wrap { display: block; }
+@media (min-width: 960px) {
+  .bce-journal-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 45rem) 160px;   /* 45rem = .piece 42rem + its 1.5rem side padding */
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: start;
+  }
+  .bce-journal-wrap > .piece { margin: 0; width: auto; }
+  .bce-journal-wrap > .bce-ad-slot { position: sticky; top: 5.5rem; margin: 2.5rem 0 4rem; }
+}
+
+/* ---- slot ---------------------------------------------------------------- */
+.bce-ad-slot {
+  width: 160px;
+  margin: 0 auto 3rem;             /* mobile: centred block after the article */
+  flex: 0 0 160px;
+}
+.bce-ad-slot__label {
+  display: block;
+  margin: 0 0 .5rem;
+  font-size: .7rem;                 /* 11.2px, same as .meta */
+  line-height: 18px;                /* whole-pixel height keeps the page below on the pixel grid */
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---- the ad box (one fixed format) --------------------------------------- */
+.bce-ad {
+  --ink: #1c1814;
+  --paper: #dcd3bf;
+  position: relative;
+  box-sizing: border-box;
+  width: 160px;
+  height: 600px;
+  margin: 0;
+  padding: 4px;
+  overflow: hidden;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,250,235,.25) 0%, rgba(120,95,55,.16) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .05 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  border: 1px solid var(--ink);
+  font-family: 'Old Standard TT', Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: center;
+}
+.bce-ad[hidden] { display: none; }
+[data-theme="dark"] .bce-ad { filter: brightness(.88) contrast(1.05); }  /* same taming as .ad-unit__thumb */
+
+/* whole ad is one link; no underline or colour change */
+.bce-ad__link { display: block; height: 100%; color: inherit; text-decoration: none; }
+.bce-ad__link:hover, .bce-ad__link:visited, .bce-ad__link:active { color: inherit; text-decoration: none; }
+.bce-ad__link:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+
+.bce-ad__frame {
+  box-sizing: border-box;
+  height: 100%;
+  border: 3px double var(--ink);
+  padding: 9px 7px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.bce-ad img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  mix-blend-mode: multiply;          /* scan sits in the paper, like print */
+  filter: grayscale(1) contrast(1.06);
+}
+.bce-ad p { margin: 0; }
+
+/* type kit */
+.bce-ad__kicker { font: 500 13px/1.2 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.bce-ad__grot   { font-family: 'Oswald', 'Arial Narrow', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .01em; line-height: 1; }
+.bce-ad__disp   { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.05; }
+.bce-ad__it     { font-style: italic; }
+.bce-ad__rule   { border: 0; border-top: 2px solid var(--ink); margin: 0; flex: none; }
+.bce-ad__rule--thin { border-top-width: 1px; }
+.bce-ad__rule--double { border-top: 4px double var(--ink); }
+.bce-ad__fine   { font-size: 12px; line-height: 1.3; }
+.bce-ad__band   { background: var(--ink); color: var(--paper); padding: 4px 4px 6px; }
+.bce-ad__push   { margin-top: auto; }     /* pins footer to the bottom of the frame */
+
+/* ---- Salary --------------------------------------------------------------- */
+.bce-ad--salary .salary-img { width: 130px; }
+.bce-ad--salary .salary-h1 { font-size: 38px; line-height: .98; }
+.bce-ad--salary .salary-quote { font-size: 21px; font-style: italic; }
+.bce-ad--salary .salary-course { font-size: 14px; }
+.bce-ad--salary .salary-course b { display: block; font: 500 13px/1.35 'Oswald', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.bce-ad--salary .salary-ledger { font-size: 14px; }
+.bce-ad--salary .salary-ledger .row { display: flex; align-items: baseline; gap: 5px; text-align: left; }
+.bce-ad--salary .salary-ledger .dots { flex: 1; border-bottom: 2px dotted var(--ink); transform: translateY(-4px); }
+.bce-ad--salary .salary-ledger .bce-ad__it { display: block; text-align: right; }
+
+/* ---- Hobby ---------------------------------------------------------------- */
+.bce-ad--hobby .hobby-h1 { font-size: 34px; }
+.bce-ad--hobby .hobby-img { width: 100px; }
+.bce-ad--hobby .coupon { border: 2px dashed var(--ink); padding: 5px 5px 6px; text-align: left; }
+.bce-ad--hobby .coupon__head { font: 500 13px/1.2 'Oswald', sans-serif; letter-spacing: .06em; text-transform: uppercase; text-align: center; margin-bottom: 3px; }
+.bce-ad--hobby .coupon ul { list-style: none; margin: 0; padding: 0; }
+.bce-ad--hobby .coupon li { font-size: 13px; line-height: 1.25; padding: 2px 0 2px 17px; position: relative; }
+.bce-ad--hobby .coupon li::before { content: ""; position: absolute; left: 0; top: 4px; width: 9px; height: 9px; border: 1.5px solid var(--ink); }
+.bce-ad--hobby .hobby-no { font-size: 20px; line-height: 1.05; }
+.bce-ad--hobby .hobby-sub { font-size: 13px; font-style: italic; line-height: 1.3; }
+
+/* ---- Trust / accountability ---------------------------------------------- */
+.bce-ad--trust .trust-band { font-size: 40px; line-height: 1; }
+.bce-ad--trust .trust-watch { width: 122px; }
+.bce-ad--trust .trust-line { font-size: 24px; line-height: 1.02; }
+.bce-ad--trust .trust-or { font-size: 25px; font-style: italic; }
+
+/* ---- Revival -------------------------------------------------------------- */
+.bce-ad--revival .rev-banner img { width: 100%; height: 11px; object-fit: cover; object-position: left center; filter: grayscale(1) contrast(1.15); }
+.bce-ad--revival .rev-banner p { font-size: 30px; font-style: italic; line-height: 1.1; padding: 0 0 2px; }
+.bce-ad--revival .rev-h1 { font-size: 27px; }
+.bce-ad--revival .rev-h2 { font-size: 16px; font-style: italic; margin-top: 3px; }
+.bce-ad--revival .rev-q { font-size: 13px; line-height: 1.28; }
+.bce-ad--revival .rev-q + .rev-q { margin-top: 5px; }
+.bce-ad--revival .rev-dress { display: grid; grid-template-columns: 40px 1fr; gap: 6px; align-items: center; text-align: left; }
+.bce-ad--revival .rev-dress img { width: 40px; }
+.bce-ad--revival .rev-dress p { font-size: 13px; line-height: 1.25; }
+.bce-ad--revival .rev-dress b { font: 500 13px/1.2 'Oswald', sans-serif; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+
+/* ==========================================================================
+   Leaderboard banner: 728 x 90 (Google "leaderboard"), above the journal list.
+   "Not a Coffee with Emily" sign-up. Below 760px it re-flows into a 320 x 100
+   mobile banner (coupon dropped) instead of shrinking type below 12px.
+   ========================================================================== */
+.bce-lb-slot { width: 728px; max-width: 100%; margin: 2rem auto 0; }
+.bce-lb {
+  --ink: #1c1814;
+  --paper: #dcd3bf;
+  box-sizing: border-box;
+  width: 728px;
+  height: 90px;
+  margin: 0;
+  padding: 4px;
+  overflow: hidden;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,250,235,.25) 0%, rgba(120,95,55,.16) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .08 0 0 0 0 .05 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  border: 1px solid var(--ink);
+  font-family: 'Old Standard TT', Georgia, 'Times New Roman', serif;
+  line-height: 1.2;
+}
+[data-theme="dark"] .bce-lb { filter: brightness(.88) contrast(1.05); }
+.bce-lb p { margin: 0; }
+.bce-lb__frame {
+  box-sizing: border-box;
+  height: 100%;
+  border: 3px double var(--ink);
+  padding: 4px 6px 4px 4px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.bce-lb__cut { display: block; height: 66px; width: auto; flex: none; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.08); border: 1px solid var(--ink); }
+.bce-lb__head { flex: 1; text-align: center; }
+.bce-lb__kicker { font: 500 13px/1.2 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.bce-lb__kicker::before, .bce-lb__kicker::after { content: "\2014\00a0"; }
+.bce-lb__kicker::after { content: "\00a0\2014"; }
+.bce-lb__title { font: 700 30px/1.05 'Playfair Display', Georgia, serif; white-space: nowrap; }
+.bce-lb__title i { font-style: italic; }
+.bce-lb__write {
+  flex: none; align-self: stretch; display: flex; align-items: center; justify-content: center;
+  padding: 0 10px; background: var(--ink); color: var(--paper);
+  font: 700 17px/1.05 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .04em; text-align: center;
+}
+.bce-lb__coupon { flex: none; width: 176px; align-self: stretch; box-sizing: border-box; border: 2px dashed var(--ink); padding: 2px 7px 3px; font-size: 12px; line-height: 1.2; text-align: left; display: flex; flex-direction: column; justify-content: space-between; }
+.bce-lb__chead { font: 500 12px/1.2 'Oswald', 'Arial Narrow', sans-serif; letter-spacing: .12em; text-transform: uppercase; text-align: center; }
+.bce-lb__name { display: flex; align-items: baseline; gap: 4px; }
+.bce-lb__name span { flex: 1; border-bottom: 1px solid var(--ink); }
+@media (max-width: 759px) {
+  .bce-lb-slot { width: 320px; margin-top: 1.5rem; }
+  .bce-lb { width: 320px; height: 100px; }
+  .bce-lb__frame { gap: 9px; padding: 4px 5px 4px 4px; }
+  .bce-lb__cut { height: 76px; }
+  .bce-lb__kicker { font-size: 12px; letter-spacing: .1em; }
+  .bce-lb__title { font-size: 21px; white-space: normal; }
+  .bce-lb__title i { display: block; }
+  .bce-lb__write { font-size: 13px; padding: 0 6px; }
+  .bce-lb__coupon { display: none; }
+}
