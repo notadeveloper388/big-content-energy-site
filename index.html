@@ -458,6 +458,99 @@
     .ad-unit, .ad-unit__thumb { transition: none; }
 }
 </style>
+
+    <style id="ntn-home-css">
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800;900&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+/* ===== NTN HOME LAYER (additive). Rule: hard, never soft. ===== */
+*, *::before, *::after { border-radius:0 !important; box-shadow:none !important; text-shadow:none !important; transition:none !important; animation:none !important; }
+html { background: var(--bg); }
+body { background: transparent !important; font-family: var(--f-body) !important; position:relative; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background: var(--page-grid, none); }
+.site-nav { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; background: var(--bg) !important; border-bottom:1px solid var(--line) !important; }
+.site-nav .brand-mark { border-color: var(--line) !important; }
+.gothic-serif { font-family: var(--f-head) !important; font-weight:700 !important; letter-spacing:-.025em !important; }
+.section-header, [class*="tracking-widest"], .polaroid-meta, .ad-unit__sponsored, .filter-btn, .load-more-btn, .theme-toggle, #serials .text-xs { font-family: var(--f-mono) !important; }
+.section-header { color: var(--cat) !important; letter-spacing:.18em !important; }
+/* strict visible grid: cards share hairlines, no gaps, no floating */
+#archives .grid, #private-collection .grid, #serials .grid, #projects .grid { gap:0 !important; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+#archives .grid > *, #private-collection .grid > *, #serials .grid > *, #projects .grid > * { border-style:solid !important; border-color:var(--line) !important; border-width:0 1px 1px 0 !important; }
+.polaroid, .text-card, .signal-report-bar, .polaroid:hover, .text-card:hover, .signal-report-bar:hover { transform:none !important; }
+.polaroid, .text-card { position:relative; --glow: var(--cat); background-color: var(--card-bg) !important;
+  background-image: linear-gradient(var(--glow), var(--glow)); background-repeat:no-repeat; background-size:100% var(--bar, 0px); }
+.work-card { --bar: 4px; }
+.work-card[data-client="hawk"]   { --glow: var(--c-hawk); }
+.work-card[data-client="bynder"] { --glow: var(--c-bynder); }
+.work-card[data-client="other"]  { --glow: var(--c-other); }
+.polaroid .card-img { filter: brightness(.76); border-color: var(--line) !important; }
+.polaroid:hover .card-img, .polaroid:focus-visible .card-img { filter: brightness(1); }
+.polaroid:hover, .text-card:hover, .polaroid:focus-visible, .text-card:focus-visible { --bar: 8px; outline: 2px solid var(--glow); outline-offset:-2px; background-color: var(--card-hover) !important; }
+.polaroid:hover .polaroid-title, .text-card:hover .gothic-serif, .text-card:hover .font-semibold { color: var(--glow) !important; }
+.polaroid:hover [class*="tracking-widest"], .text-card:hover [class*="tracking-widest"] { display:inline-block; background: var(--glow); color:#000 !important; padding:1px 5px; }
+.signal-report-bar { border-color: var(--line) !important; }
+.signal-report-bar::before { background: linear-gradient(rgba(5,6,12,.86), rgba(5,6,12,.86)), url("images/library/circuit-glow.jpg") center / cover no-repeat !important; }
+.signal-report-bar:hover { outline: 2px solid #3de0ff; outline-offset:-2px; }
+.signal-report-bar .signal-title em { background:none !important; color:#3de0ff !important; -webkit-text-fill-color:#3de0ff; }
+.vhs-glitch::after { display:none !important; }
+.ad-unit__thumb { border-color: var(--line) !important; }
+.filter-btn { background: var(--bg) !important; border:1px solid var(--line) !important; color: var(--text) !important; }
+.filter-btn:hover { border-color: var(--cat) !important; color: var(--cat) !important; background: var(--bg) !important; }
+.filter-btn.active, .filter-btn.active:hover { background: var(--cat) !important; border-color: var(--cat) !important; color:#000 !important; }
+.load-more-btn:hover, .theme-toggle:hover { border-color: var(--cat) !important; color: var(--cat) !important; background: var(--bg) !important; }
+#contact { border-color: var(--line) !important; }
+#ntn-hero { position:relative; background:#050505; border-bottom:1px solid var(--line); }
+#ntn-hero .cols { position:absolute; top:0; bottom:0; left:2rem; right:2rem; pointer-events:none; border-right:1px solid var(--cols-line);
+  background: repeating-linear-gradient(90deg, var(--cols-line) 0 1px, transparent 1px calc(100% / 12)); }
+#ntn-hero .hero-bar { height:4px; background: var(--cat); }
+
+/* Newsprint in the dark: grayscale everywhere; the only colour is the one line. */
+html { --f-body:'Inter',system-ui,sans-serif; --f-head:'Inter Tight','Inter',system-ui,sans-serif; --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --line:#333333; --cols-line:transparent; --card-hover:#141414;
+  --cat:#e6e6e6; --c-hawk:#e6e6e6; --c-bynder:#a6a6a6; --c-other:#6e6e6e; --ink:#d6d6d6; --ink2:#9a9a9a; --ink3:#6a6a6a; }
+.polaroid .card-img, .ad-unit__thumb, .site-nav .brand-mark { filter: grayscale(1) brightness(.72) !important; }
+.polaroid:hover .card-img, .polaroid:focus-visible .card-img, .ad-unit:hover .ad-unit__thumb { filter: grayscale(0) brightness(.95) !important; }
+.signal-report-bar { filter: grayscale(1); }
+.signal-report-bar:hover { filter:none; }
+.signal-report-bar:hover { outline-color:#e6e6e6; }
+.filter-btn.active::after { content:""; display:inline-block; width:6px; height:6px; margin-left:.5rem; background: var(--px, #ff1f1f); vertical-align:1px; }
+
+#ntn-hero { overflow:hidden; background:#0a0a0a; }
+.ntn { position:relative; padding: 1.4rem 0 1.8rem; color: var(--ink); }
+.ntn-grid { display:grid; grid-template-columns: repeat(12, 1fr); }
+.ntn-mast { font-family:var(--f-head); font-weight:900; text-transform:uppercase; letter-spacing:-.035em; line-height:.86; color:#c4c4c4; margin:0; }
+.ntn-motto { font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; color: var(--ink2); }
+.ntn-her { font-family:var(--f-head); font-weight:700; color:#e6e6e6; }
+.ntn-strip { display:flex; justify-content:space-between; gap:1rem; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color: var(--ink2); border-top:3px solid #d6d6d6; border-bottom:1px solid #d6d6d6; padding:.4rem 0; }
+.ntn-kick { font-family:var(--f-mono); font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color: var(--ink3); margin-bottom:.45rem; }
+.ntn-h { font-family:var(--f-head); font-weight:800; letter-spacing:-.03em; line-height:.95; color:#d2d2d2; margin:0 0 .5rem; text-transform:uppercase; }
+.ntn-dek { font-family:var(--f-mono); font-size:.82rem; line-height:1.5; color:#cfcfcf; margin:0 0 .5rem; }
+.ntn-dek span { display:block; }
+.ntn-body { font-size:.84rem; line-height:1.5; color: var(--ink2); margin:0; }
+.ntn-story { padding: .9rem 1rem; border-right:1px solid var(--line); }
+.ntn-story:last-child { border-right:0; }
+.ntn-story:first-child { padding-left:0; }
+/* the square screen: flat, modern, grayscale */
+.ntn-screen { position:relative; margin:0; background:#050505; border:6px solid #1b1b1b; outline:1px solid #6a6a6a; cursor:crosshair; }
+.ntn-screen img { display:block; width:100%; height:auto; filter: brightness(.8); }
+.ntn-screen:hover img, .ntn-screen:focus-visible img { filter: brightness(1.25); }
+.ntn-screen:hover, .ntn-screen:focus-visible { outline-color:#e6e6e6; }
+.ntn-px { position:absolute; background: var(--px, #ff1f1f); z-index:2; }
+.ntn-cap { font-family:var(--f-mono); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; color: var(--ink3); padding-top:.45rem; }
+.ntn-line { position:absolute; inset:0; pointer-events:none; z-index:5; }
+.ntn-line i { position:absolute; display:block; }
+.ntn-nums { font-family:var(--f-mono); font-weight:600; color:#d6d6d6; }
+
+.hF-mast { text-align:center; }
+.hF-mast .ntn-mast { font-size: clamp(3rem, 7vw, 6rem); }
+.hF-strip { margin-top:.8rem; }
+.hF-body { margin-top: 1.1rem; }
+.hF-fig { grid-column: span 5; padding-right: 1.2rem; border-right:1px solid var(--line); }
+.hF-text { grid-column: span 7; padding-left: 1.2rem; display:flex; flex-direction:column; }
+.hF-lead { padding:0 0 .8rem !important; border:0 !important; }
+.hF-headrule { height:0; border-top:1px solid #d6d6d6; margin:.2rem 0 .8rem; }
+.hF-small .ntn-story { grid-column: span 4; padding-top:.2rem; }
+.hF-her { margin-top:auto; border-top:1px solid var(--line); padding-top:.7rem; font-size:1.25rem; }
+@media (max-width: 900px){ .hF-fig, .hF-text, .hF-small .ntn-story { grid-column: 1 / -1 !important; } }
+</style>
 </head>
 <body>
     <nav class="site-nav sticky top-0 z-50">
@@ -480,6 +573,33 @@
             </div>
         </div>
     </nav>
+
+    <!-- NOT THE NEWSPAPER: front-page hero (added 2026-09-27) -->
+    <section id="ntn-hero" class="hF" aria-label="Not the Newspaper front page">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="ntn">
+                <div class="hF-mast"><h1 class="ntn-mast">Not the Newspaper</h1></div>
+                <div class="ntn-strip hF-strip"><span>Big Content Energy edition</span><span style="text-transform:none;letter-spacing:.04em">Tempore v&#275;rit&#257;s patebit aut vi ab inv&#299;t&#299;s stat&#363;</span><span>September 2026</span></div>
+                <div class="ntn-grid hF-body">
+                    <div class="hF-fig" id="ntn-fig">
+                        <figure class="ntn-screen " tabindex="0" aria-label="Seventy-one grayscale memory boxes, one per track, with one empty slot. A single box escapes in colour."><img src="images/home/ntn/ntn-F-71-boxes.svg" alt="Seventy-one grayscale memory boxes, one per track, with one empty slot. A single box escapes in colour."><span class="ntn-px" aria-hidden="true" style="left:85.000%;top:38.750%;width:8.333%;height:9.583%"></span></figure>
+                        <div class="ntn-cap">Fig. 1 / 71 tracks, a box for each</div>
+                    </div>
+                    <div class="hF-text">
+                        <article class="ntn-story hF-lead"><div class="ntn-kick">Playlist / 71 tracks</div><h2 class="ntn-h" style="font-size:clamp(2.4rem, 4.4vw, 3.6rem)">Numbers You Don&rsquo;t Know</h2><p class="ntn-dek"><span>Seventy-one tracks, a box for each.</span><span>The numbers don&rsquo;t explain themselves, and they don&rsquo;t have to.</span></p><p class="ntn-body">666 / 420 / 69. A great awakening, in an order that only makes sense from the inside.</p></article>
+                        <div class="hF-headrule" id="ntn-headrule" aria-hidden="true"></div>
+                        <div class="ntn-grid hF-small">
+                            <article class="ntn-story "><div class="ntn-kick">Soundtrack</div><h2 class="ntn-h" style="font-size:1.15rem">The Wurtzel Experiment</h2><p class="ntn-body">A soundtrack in honor of Elizabeth Wurtzel, and of the idea that memory is worth documenting.</p></article>
+                            <article class="ntn-story "><div class="ntn-kick">Loop / audio-visual</div><h2 class="ntn-h" style="font-size:1.15rem">Lights Out on the Beat</h2><p class="ntn-body">A Clapper and Sonos speakers cut the lights at the key moments of &ldquo;Power.&rdquo; The dark is part of the arrangement.</p></article>
+                            <article class="ntn-story "><div class="ntn-kick">Essay / tacit knowledge</div><h2 class="ntn-h" style="font-size:1.15rem">Net New</h2><p class="ntn-body">The best data is lived first and written second: journals, timelines, and memory no model has read yet.</p></article>
+                        </div>
+                        <div class="ntn-her hF-her">To write, is to remember.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- THE ARCHIVES -->
     <section id="archives" class="max-w-6xl mx-auto px-8 pt-12 pb-16">
@@ -1053,5 +1173,56 @@
             console.log('%c[Gothic Library] Theme + archive ready.', 'color:#8b7550');
         };
     </script>
+    <script id="ntn-home-js">
+(function(){
+  var root = document.documentElement; root.setAttribute('data-cat','all');
+  var orig = window.filterCards;
+  window.filterCards = function(c){ orig(c); root.setAttribute('data-cat', c); if (window.__ntnOnFilter) window.__ntnOnFilter(c); };
+})();
+
+window.__ntnPath = function(rel){
+  var px = document.querySelector('#ntn-hero .ntn-px'), fig = document.getElementById('ntn-fig'), hr = document.getElementById('ntn-headrule');
+  if (!px || !fig || !hr) return null;
+  var p = rel(px), f = rel(fig), h = rel(hr), cy = Math.round(p.t + p.h/2), rx = Math.round(f.r - 0.5), hy = Math.round(h.t);
+  return [[p.r, cy], [rx, cy], [rx, hy], [p.W, hy]];
+};
+
+(function(){
+  var hero = document.getElementById('ntn-hero'); if (!hero) return;
+  var SPEC = ['#ff1f1f','#ff8a00','#ffe600','#1fdc3a','#00d5ff','#2f5bff','#9b3dff'];
+  var CAT = { hawk:'#ff8a00', bynder:'#00d5ff', other:'#ff2d95' };
+  var cat = 'all', hot = false, layer = null;
+  function rel(el){ var r = el.getBoundingClientRect(), h = hero.getBoundingClientRect(); return { l:r.left-h.left, t:r.top-h.top, r:r.right-h.left, b:r.bottom-h.top, w:r.width, h:r.height, W:h.width, H:h.height }; }
+  function draw(){
+    if (layer) layer.remove();
+    layer = document.createElement('div'); layer.className = 'ntn-line'; layer.setAttribute('aria-hidden','true'); hero.appendChild(layer);
+    var pts = window.__ntnPath(rel); if (!pts) return;
+    var t = hot ? 4 : 2, cols = cat === 'all' ? SPEC : [CAT[cat]];
+    document.documentElement.style.setProperty('--px', cols[0]);
+    var segs = [], L = 0;
+    for (var i = 0; i < pts.length - 1; i++) { var a = pts[i], b = pts[i+1], len = Math.abs(b[0]-a[0]) + Math.abs(b[1]-a[1]); segs.push({a:a, b:b, len:len, s:L}); L += len; }
+    function at(sg, u){ var f = sg.len ? u / sg.len : 0; return [sg.a[0] + (sg.b[0]-sg.a[0])*f, sg.a[1] + (sg.b[1]-sg.a[1])*f]; }
+    for (var k = 0; k < cols.length; k++) {
+      var s0 = k*L/cols.length, s1 = (k+1)*L/cols.length;
+      segs.forEach(function(sg){
+        var u0 = Math.max(s0, sg.s) - sg.s, u1 = Math.min(s1, sg.s + sg.len) - sg.s; if (u1 <= u0) return;
+        var p = at(sg, u0), q = at(sg, u1), el = document.createElement('i'), horiz = sg.a[1] === sg.b[1];
+        var x = Math.min(p[0], q[0]), y = Math.min(p[1], q[1]);
+        if (horiz) { el.style.left = (x - t/2) + 'px'; el.style.top = (y - t/2) + 'px'; el.style.width = (Math.abs(q[0]-p[0]) + t) + 'px'; el.style.height = t + 'px'; }
+        else { el.style.left = (x - t/2) + 'px'; el.style.top = (y - t/2) + 'px'; el.style.width = t + 'px'; el.style.height = (Math.abs(q[1]-p[1]) + t) + 'px'; }
+        el.style.background = cols[k]; layer.appendChild(el);
+      });
+    }
+  }
+  var scr = hero.querySelector('.ntn-screen');
+  if (scr) { ['mouseenter','focus'].forEach(function(e){ scr.addEventListener(e, function(){ hot = true; draw(); }); });
+             ['mouseleave','blur'].forEach(function(e){ scr.addEventListener(e, function(){ hot = false; draw(); }); }); }
+  window.__ntnOnFilter = function(c){ cat = c; draw(); };
+  window.addEventListener('resize', draw);
+  window.addEventListener('load', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+  draw();
+})();
+</script>
 </body>
 </html>
