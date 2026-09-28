@@ -22,6 +22,11 @@
 .body figure.nb-fig.align-full{width:100%;}
 .body .nb-embed-wrap{margin:1.75rem 0;}
 .body::after{content:"";display:block;clear:both;}
+.body .poem-note{cursor:help;border-radius:0;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:color-mix(in srgb,var(--accent) 55%,transparent);-webkit-tap-highlight-color:transparent;}
+.body .poem-note:hover,.body .poem-note:focus-visible,.body .poem-note.is-open{background:color-mix(in srgb,var(--accent) 15%,transparent);outline:none;}
+.poem-pop{position:absolute;z-index:50;max-width:min(22rem,calc(100vw - 1.5rem));padding:.6rem .8rem .65rem;background:#1a1714;color:#c9bba6;border:1px solid #3d342a;border-radius:0;box-shadow:none;font-size:.86rem;line-height:1.5;white-space:pre-line;display:none;color-scheme:dark;}
+.poem-pop.is-open{display:block;}
+.poem-pop-label{display:block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#a08858;margin:0 0 .25rem;}
 @media(max-width:640px){.body figure.nb-fig.align-left,.body figure.nb-fig.align-right{float:none;width:100%;margin:1.5rem 0;}}
 </style>
 </head>
@@ -127,5 +132,63 @@ Thank you for teaching me how to live again.</p>
     </footer>
   </article>
   <script src="../../assets/theme.js"></script>
+<!-- Line notes: keys are line numbers 1-42 (1 = first line of the poem). Lines not listed stay exactly as they are. -->
+<script id="poem-line-notes" type="application/json">
+{"1": "Original poem title in book is Owls KILL Hummingbirds.", "2": "What I screamed when I was tied down by 8 men in a hospital after fleeing an abuser who gaslight me. I looked at the Sony Television while I screamed it, hoping someone out there would hear me. God? Yes. Hear me.", "3": "My son said this to me before we went to Florida for a family visit in 2022 after I should have already quitted my marriage.", "4": "Andrew Hally, investor. Sipping his favorite drink. \"It doesn't mean anything\" about the creative choices from designers at our company about the shade of Bynder Blue.", "5": "They monologue. and Will not let you speak, so interrupt them when they should shut up and listen. they do not understand normal conversation cadence and view communication as one way feed and do not understand \"how to meet\" between fast and slow. Good AI will.", "6": "Donny Miller An artist who once tried to sell federal currency. Freedom of speech boundary pusher. Smart guy.", "7": "Partitioned my brain so I could gather more intel.", "8": "and not let it destroy the data or gains to be had for everyone.", "9": "A thing Doug said to me It was an Eagle. But anyway, he lied and said he'd put a baby in me but then got neutered. So, who cares about his dumb tattoo. A liar is a liar. I would have had your baby gladly, but you chose to hurt me instead.", "10": "I love anal too. More than you.", "11": "Good.", "12": "YOU. just you.", "13": "Affirmative.", "14": "Affirmative.", "15": "Affirmative.", "16": "Untrue.", "17": "Untrue", "19": "Affirmative", "20": "Affirmative", "21": "Affirmative", "22": "Affirmative", "23": "Affirmative", "24": "Affirmative", "25": "Affirmative", "26": "Affirmative", "27": "Affirmative", "28": "Affirmative", "29": "Affirmative", "30": "Affirmative", "31": "Affirmative", "32": "Affirmative", "33": "Affirmative", "34": "Affirmative", "35": "Affirmative", "36": "Affirmative", "37": "Affirmative", "38": "Affirmative", "39": "Affirmative", "40": "Affirmative", "41": "Affirmative", "42": "Affirmative"}
+</script>
+<script>
+(function(){
+  var poem=document.querySelector('.body p[style*="white-space:pre-wrap"]');
+  var src=document.getElementById('poem-line-notes');
+  if(!poem||!src)return;
+  var notes;try{notes=JSON.parse(src.textContent);}catch(e){return;}
+  var lines=poem.textContent.split('\n\n');
+  var frag=document.createDocumentFragment(),any=false;
+  lines.forEach(function(line,i){
+    if(i)frag.appendChild(document.createTextNode('\n\n'));
+    var note=notes[String(i+1)];
+    if(typeof note==='string'&&note.trim()){
+      var s=document.createElement('span');
+      s.className='poem-note';s.tabIndex=0;s.setAttribute('role','button');
+      s.setAttribute('aria-expanded','false');s.setAttribute('aria-controls','poem-pop');
+      s.dataset.note=note.trim();s.textContent=line;frag.appendChild(s);any=true;
+    }else frag.appendChild(document.createTextNode(line));
+  });
+  if(!any)return;
+  poem.textContent='';poem.appendChild(frag);
+  var pop=document.createElement('div');
+  pop.id='poem-pop';pop.className='poem-pop';pop.setAttribute('role','tooltip');
+  var lab=document.createElement('span');lab.className='poem-pop-label';lab.textContent='Note';
+  var txt=document.createElement('span');
+  pop.appendChild(lab);pop.appendChild(txt);document.body.appendChild(pop);
+  var cur=null,pinned=false;
+  function place(el){
+    var r=el.getBoundingClientRect(),vw=document.documentElement.clientWidth,vh=window.innerHeight;
+    var w=pop.offsetWidth,h=pop.offsetHeight;
+    var left=Math.max(8,Math.min(r.left,vw-w-8));
+    var top=(r.bottom+8+h>vh&&r.top-8-h>0)?r.top-8-h:r.bottom+8;
+    pop.style.left=(left+window.scrollX)+'px';pop.style.top=(top+window.scrollY)+'px';
+  }
+  function show(el,pin){
+    if(cur&&cur!==el)hide();
+    cur=el;pinned=!!pin;txt.textContent=el.dataset.note;
+    el.classList.add('is-open');el.setAttribute('aria-expanded','true');
+    pop.classList.add('is-open');place(el);
+  }
+  function hide(){
+    if(cur){cur.classList.remove('is-open');cur.setAttribute('aria-expanded','false');}
+    cur=null;pinned=false;pop.classList.remove('is-open');
+  }
+  poem.addEventListener('pointerover',function(e){var el=e.target.closest('.poem-note');if(el&&e.pointerType==='mouse'&&!pinned)show(el,false);});
+  poem.addEventListener('pointerout',function(e){var el=e.target.closest('.poem-note');if(el&&e.pointerType==='mouse'&&!pinned&&!el.contains(e.relatedTarget))hide();});
+  poem.addEventListener('click',function(e){var el=e.target.closest('.poem-note');if(!el)return;if(cur===el&&pinned)hide();else show(el,true);});
+  poem.addEventListener('focusin',function(e){var el=e.target.closest('.poem-note');if(el&&cur!==el)show(el,false);});
+  poem.addEventListener('focusout',function(e){if(!pinned&&!poem.contains(e.relatedTarget))hide();});
+  poem.addEventListener('keydown',function(e){var el=e.target.closest('.poem-note');if(el&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if(cur===el&&pinned)hide();else show(el,true);}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur)hide();});
+  document.addEventListener('click',function(e){if(cur&&!e.target.closest('.poem-note')&&!pop.contains(e.target))hide();});
+  window.addEventListener('resize',function(){if(cur)place(cur);});
+})();
+</script>
 </body>
 </html>
