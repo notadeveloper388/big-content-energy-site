@@ -550,6 +550,76 @@ html { --f-body:'Inter',system-ui,sans-serif; --f-head:'Inter Tight','Inter',sys
 .hF-small .ntn-story { grid-column: span 4; padding-top:.2rem; }
 .hF-her { margin-top:auto; border-top:1px solid var(--line); padding-top:.7rem; font-size:1.25rem; }
 @media (max-width: 900px){ .hF-fig, .hF-text, .hF-small .ntn-story { grid-column: 1 / -1 !important; } }
+/* G: archive stories */
+.ntn-dl { font-family:var(--f-mono); font-weight:600; font-size:.72rem; letter-spacing:.06em; color:#d6d6d6; text-transform:uppercase; }
+.hG-row { margin-top:1rem; border-top:3px solid #d6d6d6; border-bottom:1px solid #d6d6d6; }
+.hG-row > .ntn-story { grid-column: span 3; padding-top:.8rem; padding-bottom:.8rem; }
+.hG-arch ol { list-style:none; margin:0; padding:0; }
+.hG-arch li { display:grid; grid-template-columns: 7.2rem 1fr; gap:.6rem; padding:.28rem 0; border-top:1px solid var(--line); font-size:.78rem; line-height:1.35; }
+.hG-arch li:first-child { border-top:0; }
+.hG-d { font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color: var(--ink3); padding-top:.1rem; }
+.hG-t { color: var(--ink2); }
+/* G: mouse-over = colour, every element, its own hard spectrum colour (hero-line palette).
+   Rest state untouched: every rule below is gated on :hover / :focus-visible / :focus-within;
+   the only ungated lines set custom properties or preload the Fig. 1 variant invisibly.
+   Hard switch: no transition, glow, blur, shadow, scale or rounding. */
+body *:nth-child(7n+1) { --hc:#ff1f1f; }
+body *:nth-child(7n+2) { --hc:#ff8a00; }
+body *:nth-child(7n+3) { --hc:#ffe600; }
+body *:nth-child(7n+4) { --hc:#1fdc3a; }
+body *:nth-child(7n+5) { --hc:#00d5ff; }
+body *:nth-child(7n+6) { --hc:#2f5bff; }
+body *:nth-child(7n+7) { --hc:#9b3dff; }
+/* images back to full colour */
+.polaroid:is(:hover,:focus-visible) .card-img,
+.ad-unit:is(:hover,:focus-visible) .ad-unit__thumb,
+.site-nav .brand-link:is(:hover,:focus-visible) .brand-mark { filter: none !important; }
+/* cards: outline, top bar, title, label chip and accent lines all take the card's own colour */
+html :is(.polaroid,.text-card):is(:hover,:focus-visible) { --glow: var(--hc); }
+html :is(.polaroid,.text-card):is(:hover,:focus-visible) :is(.polaroid-meta,.ad-unit__sponsored,[class*="8b6f47"]):not([class*="tracking-widest"]) { color: var(--glow) !important; }
+/* Signal Report bar */
+html .signal-report-bar:is(:hover,:focus-visible) { filter: none; outline: 2px solid var(--hc); outline-offset: -2px; }
+html .signal-report-bar:is(:hover,:focus-visible) .signal-kicker { color: var(--hc) !important; }
+/* nav: logo, wordmark, links, toggle, rule */
+html .site-nav .brand-link:is(:hover,:focus-visible) .gothic-serif,
+html .site-nav .nav-link:not(.brand-link):is(:hover,:focus-visible) { color: var(--hc) !important; }
+html .site-nav:is(:hover,:focus-within) { border-bottom-color: var(--hc) !important; }
+html :is(.theme-toggle,.load-more-btn,.filter-btn):is(:hover,:focus-visible) { border-color: var(--hc) !important; color: var(--hc) !important; }
+html .filter-btn.active:is(:hover,:focus-visible) { background: var(--hc) !important; border-color: var(--hc) !important; color: #000 !important; }
+/* sections: heading kicker, heading and rules take the section's colour while you are in it */
+html body > section:is(#ntn-hero,#archives,#private-collection,#serials,#projects,#contact):is(:hover,:focus-within) { --sec: var(--hc); border-color: var(--sec) !important; }
+html body > section:is(:hover,:focus-within) :is(.section-header, h2.gothic-serif) { color: var(--sec) !important; }
+/* hero: masthead, date strip, stories (kicker, headline, dateline, dek, rules), archive items, her line, Fig. 1 */
+html #ntn-hero .ntn-mast:hover { color: var(--hc); }
+html #ntn-hero .ntn-strip:hover { border-color: var(--hc); }
+html #ntn-hero .ntn-strip > span:hover { color: var(--hc); }
+#ntn-hero .hF-small > :nth-child(1) { --hc:#ff8a00; } #ntn-hero .hF-small > :nth-child(2) { --hc:#ffe600; } #ntn-hero .hF-small > :nth-child(3) { --hc:#1fdc3a; }
+#ntn-hero .hG-row > :nth-child(1) { --hc:#00d5ff; } #ntn-hero .hG-row > :nth-child(2) { --hc:#2f5bff; } #ntn-hero .hG-row > :nth-child(3) { --hc:#9b3dff; } #ntn-hero .hG-row > :nth-child(4) { --hc:#ff1f1f; }
+html #ntn-hero .ntn-story:is(:hover,:focus-within) { --on: var(--hc); border-right-color: var(--on); }
+html #ntn-hero .ntn-story:is(:hover,:focus-within) :is(.ntn-kick,.ntn-h,.ntn-dl,.ntn-dek) { color: var(--on); }
+html #ntn-hero :is(.hG-row,.hF-her):hover { border-color: var(--hc); }
+html #ntn-hero .hF-her:hover { color: var(--hc); }
+html #ntn-hero .hG-arch li:is(:hover,:focus-within) { --on: var(--hc); border-top-color: var(--on); }
+html #ntn-hero .hG-arch li:is(:hover,:focus-within) :is(.hG-d,.hG-t) { color: var(--on); }
+html #ntn-hero .hF-fig:is(:hover,:focus-within) { --on: var(--hc); }
+html #ntn-hero .hF-fig:is(:hover,:focus-within) .ntn-cap { color: var(--on); }
+.ntn-screen::after { content:""; position:absolute; left:0; top:0; width:1px; height:1px; opacity:0; pointer-events:none; background:url("images/home/ntn/ntn-G-71-boxes-spectrum.svg") no-repeat; }
+html .ntn-screen:is(:hover,:focus-visible) { outline-color: var(--hc); background: #0a0a0a url("images/home/ntn/ntn-G-71-boxes-spectrum.svg") 0 0 / 100% 100% no-repeat; }
+html .ntn-screen:is(:hover,:focus-visible) img { opacity: 0; }
+/* contact / footer */
+html #contact a:is(:hover,:focus-visible) { color: var(--hc) !important; }
+html #contact a:is(:hover,:focus-visible) * { color: inherit !important; }
+html #contact .mt-10:hover { color: var(--hc) !important; }
+@media (max-width: 900px){ .hG-row > .ntn-story { grid-column: 1 / -1 !important; padding-left:0; padding-right:0; border-right:0; border-bottom:1px solid var(--line); } .hG-row > .ntn-story:last-child { border-bottom:0; } .ntn-strip { flex-wrap:wrap; } .hF-fig { padding-right:0; border-right:0; } .hF-text { padding-left:0; margin-top:1rem; } .hF-lead { padding-left:0 !important; } .hF-small .ntn-story { padding-left:0; padding-right:0; border-right:0; border-bottom:1px solid var(--line); } }
+/* G2: archive strip + links to live source pages (hard: colour inherits, underline on hover/focus only) */
+.hG-archrow { border-bottom:1px solid #d6d6d6; padding:.8rem 0 .6rem; }
+.hG-archrow ol { display:grid; grid-template-columns: repeat(4, 1fr); column-gap:1.2rem; }
+.hG-archrow li { grid-template-columns: 1fr !important; gap:.1rem !important; border-top:1px solid var(--line) !important; }
+.hG-archrow li:nth-child(-n+4) { border-top:0 !important; }
+#ntn-hero a { color: inherit; text-decoration: none; }
+#ntn-hero a:is(:hover,:focus-visible) { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .16em; }
+#ntn-hero a:focus-visible { outline: 2px solid var(--on, #e6e6e6); outline-offset: 2px; }
+@media (max-width: 900px){ .hG-archrow ol { grid-template-columns: 1fr; } .hG-archrow li:nth-child(-n+4) { border-top:1px solid var(--line) !important; } .hG-archrow li:first-child { border-top:0 !important; } }
 </style>
 </head>
 <body>
@@ -573,6 +643,40 @@ html { --f-body:'Inter',system-ui,sans-serif; --f-head:'Inter Tight','Inter',sys
             </div>
         </div>
     </nav>
+
+    <!-- NOT THE NEWSPAPER: front-page hero (added 2026-09-27) -->
+    <section id="ntn-hero" class="hF" aria-label="Not the Newspaper front page">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="ntn">
+                <div class="hF-mast"><h1 class="ntn-mast">Not the Newspaper</h1></div>
+                <div class="ntn-strip hF-strip"><span>Big Content Energy edition</span><span style="text-transform:none;letter-spacing:.04em">Tempore v&#275;rit&#257;s patebit aut vi ab inv&#299;t&#299;s stat&#363;</span><span>September 2026</span></div>
+                <div class="ntn-grid hF-body">
+                    <div class="hF-fig" id="ntn-fig">
+                        <figure class="ntn-screen " tabindex="0" aria-label="Seventy-one grayscale memory boxes, one per track, with one empty slot. A single box escapes in colour."><img src="images/home/ntn/ntn-F-71-boxes.svg" alt="Seventy-one grayscale memory boxes, one per track, with one empty slot. A single box escapes in colour."><span class="ntn-px" aria-hidden="true" style="left:85.000%;top:38.750%;width:8.333%;height:9.583%"></span></figure>
+                        <div class="ntn-cap">Fig. 1 / 71 tracks, a box for each</div>
+                    </div>
+                    <div class="hF-text">
+                        <article class="ntn-story hF-lead"><div class="ntn-kick">Playlist / 71 tracks</div><h2 class="ntn-h" style="font-size:clamp(2.4rem, 4.4vw, 3.6rem)">Numbers You Don&rsquo;t Know</h2><p class="ntn-dek"><span>Seventy-one tracks, a box for each.</span><span>The numbers don&rsquo;t explain themselves, and they don&rsquo;t have to.</span></p><p class="ntn-body">666 / 665 / 420 / 419 / 69 / 13 / 11 / 7 / 1 / 2. A spiritual awakening, in an order that only makes sense from the inside.</p></article>
+                        <div class="hF-headrule" id="ntn-headrule" aria-hidden="true"></div>
+                        <div class="ntn-grid hF-small">
+                            <article class="ntn-story "><div class="ntn-kick">Soundtrack</div><h2 class="ntn-h" style="font-size:1.15rem">The Emily Experiment</h2><p class="ntn-body">A soundtrack of my own, and of the idea that memory is worth documenting.</p></article>
+                            <article class="ntn-story "><div class="ntn-kick">Journal / Sept. 25&ndash;26, 2026</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/journal/2026-09-25-your-life-an-application-to-eternity.html">The Library I Wanna Be Involved In</a></h2><p class="ntn-dek"><span>Not the dinky ones here.</span><span><a href="pieces/journal/2026-09-26-target-the-library.html">Not me. Not you. Everything.</a></span></p><p class="ntn-body"><b class="ntn-dl">Sept. 25, 2026 &mdash;</b> Just being here. Recording to somewhere else. Where? What I mean is, where would it be backed up to? Proof you exist.</p></article>
+                            <article class="ntn-story "><div class="ntn-kick">Journal / Sept. 27, 2026</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/journal/2026-09-27-a-perfect-sunday.html">A Perfect Sunday</a></h2><p class="ntn-body"><b class="ntn-dl">Sept. 27 &mdash;</b> Woke at noon, no alarm. Coffee, then more coffee. Three or four miles on a new trail. The air was cool and crisp. Some things, repetition is good. Experiences, it&rsquo;s nice to go to a new one.</p></article>
+                        </div>
+                        <div class="ntn-her hF-her">To write, is to remember.</div>
+                    </div>
+                </div>
+                <div class="ntn-grid hG-row">
+                    <article class="ntn-story "><div class="ntn-kick">Not the Newspaper / Ed. 4</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/bce/feb8.html">Eat My Sword</a></h2><p class="ntn-body"><b class="ntn-dl">Feb. 8, 2026 &mdash;</b> Sword is pen. Pen is sword. Writers are good at eating their own words. Get a conclusion wrong and you have data to keep searching for the right one.</p></article>
+                    <article class="ntn-story "><div class="ntn-kick">Journal / Aug. 28, 2026</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/journal/2026-08-28-may-the-best-ideas-win.html">May the Best Ideas Win</a></h2><p class="ntn-body"><b class="ntn-dl">Aug. 28 &mdash;</b> Artists. Musicians. Writers. Researchers. Engineers. Manufacturers. People who put their work out there, just to share. A scaffold for others to build on. Proof you existed.</p></article>
+                    <article class="ntn-story "><div class="ntn-kick">Journal / Sept. 4, 2026</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/journal/2026-09-04-brick-shithouse.html">1998, Somewhere in Missouri</a></h2><p class="ntn-body"><b class="ntn-dl">1998 &mdash;</b> Thirteen, on a road trip, a Placebo CD and shitty headphones. I thought Gauntlet II was the best game I would ever play. I knew nothing then.</p></article>
+                    <article class="ntn-story "><div class="ntn-kick">Journal / Aug. 4, 2026</div><h2 class="ntn-h" style="font-size:1.15rem"><a href="pieces/journal/2026-08-04-paranoid-save.html">Silos Are Bad, Mkay?</a></h2><p class="ntn-body"><b class="ntn-dl">Aug. 4 &mdash;</b> Discoverability and access to information may become a very big problem, if it isn&rsquo;t already. Slowing down helps, but we&rsquo;re getting faster. When you silo any information, all the context goes out the window.</p></article>
+                </div>
+                <aside class="hG-arch hG-archrow" aria-label="From the archive"><div class="ntn-kick">From the archive</div><ol><li><span class="hG-d">Age 6</span><a class="hG-t" href="pieces/journal/2026-08-28-may-the-best-ideas-win.html">First login: Prodigy, big floppy discs. The computer was magic.</a></li><li><span class="hG-d">Jan. 19, 2026</span><a class="hG-t" href="pieces/bce/jan19.html">Advice to self: just get something on the page.</a></li><li><span class="hG-d">Feb. 1, 2026</span><a class="hG-t" href="pieces/bce/feb1.html">Epoch&eacute;: withhold judgement until you have all the information.</a></li><li><span class="hG-d">Feb. 15, 2026</span><a class="hG-t" href="pieces/bce/feb15.html">Constraint is just a set of instructions.</a></li><li><span class="hG-d">Mar. 1, 2026</span><a class="hG-t" href="pieces/bce/mar3.html">Don&rsquo;t take anything personally, even when it is.</a></li><li><span class="hG-d">Jul. 27, 2026</span><a class="hG-t" href="pieces/journal/2026-07-27-first-home-built-wysiwyg-test.html">A home-built editor for the daily journal.</a></li><li><span class="hG-d">Sept. 10, 2026</span><a class="hG-t" href="pieces/journal/2026-09-10-trust.html">Trust. Timestamps. Exact words.</a></li><li><span class="hG-d">Sept. 27, 2026</span><a class="hG-t" href="pieces/journal/2026-09-27-a-perfect-sunday.html">Favorite part of the job: talking to people.</a></li></ol></aside>
+            </div>
+        </div>
+    </section>
+
 
     <!-- THE ARCHIVES -->
     <section id="archives" class="max-w-6xl mx-auto px-8 pt-12 pb-16">
