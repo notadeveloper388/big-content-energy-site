@@ -1,1 +1,213 @@
-<placeholder>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('bce-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Journal • Big Content Energy</title>
+  <link rel="stylesheet" href="../../assets/piece.css" />
+  <style>
+    .journal-list{list-style:none;margin:1.5rem 0 0;padding:0;}
+    .journal-list li{border-bottom:1px solid var(--border);}
+    .journal-list a{display:flex;flex-wrap:wrap;gap:.15rem 1.25rem;align-items:baseline;text-decoration:none;color:var(--text);padding:.9rem .25rem;}
+    .journal-list a:hover{color:var(--text-strong);}
+    .journal-list .j-date{color:var(--accent);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;min-width:9rem;}
+    .journal-list .j-title{font-size:1.05rem;}
+    .journal-list a:hover .j-title{text-decoration:underline;}
+    /* Glitter on mouseover */
+    .journal-list a{position:relative;overflow:hidden;}
+    .journal-list .j-title{position:relative;flex-grow:1;}
+    .journal-list .j-date{position:relative;z-index:1;background:var(--bg);box-shadow:0 0 0 .35rem var(--bg);}
+    .journal-list .j-title::after{content:"";position:absolute;inset:-.5rem -.25rem -.9rem -.6rem;pointer-events:none;opacity:0;transition:opacity .35s ease;
+      background-image:
+        radial-gradient(circle,#ffe9a8 0 1px,transparent 1.6px),
+        radial-gradient(circle,#ff9ad5 0 1px,transparent 1.6px),
+        radial-gradient(circle,#9fe8ff 0 1.2px,transparent 1.8px),
+        radial-gradient(circle,#c7a6ff 0 .9px,transparent 1.5px),
+        radial-gradient(circle,#fff 0 .8px,transparent 1.4px);
+      background-size:23px 19px,37px 29px,31px 41px,47px 23px,53px 37px;
+      background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;
+      filter:drop-shadow(0 0 2px rgba(255,233,168,.8));
+      animation:bce-glitter 1.6s steps(8) infinite;animation-play-state:paused;}
+    .journal-list a:hover .j-title::after,.journal-list a:focus-visible .j-title::after{opacity:.85;animation-play-state:running;}
+    @keyframes bce-glitter{
+      0%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}
+      50%{background-position:7px 5px,3px 15px,13px 9px,27px 11px,17px 23px;}
+      100%{background-position:0 0,11px 7px,5px 17px,19px 3px,29px 13px;}}
+    @media (prefers-reduced-motion: reduce){.journal-list .j-title::after{animation:none;transition:none;}}
+    /* Stray glitter bits that wander off */
+    .journal-list .j-title::before{content:"";position:absolute;inset:-.5rem -.25rem -.9rem -.6rem;pointer-events:none;opacity:0;transition:opacity .35s ease;
+      background-repeat:no-repeat;
+      background-image:
+        radial-gradient(circle,#fff6d0 0 1.8px,transparent 2.6px),
+        radial-gradient(circle,#ff9ad5 0 1.5px,transparent 2.3px),
+        radial-gradient(circle,#9fe8ff 0 2px,transparent 2.9px),
+        radial-gradient(circle,#ffe9a8 0 1.3px,transparent 2px),
+        radial-gradient(circle,#c7a6ff 0 1.7px,transparent 2.5px),
+        radial-gradient(circle,#fff 0 1.2px,transparent 1.9px),
+        radial-gradient(circle,#ffd27a 0 2.2px,transparent 3.1px);
+      background-size:8px 8px;
+      background-position:7% 20%,23% 85%,41% 10%,58% 70%,72% 30%,86% 90%,95% 45%;
+      filter:drop-shadow(0 0 3px rgba(255,233,168,.9));
+      animation:bce-stray 3.7s ease-in-out infinite alternate;animation-play-state:paused;}
+    .journal-list a:hover .j-title::before,.journal-list a:focus-visible .j-title::before{opacity:1;animation-play-state:running;}
+    @keyframes bce-stray{
+      0%{background-position:7% 20%,23% 85%,41% 10%,58% 70%,72% 30%,86% 90%,95% 45%;}
+      33%{background-position:11% -10%,19% 120%,47% 35%,52% 110%,79% -20%,83% 60%,99% 10%;}
+      66%{background-position:3% 60%,31% 40%,36% -30%,66% 20%,68% 95%,93% 130%,90% 80%;}
+      100%{background-position:14% 110%,15% 5%,50% 90%,61% -25%,76% 55%,80% 15%,97% 120%;}}
+    @media (prefers-reduced-motion: reduce){.journal-list .j-title::before{animation:none;transition:none;}}
+  </style>
+  <link rel="stylesheet" href="../../assets/journal-ads.css" />
+</head>
+<body>
+  <nav class="top">
+    <div><a href="../../index.html">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span><span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <!-- Journal ads: Not a Coffee leaderboard (728x90) + 160x600 skyscraper rail -->
+  <div class="bce-lb-slot" role="complementary" aria-label="Advertisement">
+    <span class="bce-ad-slot__label">Advertisement</span>
+    <figure class="bce-lb" data-ad="not-a-coffee"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Not%20a%20Coffee%20with%20Emily" aria-label="Email Emily to sign up for Not a Coffee with Emily">
+      <div class="bce-lb__frame">
+        <img class="bce-lb__cut" src="../../images/ads/journal/notacoffee-coffee-lover-1913.png" width="218" height="222"
+             alt="1913 newspaper cut of a man in a bowler hat sipping a steaming cup at a table, captioned The Coffee Lover" />
+        <div class="bce-lb__head">
+          <p class="bce-lb__kicker">Sign up for</p>
+          <p class="bce-lb__title">Not a Coffee <i>with Emily</i></p>
+        </div>
+        <p class="bce-lb__write">Write<br />Today!</p>
+        <div class="bce-lb__coupon">
+          <p class="bce-lb__chead">&#9986; Coupon</p>
+          <p>Please sign me up for Not a Coffee with Emily.</p>
+          <p class="bce-lb__name">Name <span></span></p>
+        </div>
+      </div>
+    </a></figure>
+  </div>
+  <div class="bce-journal-wrap">
+  <article class="piece">
+    <div class="meta">BIG CONTENT ENERGY</div>
+    <h1>Daily Journal</h1>
+    <p>Short, informal entries. Newest first.</p>
+    <ul class="journal-list">
+<!--ENTRIES-->
+<li><a href="2026-09-29-what-you-see-is-what-you-get.html"><span class="j-date">September 29, 2026</span><span class="j-title">What You See Is What You Get</span></a></li>
+<li><a href="2026-09-27-i-did-see-it-comin.html"><span class="j-date">September 27, 2026</span><span class="j-title">I did see it comin</span></a></li>
+<li><a href="2026-09-27-out-of-the-ordinary.html"><span class="j-date">September 27, 2026</span><span class="j-title">Out of the ordinary</span></a></li>
+<li><a href="2026-09-27-not-a-bad-poem.html"><span class="j-date">September 27, 2026</span><span class="j-title">not a bad poem</span></a></li>
+<li><a href="2026-09-27-a-perfect-sunday.html"><span class="j-date">September 27, 2026</span><span class="j-title">A Perfect Sunday</span></a></li>
+<li><a href="2026-09-26-linkedin-post-about-borges-to-see-if-anyone-is-out-there.html"><span class="j-date">September 26, 2026</span><span class="j-title">LinkedIn Post About Borges To See If Anyone Is Out There.</span></a></li>
+<li><a href="2026-09-26-target-the-library.html"><span class="j-date">September 26, 2026</span><span class="j-title">Target: The Library</span></a></li>
+<li><a href="2026-09-25-your-life-an-application-to-eternity.html"><span class="j-date">September 25, 2026</span><span class="j-title">Your Life: An Application to Eternity</span></a></li>
+<li><a href="2026-09-23-out-of-credits-but-the-purpose-helps-everyone.html"><span class="j-date">September 23, 2026</span><span class="j-title">Out of credits: but the purpose helps everyone.</span></a></li>
+<li><a href="2026-09-18-you-just-have-to-be-kind-of-an-asshole.html"><span class="j-date">September 18, 2026</span><span class="j-title">You just have to be kind of an asshole.</span></a></li>
+<li><a href="2026-09-10-trust.html"><span class="j-date">September 10, 2026</span><span class="j-title">Trust.</span></a></li>
+<li><a href="2026-09-04-brick-shithouse.html"><span class="j-date">September 4, 2026</span><span class="j-title">Brick Shithouse</span></a></li>
+<li><a href="2026-08-31-the-mystery.html"><span class="j-date">August 31, 2026</span><span class="j-title">The mystery</span></a></li>
+<li><a href="2026-08-28-may-the-best-ideas-win.html"><span class="j-date">August 28, 2026</span><span class="j-title">May the Best Ideas Win!</span></a></li>
+<li><a href="2026-08-26-how-to-survive-a-constant-abusive-asshole-who-doesnt-underst.html"><span class="j-date">August 26, 2026</span><span class="j-title">How to Survive a Constant, Abusive Asshole Who Doesn't Understand How to Properly Fuck OFF.</span></a></li>
+<li><a href="2026-08-04-paranoid-save-mind-virus-survival-tool-or-just-covering-all-.html"><span class="j-date">August 4, 2026</span><span class="j-title">Paranoid Save: Mind Virus, Survival Tool, Or Just Covering All the Bases?</span></a></li>
+<li><a href="2026-08-04-paranoid-save.html"><span class="j-date">August 4, 2026</span><span class="j-title">Paranoid Save</span></a></li>
+<li><a href="2026-08-03-gun-to-your-head-write-about-universal-basic-income.html"><span class="j-date">August 3, 2026</span><span class="j-title">Gun to your head: Write about Universal Basic Income</span></a></li>
+<li><a href="2026-08-01-image-testing-text-and-carousel-format-writing.html"><span class="j-date">August 1, 2026</span><span class="j-title">Curation, Creation, and Making Something Beautiful from Something Painful</span></a></li>
+<li><a href="2026-07-31-3-years-post-abuse-relationship-tl-dr-get-out-now.html"><span class="j-date">July 31, 2026</span><span class="j-title">3 Years Post Abuse Relationship: TL;DR GET OUT NOW!</span></a></li>
+<li><a href="2026-07-29-thought-experiment-quest-a-mr-beast-style-challenge-a-year-l.html"><span class="j-date">July 29, 2026</span><span class="j-title">Thought Experiment Quest / A Mr. Beast Style Challenge: A Year-long Zoom Call, Audio Only. No Mute. No End Call. Could you do it?</span></a></li>
+<li><a href="2026-07-27-x-post-embed-test.html"><span class="j-date">July 27, 2026</span><span class="j-title">Dark Mode & Light Mode Training</span></a></li>
+<li><a href="2026-07-27-enter-t-ai-n-mint.html"><span class="j-date">July 27, 2026</span><span class="j-title">Enter-t-AI-n-Mint</span></a></li>
+<li><a href="2026-07-27-first-home-built-wysiwyg-test.html"><span class="j-date">July 27, 2026</span><span class="j-title">First Home Built WYSIWYG Test</span></a></li>
+<!--/ENTRIES-->
+    </ul>
+    <footer class="note"><p><a href="../../index.html">Return to Big Content Energy Archive</a></p></footer>
+  </article>
+  <aside class="bce-ad-slot" aria-label="Advertisement">
+    <span class="bce-ad-slot__label">Advertisement</span>
+
+    <!-- RELIGIOUS (revival + clothier pairing, both Guthrie Daily Leader, Sept. 26, 1908) -->
+    <figure class="bce-ad bce-ad--revival" data-ad="revival"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <div class="rev-banner">
+          <img src="../../images/ads/journal/revival-rosette-top-1908.png" width="371" height="13" alt="" />
+          <p>Revival</p>
+          <img src="../../images/ads/journal/revival-rosette-bottom-1908.png" width="371" height="14" alt="" />
+        </div>
+        <div>
+          <p class="bce-ad__grot rev-h1">Your Life:</p>
+          <p class="bce-ad__disp rev-h2">An Application to Eternity</p>
+        </div>
+        <hr class="bce-ad__rule bce-ad__rule--thin" />
+        <div>
+          <p class="rev-q">&hellip;where would it be backed up to?</p>
+          <p class="rev-q"><b>That&rsquo;s the library I wanna be involved in.</b></p>
+          <p class="rev-q bce-ad__it">Not the dinky ones here.</p>
+        </div>
+        <div class="rev-dress bce-ad__push">
+          <img src="../../images/ads/journal/revival-petersen-woman-1908.png" width="164" height="473"
+               alt="1908 newspaper fashion drawing of a woman in a long trimmed coat with a walking stick" />
+          <p><b>Come in your Sunday best:</b>your character, your work, your why, your quest, and your motorcycle jacket.</p>
+        </div>
+        <hr class="bce-ad__rule bce-ad__rule--double" />
+        <p class="bce-ad__fine">Tabernacle on the corner east of the library. All welcome.</p>
+      </div>
+    </a></figure>
+
+    <!-- PLAYER TWO (Two Boon Companions, Daily Ardmoreite, Oct. 17, 1912) -->
+    <figure class="bce-ad bce-ad--playertwo" data-ad="playertwo"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <p class="bce-ad__kicker">Open World Social Club</p>
+        <p class="bce-ad__grot coop-h1">Player Two Wanted.</p>
+        <img class="coop-img" src="../../images/ads/journal/playertwo-two-boon-companions-ardmore-1912.png" width="215" height="267"
+             alt="1912 newspaper cartoon of two smiling sacks, Good Flour and Good Bread, arm in arm, captioned Two Boon Companions" />
+        <p class="coop-q">&ldquo;Im going to change my game from solo campaign hardcore mode to two or more player creative mode open world ofc.&rdquo;</p>
+        <hr class="bce-ad__rule bce-ad__rule--thin" />
+        <div class="coop-rule bce-ad__push">House rule: &ldquo;if I don&rsquo;t write it down, it doesn&rsquo;t happen. That&rsquo;s just how it works.&rdquo;</div>
+        <hr class="bce-ad__rule bce-ad__rule--double" />
+        <p class="bce-ad__fine">Meets whenever. Bring a friend.</p>
+      </div>
+    </a></figure>
+  </aside>
+  <aside class="bce-ad-slot bce-ad-slot--left" aria-label="Advertisement">
+    <span class="bce-ad-slot__label">Advertisement</span>
+
+    <!-- NEW HOBBY -------------------------------------------------------- -->
+    <figure class="bce-ad bce-ad--hobby" data-ad="hobby"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <p class="bce-ad__kicker">New Hobby Wanted</p>
+        <p class="bce-ad__grot hobby-h1">Build.</p>
+        <img class="hobby-img" src="../../images/ads/journal/hobby-erector-engineers-1916.png" width="199" height="240"
+             alt="1916 newspaper cut of two boys building a steel toy tower and railway, captioned Hello Boys, Become Erector Engineers" />
+        <div class="coupon">
+          <p class="coupon__head">&#9986; Check one<br />(or all)</p>
+          <ul>
+            <li>What do I make?</li>
+            <li>What do I write?</li>
+            <li>What do I put together?</li>
+            <li>What do I decorate?</li>
+            <li>What do I build?</li>
+          </ul>
+        </div>
+        <p class="bce-ad__grot hobby-no bce-ad__push">No instructions.</p>
+        <p class="hobby-sub">Just the information and instructions you already had built inside of you.</p>
+      </div>
+    </a></figure>
+
+    <!-- FUN MODE (toy train + rocking horse, Tulsa Daily World, Dec. 2, 1917) -->
+    <figure class="bce-ad bce-ad--fun" data-ad="fun"><a class="bce-ad__link" href="mailto:e88961087@gmail.com?subject=Curiosity%3A%20Do%20you%20have%20it%3F" aria-label="Email Emily: Curiosity: Do you have it?">
+      <div class="bce-ad__frame">
+        <p class="bce-ad__kicker">The Playground Co.</p>
+        <p class="bce-ad__grot fun-h1">Unlock Fun Mode.</p>
+        <img class="fun-img" src="../../images/ads/journal/fun-toys-tulsa-1917.png" width="140" height="235"
+             alt="1917 newspaper cuts of a toy train and a baby riding a rocking horse" />
+        <hr class="bce-ad__rule bce-ad__rule--thin" />
+        <p class="fun-quote">&ldquo;The world is a playground not a laboratory. Unlock fun mode.&rdquo;</p>
+        <div class="fun-sign bce-ad__push"><b>Lab coats checked at the door</b><span>No experiments required.</span></div>
+        <p class="bce-ad__fine">Open daily. All ages.</p>
+      </div>
+    </a></figure>
+  </aside>
+  </div>
+  <script src="../../assets/theme.js"></script>
+</body>
+</html>
