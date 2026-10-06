@@ -247,7 +247,7 @@
                     <img src="https://picsum.photos/id/180/600/320" alt="">
                     <div class="caption">
                         <div class="title">Creative Experiments</div>
-                        <div class="subtitle">Open Beacon • 3D printed objects • Newsletter</div>
+                        <div class="subtitle">3D printed objects • Newsletter</div>
                         <div class="meta">Side quests &amp; prototypes</div>
                     </div>
                 </div>
@@ -263,15 +263,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('projects')">
-                <img src="https://picsum.photos/id/251/600/320" alt="">
-                <div class="caption">
-                    <div class="title">Open Beacon Project</div>
-                    <div class="subtitle">Physical signaling objects for social connection &amp; boundaries</div>
-                    <div class="meta">Prototyping • 3D printed • 2026</div>
-                </div>
-            </div>
-
             <div class="polaroid rounded-xl cursor-pointer" onclick="showDetail('newsletter')">
                 <img src="https://picsum.photos/id/29/600/320" alt="">
                 <div class="caption">
@@ -370,15 +361,10 @@
                 html = `<div class="text-sm text-[#8b6f47]">CREATIVE EXPERIMENTS</div>
                         <h3 class="text-2xl font-semibold mt-2">Creative Threads</h3>
                         <ul class="mt-4 space-y-1 text-sm">
-                            <li>• Open Beacon physical signaling prototypes (3D printed)</li>
                             <li>• Big Content Energy newsletter (8 editions)</li>
                             <li>• Letter to future self</li>
                             <li>• Guest posts &amp; side projects</li>
                         </ul>`;
-            } else if (type === 'projects') {
-                html = `<div class="text-sm text-[#8b6f47]">SIDE PROJECT • 2026</div>
-                        <h3 class="text-2xl font-semibold mt-2">Open Beacon Project</h3>
-                        <p class="mt-4">Physical objects (lapel pins, drink coasters, totems) designed to help people signal interest, availability, or boundaries in social settings. Currently prototyping with 3D printing.</p>`;
             } else if (type === 'newsletter') {
                 html = `<div class="text-sm text-[#8b6f47]">NEWSLETTER • ONGOING</div>
                         <h3 class="text-2xl font-semibold mt-2">Big Content Energy</h3>
