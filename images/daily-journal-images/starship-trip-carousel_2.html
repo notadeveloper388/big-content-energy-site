@@ -164,7 +164,7 @@
       var img = document.createElement("img");
       img.src = IMG_BASE + s.file;
       img.alt = s.caption;
-      img.loading = i === 0 ? "eager" : "lazy";
+      img.loading = "eager";
       img.decoding = "async";
       slide.appendChild(img);
       track.appendChild(slide);
