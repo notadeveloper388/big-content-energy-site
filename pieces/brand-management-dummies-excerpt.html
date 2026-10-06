@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Management Software for Dummies Chapter Excerpt • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+<style>
+    .live-link {
+      margin: 0 0 1.25rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border, #5c4633);
+      border-left: 3px solid var(--accent, #8b6f47);
+      background: var(--bg-elevated, #1a140f);
+      font-size: 0.9rem;
+    }
+    .live-link a {
+      color: var(--accent, #8b6f47);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .live-link a:hover { text-decoration: underline; }
+    .live-src { color: var(--text-muted, #a38b6e); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html#archives">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">PORTFOLIO • BOOK EXCERPT • 2020</div>
+    <h1>Brand Management Software for Dummies Chapter Excerpt</h1>
+
+    <p class="live-link"><a href="https://media.journoportfolio.com/users/141115/uploads/bb77f1e4-cb82-4ca7-b0b3-b2a35f06c0b0.pdf" target="_blank" rel="noopener">View live original ↗</a> <span class="live-src">· Portfolio PDF</span></p>
+
+    <img src="../images/pieces/brand-management-dummies-excerpt.png" alt="Brand Management Software for Dummies Chapter Excerpt thumbnail" class="hero" />
+    <div class="body">
+<p>Limited resources make it impractical to manually produce content quickly to reach a growing number of consumers on a diverse range of channels. This way of working no longer can scale in today’s omni-channel, always-on environment. That’s why many marketers are turning to templates in order to scale content creation.</p>
+<p>Portfolio PDF, listed December 18, 2020, on Journoportfolio.</p>
+    </div>
+    <footer class="note">
+      <p>Durable portfolio archive on this site. Also listed on emilyannwilliams.journoportfolio.com. External publisher pages may change or 404.</p>
+      <p><a href="../index.html#archives">Professional Work</a> · <a href="../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>

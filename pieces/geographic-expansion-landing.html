@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('bce-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+          document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Pages: Digital Asset Management for Geographic Expansion • Big Content Energy Archive</title>
+  <link rel="stylesheet" href="../assets/piece.css" />
+<style>
+    .live-link {
+      margin: 0 0 1.25rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border, #5c4633);
+      border-left: 3px solid var(--accent, #8b6f47);
+      background: var(--bg-elevated, #1a140f);
+      font-size: 0.9rem;
+    }
+    .live-link a {
+      color: var(--accent, #8b6f47);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .live-link a:hover { text-decoration: underline; }
+    .live-src { color: var(--text-muted, #a38b6e); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <nav class="top"><div><a href="../index.html#archives">← Back to Archives</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">BYNDER • LANDING PAGE • 2020</div>
+    <h1>Landing Pages: Digital Asset Management for Geographic Expansion</h1>
+
+    <p class="live-link"><a href="https://www.bynder.com/en/solutions/initiatives/geographic-expansion/" target="_blank" rel="noopener">View live original ↗</a> <span class="live-src">· Bynder</span></p>
+
+    <img src="../images/pieces/geographic-expansion-landing.jpg" alt="Landing Pages: Digital Asset Management for Geographic Expansion thumbnail" class="hero" />
+    <div class="body">
+<p>Your digital infrastructure needs to be ready to grow and expand with you. If you’re looking to move into new geographic territories or different consumer demographics, your company will face the pressure of creating and distributing localized and/or personalized content as part of your marketing efforts. Not only that, but you need to ensure you’re promoting a consistent brand image across the various regions.</p>
+<p>Published on bynder.com. Featured on Journoportfolio.</p>
+    </div>
+    <footer class="note">
+      <p>Durable portfolio archive on this site. Also listed on emilyannwilliams.journoportfolio.com. External publisher pages may change or 404.</p>
+      <p><a href="../index.html#archives">Professional Work</a> · <a href="../index.html">Home</a></p>
+    </footer>
+  </article>
+  <script src="../assets/theme.js"></script>
+</body>
+</html>
