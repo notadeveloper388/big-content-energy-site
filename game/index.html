@@ -58,7 +58,7 @@ main{padding:5px;margin:4px 0;width:min(100%,calc((100svh - 225px) * 0.36 + 14px
 </style></head><body>
 <div class="house">
  <div class="gm"><div class="frame"><div><img src="img/hexley.webp" alt="Hexley, Game Master"></div></div>
-  <p class="bub" id="say"><b>Hexley, Game Master:</b> Welcome to the Hex House! Find all <b>9 pairs</b>. <b>2 misses</b> and you're booted.</p></div>
+  <p class="bub" id="say"><b>Hexley, Game Master:</b> Welcome to the Hex House! Find all <b>9 pairs</b>. <b>3 misses</b> and you're booted.</p></div>
  <div class="cap"><i class="sp s1"></i><i class="sp s2"></i><i class="sp s3"></i><i class="sp s4"></i><i class="sp s5"></i></div>
  <div class="walls">
   <h1>Hex House Bonus Room</h1>
@@ -67,12 +67,12 @@ main{padding:5px;margin:4px 0;width:min(100%,calc((100svh - 225px) * 0.36 + 14px
   <div class="door"><i></i></div>
  </div><div class="step"></div>
 </div>
-<div class="ov on" id="start"><div class="box"><img src="img/hexley.webp" alt=""><h2>Bonus Room</h2><p>Tap two cards to flip them.<br>Matches stay face up.<br>Only <b>2 misses</b> allowed!</p><button class="btn" id="go">Play</button></div></div>
+<div class="ov on" id="start"><div class="box"><img src="img/hexley.webp" alt=""><h2>Bonus Room</h2><p>Tap two cards to flip them.<br>Matches stay face up.<br>Only <b>3 misses</b> allowed!</p><button class="btn" id="go">Play</button></div></div>
 <div class="ov" id="lose"><div class="box"><img src="img/hexley.webp" alt=""><h2>Booted!</h2><p>Out of misses. You've been booted from the bonus level.<br><i>"Shake it off and come back in!" – Hexley</i></p><button class="btn" data-r>Try again</button><br><button class="btn flipbtn" id="flip">Flip the table ┻━┻</button></div></div>
 <div class="ov" id="win"><div class="box"><img src="img/hexley.webp" alt=""><h2>You cleared it!</h2><p>All 9 pairs matched. The whole crew is yours.<br><i>"House champion!" – Hexley</i></p><button class="btn" data-r>Play again</button></div></div>
 <script>
-const N="hearts-J diamonds-J spades-J clubs-J hearts-K spades-Q hearts-A spades-A joker-plum".split(" "),MAX=2,$=id=>document.getElementById(id);
-const WELCOME='<b>Hexley, Game Master:</b> Welcome to the Hex House! Find all <b>9 pairs</b>. <b>2 misses</b> and you\'re booted.';
+const N="hearts-J diamonds-J spades-J clubs-J hearts-K spades-Q hearts-A spades-A joker-plum".split(" "),MAX=3,$=id=>document.getElementById(id);
+const WELCOME='<b>Hexley, Game Master:</b> Welcome to the Hex House! Find all <b>9 pairs</b>. <b>3 misses</b> and you\'re booted.';
 const LINES={match:["Nice pair!","Sharp eyes!","That's a match!","Lovely!"],miss:["Close one. Keep going!","Not quite. You've got this.","Oops! Remember those spots."],last:["Last chance. Breathe, then pick."]};
 const say=h=>$("say").innerHTML="<b>Hexley:</b> "+h,pick=a=>a[Math.random()*a.length|0];
 let open=[],lock=false,miss=0,pairs=0;
