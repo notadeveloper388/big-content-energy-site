@@ -7,7 +7,7 @@ document.head.appendChild(st);
 var clicks=[],ov=null,t1=null,t2=null;
 function hide(){clearTimeout(t1);clearTimeout(t2);if(ov){ov.remove();ov=null}}
 function dark(){var t=null;try{t=localStorage.getItem('bce-theme')}catch(e){}var a=document.documentElement.getAttribute('data-theme');if(t==='dark'||t==='light')return a?a==='dark':t==='dark';return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)}
-function show(){hide();ov=document.createElement('div');ov.id='bce-egg';ov.className=dark()?'dk':'lt';ov.setAttribute('role','status');ov.setAttribute('aria-label','Big Content Energy');
+function show(){hide();ov=document.createElement('div');ov.id='bce-egg';ov.className=dark()?'lt':'dk';ov.setAttribute('role','status');ov.setAttribute('aria-label','Big Content Energy');
 var pre=document.createElement('pre');pre.textContent=HDR.join('\n');ov.appendChild(pre);document.body.appendChild(ov);
 var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 t1=setTimeout(function(){if(!ov)return;if(RM){hide();return}ov.className+=' out';t2=setTimeout(hide,700)},5000)}
