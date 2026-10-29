@@ -15,13 +15,13 @@ function close(){timers.forEach(clearTimeout);timers=[];if(ov){ov.remove();ov=nu
 function esc(e){if(e.key==='Escape')close()}
 function open(text){close();ov=document.createElement('div');ov.id='bce-egg';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Big Content Energy secret');
 var x=document.createElement('button');x.className='x';x.type='button';x.textContent='close ✕';x.onclick=close;
-var pre=document.createElement('pre');ov.appendChild(x);ov.appendChild(pre);ov.addEventListener('click',function(e){if(e.target===ov||e.target===pre)close()});
+var pre=document.createElement('pre');ov.appendChild(x);ov.appendChild(pre);var t0=Date.now();ov.addEventListener('click',function(e){if(Date.now()-t0<8000)return;if(e.target===ov||e.target===pre)close()});
 document.body.appendChild(ov);document.addEventListener('keydown',esc);x.focus();
 var panel=document.createElement('div');panel.className='p';panel.textContent='~ % cat ~/Desktop/journal.md\n\n'+text;
 function line(t){var d=document.createElement('div');if(t.indexOf('>>>>')===0&&!RM){var s=document.createElement('span');s.className='fire';s.textContent=t;d.appendChild(s)}else d.textContent=t;pre.appendChild(d)}
 if(RM){HDR.forEach(line);ov.appendChild(panel);return}
-HDR.forEach(function(t,i){timers.push(setTimeout(function(){line(t)},i*120))});
-timers.push(setTimeout(function(){if(ov)ov.appendChild(panel)},HDR.length*120+1100))}
+HDR.forEach(function(t,i){timers.push(setTimeout(function(){line(t)},i*250))});
+timers.push(setTimeout(function(){if(ov)ov.appendChild(panel)},HDR.length*250+5000))}
 function hit(){n++;set(n);if(n%7===0){burst();var k=n/7;open(k===1?SECRET:LINES[(k-2)%LINES.length])}}
 el.addEventListener('click',hit);
 el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();hit()}});
