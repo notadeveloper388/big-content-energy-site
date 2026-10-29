@@ -1,28 +1,21 @@
-/* BCE easter egg: click the BCE line 7 times. */
+/* BCE easter egg: click anywhere on the page 3 times quickly. Press ? for date-me.html. */
 (function(){
-var HDR=["✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦", "╔═══╗                                         ╔═══╗", "║ ♥ ║ ⌁ ████████╗   ██████╗███████╗ ⌁        ║ ♥ ║", "╚═══╝   ███╔═══██╗ ██╔════╝██╔════╝           ╚═══╝", ">>>>════████████╔╝ ██║     █████╗══════════════════▶", "        ███╔═══██╗ ██║     ██╔══╝", "     ⌁ ████████╔╝ ╚██████╗███████╗ ⌁", "╔═══╗   ╚═══════╝   ╚═════╝╚══════╝           ╔═══╗", "║ ♥ ║ ░▒▓█ B I G  C O N T E N T  E N E R G Y █▓▒░ ║ ♥ ║", "╚═══╝                                         ╚═══╝", "✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦", "Let's Fucking Build The Future We Want Dot Com"],SECRET="I like the idea of another layer of it reality on top of us more than simulation theory because that means we’re in the same space at the same time we influencing each other interacting I feel like that’s sexier and more fun simulation theory is really interesting but multidimensional theory I don’t know if that’s a thing if I just fuck made that up but that like there’s layers and layersthat’s so exciting. That’s way more exciting.",LINES=["It is through our writings and the sharing of information you can reach across centuries, talk to ghosts, and find answers of the universe.", "Time is on my side because I never ran from the truth.", "I think it’s a good idea to keep working and keep building even if some days the steps I take are small, at least I’m making progress.", "I hate that everything has to fall apart to rebuild, but otherwise how will there be space for what is next anyway?", "I will always push on the frontier for the next best thing, even if it’s not exactly what I want I will get and I will create my own future.", "The past needs reckoning so that we may create a brighter future.", "One thing does not always lead to another and curiosity is, I would say, the most important characteristic to hone or develop further.", "At some point, I had decided that God was love, and there wasn’t much more I needed to know after that.", "I have good information, and good information-seeking tendencies.", "I’m so dumb but I still have good ideas.", "I want immortal ideas that survive."],K='bce-egg-count';
-var el=document.querySelector('.fcopy');if(!el)return;
-el.setAttribute('tabindex','0');el.setAttribute('role','button');el.setAttribute('aria-label','© 2026 Big Content Energy');el.style.cursor='default';
+var HDR=["✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦", "╔═══╗                                         ╔═══╗", "║ ♥ ║ ⌁ ████████╗   ██████╗███████╗ ⌁        ║ ♥ ║", "╚═══╝   ███╔═══██╗ ██╔════╝██╔════╝           ╚═══╝", ">>>>════████████╔╝ ██║     █████╗══════════════════▶", "        ███╔═══██╗ ██║     ██╔══╝", "     ⌁ ████████╔╝ ╚██████╗███████╗ ⌁", "╔═══╗   ╚═══════╝   ╚═════╝╚══════╝           ╔═══╗", "║ ♥ ║ ░▒▓█ B I G  C O N T E N T  E N E R G Y █▓▒░ ║ ♥ ║", "╚═══╝                                         ╚═══╝", "✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦ · ˚ ✧ · ˚ ⌁ · ˚ ✧ · ˚ ✦", "Let's Fucking Build The Future We Want Dot Com"];
 var st=document.createElement('style');
-st.textContent='#bce-egg{position:fixed;inset:0;z-index:9999;background:#242428;color:#C8C8C8;font:14px/1.35 ui-monospace,Menlo,Consolas,monospace;overflow:auto;padding:2rem 1rem}#bce-egg pre{margin:0 auto;max-width:56ch;white-space:pre;overflow:hidden;font:inherit}#bce-egg .p{max-width:60ch;margin:1.5rem auto 0;border:1px solid #55555c;border-radius:6px;padding:1rem;white-space:pre-wrap}#bce-egg .x{position:fixed;top:.75rem;right:.75rem;background:#242428;color:#C8C8C8;border:1px solid #77777f;border-radius:4px;font:inherit;padding:.3rem .6rem;cursor:pointer}#bce-egg .fire{display:inline-block;animation:bceFire 1s ease-out both}@keyframes bceFire{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}.bce-burst{position:fixed;z-index:10000;pointer-events:none;color:#C8C8C8;font-size:20px;animation:bceB 1.2s ease-out forwards}@keyframes bceB{to{transform:translate(var(--dx),var(--dy));opacity:0}}@media (prefers-reduced-motion:reduce){#bce-egg .fire,.bce-burst{animation:none}.bce-burst{display:none}}';
+st.textContent='#bce-egg{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:1;transition:opacity .6s ease}#bce-egg.out{opacity:0}#bce-egg pre{margin:0;padding:1.2em 1.4em;border-radius:8px;white-space:pre;overflow:visible;font-family:"DejaVu Sans Mono",Menlo,Consolas,"Liberation Mono","Courier New",monospace;font-size:clamp(5px,2.6vw,17px);line-height:1.25;background:#242428;color:#C8C8C8;border:1px solid #55555c;box-shadow:0 0 0 100vmax rgba(0,0,0,.55)}@media (prefers-color-scheme:light){#bce-egg pre{background:#F2F2F2;color:#242428;border-color:#8a8a90;box-shadow:0 0 0 100vmax rgba(255,255,255,.6)}}@media (prefers-reduced-motion:reduce){#bce-egg{transition:none}}';
 document.head.appendChild(st);
+var clicks=[],ov=null,t1=null,t2=null;
+function hide(){clearTimeout(t1);clearTimeout(t2);if(ov){ov.remove();ov=null}}
+function show(){hide();ov=document.createElement('div');ov.id='bce-egg';ov.setAttribute('role','status');ov.setAttribute('aria-label','Big Content Energy');
+var pre=document.createElement('pre');pre.textContent=HDR.join('\n');ov.appendChild(pre);document.body.appendChild(ov);
 var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-function get(){try{return parseInt(localStorage.getItem(K)||'0',10)||0}catch(e){return 0}}
-function set(n){try{localStorage.setItem(K,String(n))}catch(e){}}
-var n=get(),ov=null,timers=[];
-function burst(){if(RM)return;var r=el.getBoundingClientRect();for(var i=0;i<14;i++){var s=document.createElement('span');s.className='bce-burst';s.textContent=i%2?'⌁':'♥';s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top)+'px';var a=Math.random()*Math.PI*2,d=60+Math.random()*90;s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',Math.sin(a)*d+'px');document.body.appendChild(s);setTimeout(function(x){x.remove()}.bind(null,s),1300)}}
-function close(){timers.forEach(clearTimeout);timers=[];if(ov){ov.remove();ov=null;el.focus()}document.removeEventListener('keydown',esc)}
-function esc(e){if(e.key==='Escape')close()}
-function open(text){close();ov=document.createElement('div');ov.id='bce-egg';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-label','Big Content Energy secret');
-var x=document.createElement('button');x.className='x';x.type='button';x.textContent='close ✕';x.onclick=close;
-var pre=document.createElement('pre');ov.appendChild(x);ov.appendChild(pre);var t0=Date.now();ov.addEventListener('click',function(e){if(Date.now()-t0<8000)return;if(e.target===ov||e.target===pre)close()});
-document.body.appendChild(ov);document.addEventListener('keydown',esc);x.focus();
-var panel=document.createElement('div');panel.className='p';panel.textContent='~ % cat ~/Desktop/journal.md\n\n'+text;
-function line(t){var d=document.createElement('div');if(t.indexOf('>>>>')===0&&!RM){var s=document.createElement('span');s.className='fire';s.textContent=t;d.appendChild(s)}else d.textContent=t;pre.appendChild(d)}
-if(RM){HDR.forEach(line);ov.appendChild(panel);return}
-HDR.forEach(function(t,i){timers.push(setTimeout(function(){line(t)},i*250))});
-timers.push(setTimeout(function(){if(ov)ov.appendChild(panel)},HDR.length*250+5000))}
-function hit(){n++;set(n);if(n%7===0){burst();var k=n/7;open(k===1?SECRET:LINES[(k-2)%LINES.length])}}
-el.addEventListener('click',hit);
-el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();hit()}});
+t1=setTimeout(function(){if(!ov)return;if(RM){hide();return}ov.className='out';t2=setTimeout(hide,700)},5000)}
+document.addEventListener('click',function(e){
+if(e.target.closest&&e.target.closest('a,button,input,select,textarea,label,summary,[role=button]'))return;
+var now=Date.now();clicks.push(now);clicks=clicks.filter(function(t){return now-t<=1500});
+if(clicks.length>=3){clicks=[];show()}});
+document.addEventListener('keydown',function(e){
+if(e.key!=='?'||e.ctrlKey||e.metaKey||e.altKey)return;var a=document.activeElement;
+if(a&&(/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)||a.isContentEditable))return;
+e.preventDefault();location.href='/date-me.html'});
 })();
