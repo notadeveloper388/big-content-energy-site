@@ -79,6 +79,28 @@ button{font-size:18px;letter-spacing:normal;text-transform:none;font-weight:600;
 button:hover{background:#111;color:#fff}
 button:disabled,button:disabled:hover{opacity:1;background:#e6e6e6;color:#333;border-color:#555;cursor:not-allowed}
 #err{color:#a40000!important}
+/* accessibility pass: AAA contrast, 20px body, 48px targets, focus, reflow */
+:root{--muted:#222;--line:#444}
+body{font-size:20px;line-height:1.6;overflow-wrap:anywhere}
+main{max-width:640px;padding-left:20px;padding-right:20px}
+h1{font-size:44px;font-weight:700;line-height:1.2}
+h2,.faq h2,h2.sec{font-size:32px;font-weight:700}
+p.sub,.steps li,.faq details p,.price,.faq summary,textarea,input,button{font-size:20px}
+label,.count,.tile span,.fine,.eyebrow{font-size:18px;color:#222}
+.steps strong{font-size:22px;font-weight:700}
+input,textarea{min-height:48px;border:2px solid #222;color:#111}
+textarea::placeholder,input::placeholder{color:#444}
+button{min-height:56px}
+button:disabled,button:disabled:hover{background:#ddd;color:#111;border-color:#222}
+.faq summary{min-height:48px;display:flex;align-items:center}
+.tile{display:block;min-height:48px}
+:focus-visible,input:focus,textarea:focus,button:focus-visible,summary:focus-visible{outline:3px solid #0047ab;outline-offset:3px}
+.tile:focus-within .face{outline:3px solid #0047ab;outline-offset:3px}
+img{max-width:100%;height:auto}
+.row{grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))}
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
+.steps{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+#err{color:#8a0000!important}
 </style><script type="application/ld+json">
 [
  {
