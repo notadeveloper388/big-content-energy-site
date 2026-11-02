@@ -111,6 +111,26 @@ dialog#pv h2{margin:0 0 12px;font-size:28px;text-align:left}
 .back{aspect-ratio:3/2;border:2px solid #111;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px}
 #pvm{margin:0;font-size:clamp(22px,4.5vw,34px);font-weight:700;line-height:1.35;color:#111;text-align:center;overflow-wrap:anywhere;white-space:pre-wrap}
 #pvx{margin-top:20px}
+/* dark theme (default) */
+:root{--bg:#111;--card:#1a1a1a;--text:#f2f2f2;--muted:#e0e0e0;--line:#9a9a9a;--accent:#f2f2f2;color-scheme:dark}
+html,body{background:#111;color:#f2f2f2}
+h1,h2,h3,legend,label,.faq h3,.steps strong,.steps span,.price strong,.tile input:checked~span,fieldset.pick legend{color:#f2f2f2}
+p.sub,.steps li,.faq details p,.faq h3+p,.price,.count,.tile span,.fine,.eyebrow,label{color:#e0e0e0}
+input,textarea{background:#1a1a1a;color:#f2f2f2;border-color:#bdbdbd}
+textarea::placeholder,input::placeholder{color:#cfcfcf}
+button{background:#111;color:#f2f2f2;border-color:#f2f2f2}
+button:hover{background:#f2f2f2;color:#111}
+button:disabled,button:disabled:hover{background:#2a2a2a;color:#f2f2f2;border-color:#bdbdbd}
+#err{color:#ffb3b3}
+:focus-visible,input:focus,textarea:focus,button:focus-visible,summary:focus-visible{outline:3px solid #ffd84d;outline-offset:3px}
+.tile:focus-within .face{outline:3px solid #ffd84d;outline-offset:3px}
+.face{border:2px solid #555;box-shadow:none}
+.tile input:checked+.face{box-shadow:0 0 0 2px #111,0 0 0 5px #f2f2f2}
+dialog#pv{background:#111;color:#f2f2f2;border-color:#f2f2f2}
+dialog#pv h2,.pvl{color:#f2f2f2}
+#pvi{border:2px solid #555}
+.back{background:#fff;border-color:#555}
+#pvm{color:#111}
 </style><script type="application/ld+json">
 [
   {
