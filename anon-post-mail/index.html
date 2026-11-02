@@ -103,6 +103,14 @@ img{max-width:100%;height:auto}
 #err{color:#8a0000}
 .faq h3{font-size:24px;font-weight:700;color:#111;margin:32px 0 8px;line-height:1.3}
 .faq h3+p{font-size:20px;color:#222;line-height:1.6;margin:0 0 8px}
+dialog#pv{width:min(92vw,760px);max-height:92vh;overflow:auto;background:#fff;color:#111;border:3px solid #111;border-radius:4px;padding:24px}
+dialog#pv::backdrop{background:rgba(0,0,0,.75)}
+dialog#pv h2{margin:0 0 12px;font-size:28px;text-align:left}
+.pvl{font-size:18px;font-weight:700;margin:16px 0 8px}
+#pvi{width:100%;height:auto;display:block;border:2px solid #111}
+.back{aspect-ratio:3/2;border:2px solid #111;background:#fff;display:flex;align-items:center;justify-content:center;padding:24px}
+#pvm{margin:0;font-size:clamp(22px,4.5vw,34px);font-weight:700;line-height:1.35;color:#111;text-align:center;overflow-wrap:anywhere;white-space:pre-wrap}
+#pvx{margin-top:20px}
 </style><script type="application/ld+json">
 [
   {
@@ -306,4 +314,22 @@ img{max-width:100%;height:auto}
 <h3>Can I track my postcard?</h3><p>No. Tracking is not available.</p>
 <h3>Is my payment secure?</h3><p>Payment is handled by Stripe.</p>
 </section>
+<dialog id="pv" aria-labelledby="pvt">
+<h2 id="pvt">Postcard preview</h2>
+<p class="pvl">Front</p>
+<img id="pvi" src="fronts/full/01-greetings-from.jpg" alt="Front of the Greetings From card" width="1875" height="1275">
+<p class="pvl">Back</p>
+<div class="back"><p id="pvm">just wanted to say i love you.</p></div>
+<button type="button" id="pvx">Close preview</button>
+</dialog>
+<script>
+(function(){var d=document.getElementById('pv'),im=document.getElementById('pvi'),m=document.getElementById('pvm'),msg=document.getElementById('msg'),last=null;
+function open(r){var t=r.closest('.tile'),i=t.querySelector('img'),n=t.querySelector('span').textContent;last=r;r.checked=true;im.src=i.src.replace('/previews/','/full/');im.alt='Front of the '+n+' card';var v=msg.value.trim();m.textContent=v?msg.value:'just wanted to say i love you.';d.showModal();document.getElementById('pvx').focus();}
+document.querySelectorAll('.tile').forEach(function(t){var r=t.querySelector('input');t.addEventListener('click',function(e){if(e.detail>0){e.preventDefault();open(r);}});r.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();open(r);}});});
+document.getElementById('pvx').addEventListener('click',function(){d.close();});
+d.addEventListener('close',function(){if(last)last.focus();});
+d.addEventListener('click',function(e){if(e.target===d)d.close();});
+d.addEventListener('keydown',function(e){if(e.key==='Tab'){e.preventDefault();document.getElementById('pvx').focus();}});
+})();
+</script>
 </main></body></html>
