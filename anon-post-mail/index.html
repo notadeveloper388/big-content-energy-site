@@ -13,11 +13,10 @@
 <meta name="twitter:title" content="ANON POST MAIL">
 <meta name="twitter:description" content="Some messages arrive best unsigned. Printed, mailed, sender withheld.">
 <meta name="twitter:image" content="https://www.bigcontentenergy.com/anon-post-mail/share.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#1f1e1c;--card:#262523;--text:#ebe6dd;--muted:#9c958a;--line:#3a3733;--accent:#e6dccb}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;font-weight:400}
 main{max-width:600px;margin:0 auto;padding:88px 28px 96px}
 h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:46px;letter-spacing:.06em;text-align:center;margin:0}
 p.sub{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:20px;color:var(--muted);text-align:center;margin:14px 0 64px;line-height:1.5}
@@ -32,7 +31,7 @@ textarea::placeholder,input::placeholder{color:#6d675f}
 .count{text-align:right;font-size:11px;color:var(--muted);margin-top:6px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .tile{margin:0;cursor:pointer;text-transform:none;letter-spacing:0}
-.tile input{display:none}
+.tile input{position:absolute;width:1px;height:1px;opacity:0;margin:0}
 .face{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;border-radius:2px;opacity:.6;transition:opacity .2s,box-shadow .2s}
 .tile:hover .face{opacity:.85}
 .tile input:checked+.face{opacity:1;box-shadow:0 0 0 1px var(--bg),0 0 0 2px var(--accent)}
@@ -54,26 +53,25 @@ h1{font-size:42px;letter-spacing:.01em;line-height:1.15}
 .faq h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:28px;text-align:center;margin:0 0 24px}
 .faq details{border-bottom:1px solid var(--line);padding:16px 0}
 .faq summary{cursor:pointer;font-size:15px;list-style:none}
-.faq summary::-webkit-details-marker{display:none}
 .faq details p{color:var(--muted);font-size:14px;line-height:1.7;margin:10px 0 0}
 @media(max-width:560px){.steps{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:34px}}
 h2.sec{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:26px;text-align:center;margin:0 0 28px}
 /* readability fix */
 :root{--bg:#fafaf7;--card:#fff;--text:#111;--muted:#333;--line:#767676;--accent:#111}
-body,input,button,label,.fine,.count,.price,.steps li,.faq summary,.faq details p,.tile span,.eyebrow{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:normal;font-weight:400;font-style:normal}
-body{font-size:18px;line-height:1.6;-webkit-font-smoothing:auto}
+body,input,button,label,.fine,.count,.price,.steps li,.faq summary,.faq details p,.tile span,.eyebrow{font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:normal;font-weight:400;font-style:normal}
+body{font-size:18px;line-height:1.6}
 h1,h2,.faq h2,h2.sec,.price strong,.steps strong{font-weight:600;letter-spacing:normal}
-p.sub{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-style:normal;font-size:20px;color:#222;line-height:1.6}
+p.sub{font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-style:normal;font-size:20px;color:#222;line-height:1.6}
 label{font-size:16px;text-transform:none;color:#111;font-weight:600}
 input,textarea{font-size:18px;color:#111;background:#fff;border:1px solid #555;padding:10px 12px}
-textarea{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6}
+textarea{font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6}
 textarea::placeholder,input::placeholder{color:#555;opacity:1}
 .count,.tile span,.fine,.eyebrow{font-size:16px;color:#333;line-height:1.6}
 .tile input:checked~span{color:#111;font-weight:600}
 .face{opacity:1}
 .price{font-size:18px;color:#222}
 .steps li,.faq details p{font-size:18px;color:#222;line-height:1.6}
-.steps span{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#111}
+.steps span{font-family:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#111}
 .faq summary{font-size:18px;color:#111;font-weight:600}
 button{font-size:18px;letter-spacing:normal;text-transform:none;font-weight:600;color:#111;border:2px solid #111;background:#fff}
 button:hover{background:#111;color:#fff}
@@ -93,14 +91,16 @@ textarea::placeholder,input::placeholder{color:#444}
 button{min-height:56px}
 button:disabled,button:disabled:hover{background:#ddd;color:#111;border-color:#222}
 .faq summary{min-height:48px;display:flex;align-items:center}
-.tile{display:block;min-height:48px}
+.tile{display:block;min-height:48px;position:relative}
+fieldset.pick{border:0;margin:0;padding:0;min-width:0}
+fieldset.pick legend{display:block;padding:0;font-size:16px;font-weight:600;color:#111;margin:36px 0 10px}
 :focus-visible,input:focus,textarea:focus,button:focus-visible,summary:focus-visible{outline:3px solid #0047ab;outline-offset:3px}
 .tile:focus-within .face{outline:3px solid #0047ab;outline-offset:3px}
 img{max-width:100%;height:auto}
 .row{grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))}
 .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))}
 .steps{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
-#err{color:#8a0000!important}
+#err{color:#8a0000}
 .faq h3{font-size:24px;font-weight:700;color:#111;margin:32px 0 8px;line-height:1.3}
 .faq h3+p{font-size:20px;color:#222;line-height:1.6;margin:0 0 8px}
 </style><script type="application/ld+json">
@@ -166,7 +166,7 @@ img{max-width:100%;height:auto}
     "name": "What can't I send?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Threats, harassment, intimidation, and anything unlawful. Those messages are refused and not mailed. Postcards are unsealed, so anyone handling the card may read it."
+     "text": "Anything not lawful under US law, such as true threats, harassment, or extortion, is refused and refunded. Everything protected as free speech goes through. Postcards are unsealed, so anyone handling the card may read it."
     }
    },
    {
@@ -193,8 +193,8 @@ img{max-width:100%;height:auto}
 </ol>
 <h2 class="sec">Write your postcard</h2>
 <form class="card" id="f" onsubmit="return false">
-<label>Card front</label>
-<div class="grid"><label class="tile"><input type="radio" name="design" value="greetings-from" checked><img class="face" src="fronts/previews/01-greetings-from.jpg" alt="Greetings From"><span>Greetings From</span></label><label class="tile"><input type="radio" name="design" value="things-i-wish-i-had-said"><img class="face" src="fronts/previews/02-things-i-wish-i-had-said.jpg" alt="Things I Wish I Had Said"><span>Things I Wish I Had Said</span></label><label class="tile"><input type="radio" name="design" value="thinking-of-you"><img class="face" src="fronts/previews/03-thinking-of-you.jpg" alt="Thinking Of You"><span>Thinking Of You</span></label><label class="tile"><input type="radio" name="design" value="a-note-for-you"><img class="face" src="fronts/previews/04-a-note-for-you.jpg" alt="A Note For You"><span>A Note For You</span></label><label class="tile"><input type="radio" name="design" value="with-care"><img class="face" src="fronts/previews/05-with-care.jpg" alt="With Care"><span>With Care</span></label><label class="tile"><input type="radio" name="design" value="just-because"><img class="face" src="fronts/previews/06-just-because.jpg" alt="Just Because"><span>Just Because</span></label></div>
+<fieldset class="pick"><legend>Card front</legend>
+<div class="grid"><label class="tile"><input type="radio" name="design" value="greetings-from" checked><img class="face" src="fronts/previews/01-greetings-from.jpg" alt="Preview of the Greetings From card front"><span>Greetings From</span></label><label class="tile"><input type="radio" name="design" value="things-i-wish-i-had-said"><img class="face" src="fronts/previews/02-things-i-wish-i-had-said.jpg" alt="Preview of the Things I Wish I Had Said card front"><span>Things I Wish I Had Said</span></label><label class="tile"><input type="radio" name="design" value="thinking-of-you"><img class="face" src="fronts/previews/03-thinking-of-you.jpg" alt="Preview of the Thinking Of You card front"><span>Thinking Of You</span></label><label class="tile"><input type="radio" name="design" value="a-note-for-you"><img class="face" src="fronts/previews/04-a-note-for-you.jpg" alt="Preview of the A Note For You card front"><span>A Note For You</span></label><label class="tile"><input type="radio" name="design" value="with-care"><img class="face" src="fronts/previews/05-with-care.jpg" alt="Preview of the With Care card front"><span>With Care</span></label><label class="tile"><input type="radio" name="design" value="just-because"><img class="face" src="fronts/previews/06-just-because.jpg" alt="Preview of the Just Because card front"><span>Just Because</span></label></div></fieldset>
 <label for="msg">Message</label>
 <textarea id="msg" maxlength="350" placeholder="Enter the information to be delivered." oninput="c.textContent=this.value.length+' / 350'"></textarea>
 <div class="count" id="c">0 / 350</div>
@@ -205,15 +205,15 @@ img{max-width:100%;height:auto}
 <div><label for="st">State</label><input id="st" maxlength="2" required></div>
 <div><label for="z">ZIP</label><input id="z" maxlength="10" required></div></div>
 <div class="price"><span>One 4×6 card, First-Class</span><strong>$2.99</strong></div>
-<button type="button" disabled aria-disabled="true">Coming soon</button>
+<button type="submit" disabled>Coming soon</button>
 <p class="fine">Printed and sent by USPS First-Class Mail. No name or return address appears on the card.<br>Postcards are not sealed and may be read in transit. US addresses only. Typical delivery is 5–7 business days. Messages containing threats, harassment, or unlawful content are refused and not mailed.</p>
-</form><p id="err" class="fine" style="color:#e0a8a8"></p>
+</form><p id="err" class="fine" role="status" aria-live="polite"></p>
 <section class="faq">
 <h2>Questions</h2>
 <h3>Is ANON POST MAIL anonymous?</h3><p>Yes. The postcard carries no sender name and no return address. The recipient sees only your message, the card front, and their own address.</p>
 <h3>How much does it cost to send an anonymous postcard?</h3><p>$2.99 per 4×6 postcard, including printing and USPS First-Class postage. There are no subscriptions or extra fees.</p>
 <h3>How long does an anonymous postcard take to arrive?</h3><p>Most postcards arrive in 5–7 business days by USPS First-Class Mail. Delivery is to US addresses only.</p>
-<h3>What can't I send?</h3><p>Threats, harassment, intimidation, and anything unlawful. Those messages are refused and not mailed. Postcards are unsealed, so anyone handling the card may read it.</p>
+<h3>What can't I send?</h3><p>Anything not lawful under US law, such as true threats, harassment, or extortion, is refused and refunded. Everything protected as free speech goes through. Postcards are unsealed, so anyone handling the card may read it.</p>
 <h3>What paper is the postcard printed on?</h3><p>A 4×6 postcard on heavy 100–120 lb cover card stock with a gloss finish, printed in black and white by a commercial mail house.</p>
 </section>
 </main></body></html>
