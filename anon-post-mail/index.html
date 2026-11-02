@@ -58,6 +58,27 @@ h1{font-size:42px;letter-spacing:.01em;line-height:1.15}
 .faq details p{color:var(--muted);font-size:14px;line-height:1.7;margin:10px 0 0}
 @media(max-width:560px){.steps{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:34px}}
 h2.sec{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:26px;text-align:center;margin:0 0 28px}
+/* readability fix */
+:root{--bg:#fafaf7;--card:#fff;--text:#111;--muted:#333;--line:#767676;--accent:#111}
+body,input,button,label,.fine,.count,.price,.steps li,.faq summary,.faq details p,.tile span,.eyebrow{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:normal;font-weight:400;font-style:normal}
+body{font-size:18px;line-height:1.6;-webkit-font-smoothing:auto}
+h1,h2,.faq h2,h2.sec,.price strong,.steps strong{font-weight:600;letter-spacing:normal}
+p.sub{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-style:normal;font-size:20px;color:#222;line-height:1.6}
+label{font-size:16px;text-transform:none;color:#111;font-weight:600}
+input,textarea{font-size:18px;color:#111;background:#fff;border:1px solid #555;padding:10px 12px}
+textarea{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6}
+textarea::placeholder,input::placeholder{color:#555;opacity:1}
+.count,.tile span,.fine,.eyebrow{font-size:16px;color:#333;line-height:1.6}
+.tile input:checked~span{color:#111;font-weight:600}
+.face{opacity:1}
+.price{font-size:18px;color:#222}
+.steps li,.faq details p{font-size:18px;color:#222;line-height:1.6}
+.steps span{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;color:#111}
+.faq summary{font-size:18px;color:#111;font-weight:600}
+button{font-size:18px;letter-spacing:normal;text-transform:none;font-weight:600;color:#111;border:2px solid #111;background:#fff}
+button:hover{background:#111;color:#fff}
+button:disabled,button:disabled:hover{opacity:1;background:#e6e6e6;color:#333;border-color:#555;cursor:not-allowed}
+#err{color:#a40000!important}
 </style><script type="application/ld+json">
 [
  {
