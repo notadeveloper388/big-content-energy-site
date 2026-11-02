@@ -132,6 +132,11 @@ dialog#pv h2,.pvl{color:#f2f2f2}
 .back{background:#fff;border-color:#555}
 #pvm{color:#111}
 .fine,footer.fine p{font-size:20px;line-height:1.6;color:#e0e0e0}
+#sent{display:none;margin:0 0 32px;padding:28px 24px;border:3px solid #f2f2f2;background:#000;color:#fff;text-align:center}
+#sent.on{display:block}
+#sent h2{margin:0 0 10px;font-size:40px;line-height:1.2;color:#fff}
+#sent p{margin:0;font-size:22px;line-height:1.5;color:#fff}
+.count.over{color:#ffb3b3;font-weight:700}
 </style><script type="application/ld+json">
 [
   {
@@ -300,12 +305,13 @@ dialog#pv h2,.pvl{color:#f2f2f2}
 <li><span>II</span><strong>Choose a card</strong>Six quiet fronts, printed in black and white.</li>
 <li><span>III</span><strong>We mail it</strong>USPS First-Class to the address you give. Sender withheld.</li>
 </ol>
+<div id="sent" role="status" aria-live="polite"><h2>Your card is on its way</h2><p>Payment received. We'll print it and mail it USPS First-Class.</p></div>
 <h2 class="sec">Write your postcard</h2>
 <form class="card" id="f" onsubmit="return false">
 <fieldset class="pick"><legend>Card front</legend>
 <div class="grid"><label class="tile"><input type="radio" name="design" value="greetings-from" checked><img class="face" src="fronts/previews/01-greetings-from.jpg" alt="Preview of the Greetings From card front"><span>Greetings From</span></label><label class="tile"><input type="radio" name="design" value="things-i-wish-i-had-said"><img class="face" src="fronts/previews/02-things-i-wish-i-had-said.jpg" alt="Preview of the Things I Wish I Had Said card front"><span>Things I Wish I Had Said</span></label><label class="tile"><input type="radio" name="design" value="thinking-of-you"><img class="face" src="fronts/previews/03-thinking-of-you.jpg" alt="Preview of the Thinking Of You card front"><span>Thinking Of You</span></label><label class="tile"><input type="radio" name="design" value="a-note-for-you"><img class="face" src="fronts/previews/04-a-note-for-you.jpg" alt="Preview of the A Note For You card front"><span>A Note For You</span></label><label class="tile"><input type="radio" name="design" value="with-care"><img class="face" src="fronts/previews/05-with-care.jpg" alt="Preview of the With Care card front"><span>With Care</span></label><label class="tile"><input type="radio" name="design" value="just-because"><img class="face" src="fronts/previews/06-just-because.jpg" alt="Preview of the Just Because card front"><span>Just Because</span></label></div></fieldset>
 <label for="msg">Message</label>
-<textarea id="msg" maxlength="350" placeholder="Enter the information to be delivered." oninput="c.textContent=this.value.length+' / 350'"></textarea>
+<textarea id="msg" maxlength="350" placeholder="Enter the information to be delivered." aria-describedby="c"></textarea>
 <div class="count" id="c">0 / 350</div>
 <label for="n">Recipient name</label><input id="n" maxlength="40" required>
 <label for="a1">Street address</label><input id="a1" required>
@@ -314,7 +320,7 @@ dialog#pv h2,.pvl{color:#f2f2f2}
 <div><label for="st">State</label><input id="st" maxlength="2" required></div>
 <div><label for="z">ZIP</label><input id="z" maxlength="10" required></div></div>
 <div class="price"><span>One 4×6 card, First-Class</span><strong>$2.99</strong></div>
-<button type="submit" disabled>Coming soon</button>
+<button type="submit">Send it — $2.99</button>
 <p class="fine">By ordering you agree to the <a href="terms/">Terms</a>.</p>
 <p class="fine">Printed and sent by USPS First-Class Mail. No name or return address appears on the card.<br>Postcards are not sealed and may be read in transit. US addresses only. Typical delivery is 5–7 business days. Messages containing threats, harassment, or unlawful content are refused and not mailed.</p>
 </form><p id="err" class="fine" role="status" aria-live="polite"></p>
@@ -328,7 +334,7 @@ dialog#pv h2,.pvl{color:#f2f2f2}
 <h3>Will the recipient know who sent it?</h3><p>No. The card shows no sender name and no return address.</p>
 <h3>What happens if the postcard can't be delivered?</h3><p>It does not come back. There is no return address, so undeliverable cards are not returned.</p>
 <h3>What does the postcard look like?</h3><p>A 4×6 heavy gloss card printed in black and white, with your choice of 6 front designs.</p>
-<h3>How long can my message be?</h3><p>Up to 350 characters.</p>
+<h3>How long can my message be?</h3><p>As long as it fits on the card, usually about 240 characters. The page tells you if your message is too long, and nothing is ever cut off.</p>
 <h3>How is the postcard mailed?</h3><p>By USPS First-Class Mail.</p>
 <h3>Where can I send a postcard?</h3><p>US addresses only.</p>
 <h3>What happens to messages that aren't lawful?</h3><p>They are refused and refunded.</p>
@@ -336,6 +342,40 @@ dialog#pv h2,.pvl{color:#f2f2f2}
 <h3>Can I track my postcard?</h3><p>No. Tracking is not available.</p>
 <h3>Is my payment secure?</h3><p>Payment is handled by Stripe.</p>
 </section>
+<script>
+const API="https://anon-mail.bigcontentenergy.workers.dev";
+// Same fit check as the worker (src/fit.js): messages that won't fit are blocked here and refused by the worker. Never cut.
+const BOX_W_IN = 1.95, BOX_H_IN = 2.9, LINE = 1.3, SIZES = [26, 22, 18, 16, 14, 13];
+const cw = (c) => (c === " " ? 0.27 : /[MWmw@%]/.test(c) ? 1.05 : /[A-Z0-9&#]/.test(c) ? 0.72 : /[iljtfrI.,:;'!|]/.test(c) ? 0.36 : 0.58);
+function linesAt(msg, pt) {
+  const max = BOX_W_IN * 72, sp = cw(" ") * pt;
+  let n = 0;
+  for (const para of String(msg).split("\n")) {
+    let w = 0; n++;
+    for (const word of para.split(" ")) {
+      let ww = [...word].reduce((a, c) => a + cw(c) * pt, 0);
+      if (w && w + sp + ww > max) { n++; w = 0; }
+      while (ww > max) { n++; ww -= max; }  // very long word breaks across lines
+      w += (w ? sp : 0) + ww;
+    }
+  }
+  return n;
+}
+function fitPt(msg) {
+  for (const pt of SIZES) if (linesAt(msg, pt) * pt * LINE <= BOX_H_IN * 72) return pt;
+  return 0; // doesn't fit: reject, never cut
+}
+const v=id=>document.getElementById(id).value, msg=document.getElementById('msg'), cnt=document.getElementById('c'), err=document.getElementById('err');
+const TOO_LONG="Message is too long to fit on the card. Please shorten it.";
+function upd(){const t=msg.value.trim(),bad=t&&!fitPt(t);cnt.textContent=bad?TOO_LONG:msg.value.length+' / 350';cnt.classList.toggle('over',!!bad);msg.setAttribute('aria-invalid',bad?'true':'false');return !bad;}
+msg.addEventListener('input',upd);upd();
+document.getElementById('f').addEventListener('submit',async e=>{e.preventDefault();const b=e.target.querySelector('button');if(b.disabled)return;err.textContent='';
+if(!upd()){err.textContent=TOO_LONG;msg.focus();return;}
+b.disabled=true;
+try{const r=await fetch(API+'/checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({design:document.querySelector('input[name=design]:checked').value,message:v('msg'),name:v('n'),line1:v('a1'),line2:v('a2'),city:v('ci'),state:v('st'),zip:v('z')})});
+const d=await r.json();if(d.url)location=d.url;else throw new Error(d.error||'Something went wrong.');}catch(x){err.textContent=x.message;b.disabled=false;}});
+if(new URLSearchParams(location.search).get('sent')==='1'){const el=document.getElementById('sent');el.classList.add('on');el.scrollIntoView();}
+</script>
 <dialog id="pv" aria-labelledby="pvt">
 <h2 id="pvt">Postcard preview</h2>
 <p class="pvl">Front</p>
