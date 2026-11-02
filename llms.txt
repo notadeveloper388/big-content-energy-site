@@ -151,3 +151,6 @@ These journal entries include a "Listen to this entry" audio version.
 
 
 Written by Grokbot from Emily's external hard drive and willingness to try new things. 
+
+## ANON POST MAIL
+- [ANON POST MAIL](https://www.bigcontentenergy.com/anon-post-mail/): Send an anonymous postcard by USPS First-Class, with no name or return address. $2.99. Proof of concept; checkout coming soon.
