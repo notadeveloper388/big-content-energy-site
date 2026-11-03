@@ -1,7 +1,7 @@
 /* BCE privacy-first analytics loader (no cookies, no third parties).
    The collector URL below is updated automatically when the tunnel restarts. */
 (function(){
-  var COLLECTOR="https://astronomy-decade-firefox-contributing.trycloudflare.com";
+  var COLLECTOR="https://clips-generated-hormone-working.trycloudflare.com";
   var s=document.createElement('script');
   s.src=COLLECTOR+'/tracker.js'; s.defer=true;
   s.setAttribute('data-collector',COLLECTOR);
