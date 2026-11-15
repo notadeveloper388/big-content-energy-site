@@ -6,7 +6,11 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#141414">
   <meta name="description" content="A quiet, uncluttered lyrics reader.">
-  <title>Lyrics</title>
+  <script>
+    // Change this one value to rename the site. The wordmark and tab title both use it.
+    const SITE_NAME = "Lyrics";
+    document.title = SITE_NAME;
+  </script>
   <style>
     :root {
       --canvas: #141414;
@@ -96,6 +100,23 @@
     }
     .mark:hover { text-decoration: none; }
 
+    .brand {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: .85rem 1.15rem;
+    }
+    #favsLink {
+      color: var(--muted);
+      font-size: .875rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      min-height: 2.25rem;
+      padding: 0 .1rem;
+      white-space: nowrap;
+    }
+    #favsLink[aria-current="page"] { color: var(--ink); }
+
     form[role="search"] {
       display: flex;
       align-items: stretch;
@@ -143,6 +164,7 @@
       border-bottom: 1px solid var(--line);
     }
     body:not(.home) .mark { font-size: 1.35rem; letter-spacing: -0.03em; }
+    body:not(.home) .brand { align-items: center; flex: none; }
     body:not(.home) form[role="search"] { flex: 1; max-width: none; }
 
     main {
@@ -178,7 +200,7 @@
       color: var(--dim);
       margin-bottom: .6rem;
     }
-    #recentList, #resultList {
+    #recentList, #resultList, #favList {
       list-style: none;
       margin: 0;
       padding: 0;
@@ -198,15 +220,21 @@
       margin: 0 0 1rem;
     }
 
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: .1rem;
+      margin: 0 -.85rem;
+    }
     .result {
       display: block;
       width: 100%;
       text-align: left;
       padding: 1rem .85rem;
-      margin: 0 -.85rem;
       border-radius: .75rem;
       color: inherit;
     }
+    .result-row .result { flex: 1; min-width: 0; }
     .result:focus-visible { background: var(--elevated); }
     .result .t {
       font-family: var(--serif);
@@ -224,7 +252,14 @@
     }
 
     .track-head { margin: .4rem 0 1.25rem; }
+    .title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+    }
     .track-head h1 {
+      flex: 1;
+      min-width: 0;
       font-size: clamp(1.85rem, 5vw, 2.25rem);
       line-height: 1.2;
       letter-spacing: -0.04em;
@@ -237,6 +272,67 @@
     .byline span + span::before {
       content: " · ";
       color: var(--dim);
+    }
+
+    .star {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--dim);
+      border-radius: .5rem;
+    }
+    .star svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .star[aria-pressed="true"] { color: var(--ink); }
+    .star[aria-pressed="true"] svg { fill: currentColor; }
+
+    .fav-head { margin: .4rem 0 1rem; }
+    .fav-head h1 {
+      font-size: clamp(1.85rem, 5vw, 2.25rem);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+    .fav-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem 1rem;
+      margin: .85rem 0 1.25rem;
+    }
+    .fav-actions button {
+      color: var(--muted);
+      font-size: .875rem;
+      font-weight: 500;
+      min-height: 2.25rem;
+    }
+    .fav-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+    }
+    .fav-row .result { min-width: 0; margin: 0; padding: 1rem .5rem 1rem 0; border-radius: 0; }
+    .fav-row .added { display: block; margin: .25rem 0 0; color: var(--dim); }
+    .fav-row .remove {
+      color: var(--dim);
+      font-size: .8rem;
+      font-weight: 500;
+      min-height: 2.5rem;
+      padding: 1rem 0 1rem .4rem;
+      white-space: nowrap;
+    }
+    .empty {
+      color: var(--muted);
+      margin: 1.25rem 0 0;
     }
 
     .tools {
@@ -322,10 +418,10 @@
 
     @media (hover: hover) {
       a:hover { text-decoration: underline; }
-      .go:hover, #playBtn:hover, #resetBtn:hover { color: var(--ink); }
+      .go:hover, #playBtn:hover, #resetBtn:hover, #favsLink:hover, .fav-actions button:hover, .fav-row .remove:hover { color: var(--ink); }
       #recentList button:hover { color: #bfdbfe; }
       .result:hover { background: var(--elevated); }
-      .sizes button:hover { color: var(--ink); }
+      .sizes button:hover, .star:hover { color: var(--ink); }
       .line:hover { color: #bfdbfe; }
     }
 
@@ -334,6 +430,10 @@
       body:not(.home) .top {
         flex-wrap: wrap;
         gap: .55rem .85rem;
+      }
+      body:not(.home) .brand {
+        width: 100%;
+        justify-content: space-between;
       }
       body:not(.home) form[role="search"] { flex: 1 1 100%; }
       body:not(.home) .go { padding-inline: .85rem; }
@@ -350,7 +450,11 @@
 <body class="home">
   <a class="skip" href="#q">Skip to search</a>
   <header class="top">
-    <a class="mark" href="#" id="homeLink">Lyrics</a>
+    <div class="brand">
+      <a class="mark" href="#" id="homeLink"></a>
+      <script>document.getElementById("homeLink").textContent = SITE_NAME;</script>
+      <button type="button" id="favsLink">Favorites</button>
+    </div>
     <form id="form" role="search">
       <label class="sr" for="q">Search songs or artists</label>
       <input id="q" name="q" type="search" placeholder="Search a song or artist" autocomplete="off" spellcheck="false" enterkeyhint="search">
@@ -371,9 +475,25 @@
       <p id="resultsMeta" class="meta"></p>
       <ul id="resultList"></ul>
     </section>
+    <section id="favorites" hidden>
+      <header class="fav-head">
+        <h1>Favorites</h1>
+        <p id="favMeta" class="meta"></p>
+        <div class="fav-actions">
+          <button type="button" id="exportFavs">Export</button>
+          <button type="button" id="importFavs">Import</button>
+          <input id="importFile" type="file" accept="application/json,.json" hidden>
+        </div>
+      </header>
+      <ul id="favList"></ul>
+      <p id="favEmpty" class="empty" hidden>No favorites yet. Open a song and tap the star to save it.</p>
+    </section>
     <section id="track" hidden>
       <header class="track-head">
-        <h1 id="title"></h1>
+        <div class="title-row">
+          <h1 id="title"></h1>
+          <button type="button" class="star" id="favToggle" aria-pressed="false" aria-label="Add to favorites"></button>
+        </div>
         <p id="byline" class="byline"></p>
       </header>
       <div class="tools">
@@ -398,7 +518,9 @@
     const CLIENT = "Lyrics Reader/1.0 (local single-file reader)";
     const RECENT_KEY = "lyrics.recent";
     const SIZE_KEY = "lyrics.size";
+    const FAV_KEY = "lyrics.favorites";
     const MAX_RECENT = 8;
+    const STAR_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.62 5.31 5.86.85-4.24 4.13 1 5.83L12 16.57 6.76 19.32l1-5.83-4.24-4.13 5.86-.85L12 3.2z"/></svg>';
 
     const $ = (id) => document.getElementById(id);
     const els = {
@@ -418,8 +540,19 @@
       followTools: $("followTools"),
       playBtn: $("playBtn"),
       resetBtn: $("resetBtn"),
-      clock: $("clock")
+      clock: $("clock"),
+      favorites: $("favorites"),
+      favsLink: $("favsLink"),
+      favList: $("favList"),
+      favMeta: $("favMeta"),
+      favEmpty: $("favEmpty"),
+      favToggle: $("favToggle"),
+      exportFavs: $("exportFavs"),
+      importFavs: $("importFavs"),
+      importFile: $("importFile")
     };
+
+    els.favToggle.innerHTML = STAR_SVG;
 
     let current = null;
     let syncLines = [];
@@ -439,6 +572,8 @@
       els.home.hidden = view !== "home";
       els.results.hidden = view !== "results";
       els.track.hidden = view !== "track";
+      els.favorites.hidden = view !== "favorites";
+      els.favsLink.setAttribute("aria-current", view === "favorites" ? "page" : "false");
       if (view !== "track") stopFollow(true);
     }
 
@@ -492,6 +627,220 @@
         li.append(btn);
         els.recentList.append(li);
       }
+    }
+
+
+    function getFavorites() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+        return Array.isArray(raw) ? raw.filter((x) => x && typeof x === "object") : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveFavorites(list) {
+      localStorage.setItem(FAV_KEY, JSON.stringify(list));
+    }
+
+    function favKey(item) {
+      if (item && item.id != null && item.id !== "") return "id:" + item.id;
+      const parts = [item && item.artist, item && item.title, item && item.album, item && item.duration];
+      return "sig:" + parts.map((x) => String(x || "").toLowerCase()).join("|");
+    }
+
+    function recordToFav(record) {
+      return {
+        id: record.id ?? null,
+        artist: record.artistName || record.artist || "",
+        title: record.trackName || record.title || "",
+        album: record.albumName || record.album || "",
+        duration: record.duration ?? null,
+        added: new Date().toISOString()
+      };
+    }
+
+    function isFavorite(record) {
+      const key = favKey(recordToFav(record));
+      return getFavorites().some((item) => favKey(item) === key);
+    }
+
+    function setStarState(btn, on) {
+      if (!btn) return;
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on ? "Remove from favorites" : "Add to favorites");
+    }
+
+    function refreshStars() {
+      if (current) setStarState(els.favToggle, isFavorite(current));
+      for (const btn of document.querySelectorAll(".star[data-fav-key]")) {
+        const on = getFavorites().some((item) => favKey(item) === btn.dataset.favKey);
+        setStarState(btn, on);
+      }
+    }
+
+    function toggleFavorite(record) {
+      const entry = recordToFav(record);
+      const key = favKey(entry);
+      const list = getFavorites();
+      const idx = list.findIndex((item) => favKey(item) === key);
+      if (idx >= 0) list.splice(idx, 1);
+      else list.unshift(entry);
+      saveFavorites(list);
+      refreshStars();
+      if (!els.favorites.hidden) renderFavorites();
+      return idx < 0;
+    }
+
+    function removeFavorite(item) {
+      const key = favKey(item);
+      saveFavorites(getFavorites().filter((x) => favKey(x) !== key));
+      refreshStars();
+      renderFavorites();
+    }
+
+    function fmtAdded(iso) {
+      const d = new Date(iso);
+      if (isNaN(d)) return "";
+      return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+    }
+
+    function favToRecord(item) {
+      return {
+        id: item.id,
+        trackName: item.title,
+        artistName: item.artist,
+        albumName: item.album,
+        duration: item.duration
+      };
+    }
+
+    function makeStarFor(record) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "star";
+      btn.innerHTML = STAR_SVG;
+      const entry = recordToFav(record);
+      btn.dataset.favKey = favKey(entry);
+      setStarState(btn, isFavorite(record));
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleFavorite(record);
+      });
+      return btn;
+    }
+
+    function renderFavorites() {
+      const list = getFavorites();
+      els.favList.replaceChildren();
+      els.favMeta.textContent = list.length
+        ? list.length + (list.length === 1 ? " saved song" : " saved songs")
+        : "";
+      els.favEmpty.hidden = list.length > 0;
+      for (const item of list) {
+        const li = document.createElement("li");
+        li.className = "fav-row";
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "result";
+        const t = document.createElement("p");
+        t.className = "t";
+        t.textContent = item.title || "Untitled";
+        const s = document.createElement("p");
+        s.className = "s";
+        const bits = [item.artist, item.album, fmtTime(item.duration)].filter(Boolean);
+        bits.forEach((part, i) => {
+          if (i) s.append(" · ");
+          const span = document.createElement("span");
+          span.textContent = part;
+          s.append(span);
+        });
+        btn.append(t, s);
+        const added = fmtAdded(item.added);
+        if (added) {
+          const d = document.createElement("p");
+          d.className = "s added";
+          d.textContent = added;
+          btn.append(d);
+        }
+        btn.addEventListener("click", () => openRecord(favToRecord(item), true));
+        const rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "remove";
+        rm.textContent = "Remove";
+        rm.setAttribute("aria-label", "Remove " + (item.title || "favorite"));
+        rm.addEventListener("click", (e) => {
+          e.stopPropagation();
+          removeFavorite(item);
+        });
+        li.append(btn, rm);
+        els.favList.append(li);
+      }
+    }
+
+    function openFavorites(updateHash) {
+      renderFavorites();
+      show("favorites");
+      document.title = "Favorites — " + SITE_NAME;
+      setStatus("");
+      if (updateHash && location.hash !== "#favorites") {
+        history.pushState(null, "", "#favorites");
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function exportFavorites() {
+      const payload = {
+        version: 1,
+        exported: new Date().toISOString(),
+        favorites: getFavorites()
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      const day = new Date().toISOString().slice(0, 10);
+      a.href = URL.createObjectURL(blob);
+      a.download = "lyrics-favorites-" + day + ".json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function normalizeImported(raw) {
+      const rows = Array.isArray(raw) ? raw : raw && Array.isArray(raw.favorites) ? raw.favorites : null;
+      if (!rows) throw new Error("That file does not look like a favorites list.");
+      const out = [];
+      for (const row of rows) {
+        if (!row || typeof row !== "object") continue;
+        const item = {
+          id: row.id ?? row.lrclibId ?? null,
+          artist: String(row.artist || row.artistName || ""),
+          title: String(row.title || row.trackName || ""),
+          album: String(row.album || row.albumName || ""),
+          duration: typeof row.duration === "number" ? row.duration : Number(row.duration) || null,
+          added: row.added || row.dateAdded || new Date().toISOString()
+        };
+        if (!item.title && !item.artist && item.id == null) continue;
+        out.push(item);
+      }
+      return out;
+    }
+
+    function importFavorites(text) {
+      const incoming = normalizeImported(JSON.parse(text));
+      const list = getFavorites();
+      const keys = new Set(list.map(favKey));
+      let added = 0;
+      for (const item of incoming) {
+        const key = favKey(item);
+        if (keys.has(key)) continue;
+        list.push(item);
+        keys.add(key);
+        added += 1;
+      }
+      list.sort((a, b) => String(b.added || "").localeCompare(String(a.added || "")));
+      saveFavorites(list);
+      renderFavorites();
+      refreshStars();
+      setStatus(added ? ("Imported " + added + (added === 1 ? " favorite." : " favorites.")) : "No new favorites in that file.");
     }
 
     function setSize(size) {
@@ -622,7 +971,7 @@
 
     function renderTrack(record) {
       current = record;
-      document.title = (record.trackName || "Lyrics") + " — " + (record.artistName || "");
+      document.title = (record.trackName || SITE_NAME) + " — " + (record.artistName || "");
       els.title.textContent = record.trackName || "Untitled";
       els.byline.replaceChildren();
       const parts = [record.artistName, record.albumName, fmtTime(record.duration)].filter(Boolean);
@@ -635,11 +984,14 @@
       });
       renderLyrics(record);
       show("track");
+      setStarState(els.favToggle, isFavorite(record));
       setStatus("");
       window.scrollTo(0, 0);
     }
 
     function resultButton(record) {
+      const row = document.createElement("div");
+      row.className = "result-row";
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "result";
@@ -657,7 +1009,8 @@
       });
       btn.append(t, s);
       btn.addEventListener("click", () => openRecord(record, true));
-      return btn;
+      row.append(btn, makeStarFor(record));
+      return row;
     }
 
     async function runSearch(query) {
@@ -736,6 +1089,10 @@
     async function openFromHash() {
       const raw = location.hash.replace(/^#/, "");
       if (!raw) return false;
+      if (raw === "favorites") {
+        openFavorites(false);
+        return true;
+      }
       const cut = raw.indexOf("/");
       if (cut < 1) return false;
       let artist, title;
@@ -762,9 +1119,26 @@
       e.preventDefault();
       if (location.hash) history.pushState(null, "", location.pathname + location.search);
       show("home");
-      document.title = "Lyrics";
+      document.title = SITE_NAME;
       setStatus("");
       els.q.focus();
+    });
+
+    els.favsLink.addEventListener("click", () => openFavorites(true));
+    els.favToggle.addEventListener("click", () => {
+      if (current) toggleFavorite(current);
+    });
+    els.exportFavs.addEventListener("click", exportFavorites);
+    els.importFavs.addEventListener("click", () => els.importFile.click());
+    els.importFile.addEventListener("change", async () => {
+      const file = els.importFile.files && els.importFile.files[0];
+      els.importFile.value = "";
+      if (!file) return;
+      try {
+        importFavorites(await file.text());
+      } catch (err) {
+        setStatus(err.message || "Could not import that file.", true);
+      }
     });
 
     els.playBtn.addEventListener("click", () => {
@@ -781,7 +1155,7 @@
     window.addEventListener("hashchange", () => {
       if (!location.hash) {
         show("home");
-        document.title = "Lyrics";
+        document.title = SITE_NAME;
         return;
       }
       openFromHash();
