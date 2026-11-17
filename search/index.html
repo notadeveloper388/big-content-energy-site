@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('bce-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search • Big Content Energy</title>
+  <meta name="description" content="Search the Big Content Energy site, including the full text of Daily Journal entries." />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/assets/piece.css" />
+  <style>
+    .search-box { margin: 0 0 1.25rem; }
+    #search-input {
+      width: 100%;
+      box-sizing: border-box;
+      font: inherit;
+      font-size: 1.05rem;
+      color: var(--text-strong);
+      background: var(--img-frame);
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      border-radius: 0;
+    }
+    #search-input:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    #search-status {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0 0 1.25rem;
+    }
+    .search-hits { list-style: none; margin: 0; padding: 0; }
+    .search-hits li { border-top: 1px solid var(--border); }
+    .search-hit {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      padding: 1rem 0.15rem 1.15rem;
+    }
+    .search-hit h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      margin: 0 0 0.4rem;
+      color: var(--text-strong);
+      font-weight: 700;
+    }
+    .search-hit:hover h2 { color: var(--accent); }
+    .search-snippet {
+      margin: 0 0 0.4rem;
+      color: var(--text);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+    .search-url {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      word-break: break-all;
+    }
+    mark {
+      background: rgba(160, 136, 88, 0.35);
+      color: inherit;
+      padding: 0 0.12em;
+    }
+    [data-theme="light"] mark { background: rgba(122, 98, 56, 0.25); }
+    @media (max-width: 640px) {
+      #search-input { font-size: 1.05rem; padding: 0.9rem 0.85rem; }
+      .search-hit { padding: 0.95rem 0 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div><a href="/">← Back to Archives</a> &nbsp;·&nbsp; <a href="/pieces/journal/index.html">Daily Journal</a></div>
+    <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span class="icon-moon">☾</span><span class="icon-sun">☀</span><span class="theme-toggle-label">Dark</span>
+    </button>
+  </nav>
+  <article class="piece">
+    <div class="meta">BIG CONTENT ENERGY</div>
+    <h1>Search</h1>
+    <p>Search titles and the full text of pages on this site, including every Daily Journal entry. Use quotes for an exact phrase, like "I am the demon".</p>
+    <form class="search-box" role="search" action="/search/" method="get" onsubmit="return false;">
+      <label for="search-input" class="visually-hidden" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Search this site</label>
+      <input id="search-input" name="q" type="search" placeholder="Search this site" autocomplete="off" enterkeyhint="search" />
+    </form>
+    <p id="search-status" role="status"></p>
+    <div id="search-results"></div>
+  </article>
+  <script src="/assets/theme.js"></script>
+  <script src="search.js"></script>
+  <script src="/assets/bce-analytics.js" defer></script>
+</body>
+</html>
